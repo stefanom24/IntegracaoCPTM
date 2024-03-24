@@ -1,11 +1,19 @@
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 ul {
     padding:10px;
+    border-radius: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 linha {
     padding:10px;
+    border-radius: 10px;
 }
 
 descricao {
-    padding:10px
+    padding:10px;
+    border-radius: 10px;
 }
