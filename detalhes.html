@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/CSS/registro.css">
+    <link rel="stylesheet" href="static/CSS/header.css">
     <link rel="stylesheet" href="static/CSS/detalhes.css">
     <title>Detalhes da Ocorrência</title>
 
@@ -25,14 +25,24 @@
 <body>
      
    <h1> Detalhe da Ocorrência </h1>
+
+    <div class="data">
+        <label for="data"> Data: </label> 
+        <input type="date"></input>
+     </div>
     
-    <ul> 
-        <label for="data"> Data </label> 
-        <label for="horario"> Horário: </label>
-    </ul>
+     <div class="horario"> 
+        <label for="horario"> Horário: </label> 
+        <input type="time"></input> <br> <br> 
+     </div>
     
-    <label for="linha"> Linha: </label> <br> 
-    <label for="descricao"> Descrição: </label>
+
+
+    <label for="linha" class="estilo-linha"> Linha: </label> 
+    <input type="linha" class="estilo-horario"> </input> <br> <br> 
+
+    <label for="descricao" class="estilo-descricao"> Descrição: </label>
+    <input type="text" class="estilo-horario"> </input>
      
     
 </body>

@@ -1,19 +1,58 @@
 h1 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 10px; 
+    margin-top: 70px;
+    margin-left: 50px;
+    
 }
 
-ul {
+div.data {
+    vertical-align: top; /* Alinhar os elementos pela parte superior */
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    margin-bottom: 40px; 
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+div.horario {
+    vertical-align: top; /* Alinhar os elementos pela parte superior */
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    margin-bottom: 40px; 
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.estilo-linha{
     padding:10px;
     border-radius: 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
+    font-size: 20px;
+    margin: 10px;
+    margin-left: 40px;
+    margin-bottom: 40px;
+   
+
 }
 
-linha {
+.estilo-descricao {
     padding:10px;
     border-radius: 10px;
-}
-
-descricao {
-    padding:10px;
-    border-radius: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
+    font-size: 20px;
+    margin: 10px;
+    margin-left: 40px;
+    margin-bottom: 40px;
+    
 }
