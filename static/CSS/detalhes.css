@@ -6,7 +6,7 @@ h1 {
     
 }
 
-div.data {
+div data {
     vertical-align: top; /* Alinhar os elementos pela parte superior */
     padding: 10px;
     border-radius: 10px;
@@ -19,7 +19,7 @@ div.data {
     align-items: center;
 }
 
-div.horario {
+div horario {
     vertical-align: top; /* Alinhar os elementos pela parte superior */
     padding: 10px;
     border-radius: 10px;
