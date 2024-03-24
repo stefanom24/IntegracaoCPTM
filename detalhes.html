@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/CSS/header.css">
     <link rel="stylesheet" href="static/CSS/detalhes.css">
-    <title>Detalhes da Ocorrência</title>
 
+    <title>Destalhes da Ocorrência</title>
 </head>
 
 <header>
@@ -23,27 +23,26 @@
 </header>
 
 <body>
-     
-   <h1> Detalhe da Ocorrência </h1>
 
-    <div class="data">
-        <label for="data"> Data: </label> 
-        <input type="date"> </input>
-     </div>
-    
-     <div class="horario"> 
-        <label for="horario"> Horário: </label> 
-        <input type="time"></input> <br> <br> 
-     </div>
-    
+    <h1> Detalhes da Ocorrência </h1>
 
+<div class="formulario1">
+    <label for="data"> Data: </label>
+    <input type="date" id="date" nome="data"> </input>
 
-    <label for="linha" class="estilo-linha"> Linha: </label> 
-    <input type="linha" class="estilo-horario"> </input> <br> <br> 
+    <label for="horario"> Horário: </label>
+    <input type="time" id="horario" nome="horario"> </input>
+</div>
 
-    <label for="descricao" class="estilo-descricao"> Descrição: </label>
-    <input type="text" class="estilo-horario"> </input> *\
-     
+<div class="formulario2">
+    <label for="linha"> Linha: </label>
+    <input type="text" id="linha" nome="linha"> </input>
+
+    <label for="descricao"> Descrição: </label>
+    <input type="text" id="descricao" nome="descricao"> </input>
+</div>
+
+    <button type="submit"> Voltar </button>
     
 </body>
 </html>
