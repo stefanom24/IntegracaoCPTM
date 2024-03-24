@@ -9,11 +9,12 @@ header{
 }
 
 header img {
-    max-width: 140px; 
+    max-width: 150px; 
     height: auto;
     margin-left: 3%;
     margin-right: 0; 
-    margin-top: 2%; 
+    margin-top: 0; 
+    margin-bottom: -10px;
 }
 
 div ul {
@@ -55,9 +56,11 @@ div ul li a:hover {
 
 .subheader ul{
     margin-left: auto;
+    font-size: 20px;
 }
 
 .estilo {
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
 }
