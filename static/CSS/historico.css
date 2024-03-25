@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.categorias {
+    margin-left: 100px;
+    float: left;
+}
+
+.status {
+    margin-left: 200px;
+    float: center;
+
+}
+
+.inicio
+
+{
+    margin-right: 100px;
+    float: right;
+
+}
+
+
+.final {
+
+    margin-right: 100px;
+    float: right;
+
+}
+
+.tabela {
+    margin-top: 100px;
+    width: 400%;
+    margin-left: 100px;
+    border-collapse: collapse;
+}
+
+.tabela th, .tabela td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.tabela tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tabela tr:hover {
+    background-color: #ddd;
+}
+
+.tabela th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #6F7173;
+    color: white;
+}
+
+.button {
+    background-color: #6F7173;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
