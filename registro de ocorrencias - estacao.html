@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ocorrências:</h1>
+    <form method="GET" ></form>
+        <label for="data">data:</label>
+	    <input type="date" id="date" name="date">
+        <label for="horario">horario:</label>
+        <input type="text" id="horario" name="horario"><br>
+        <label for="linha">linha:</label>
+        <select name="linha" id="linha" required>
+            <option value=""></option>
+            <option value="linha-7">linha-7</option>
+            <option value="linha-10">linha-10</option>
+            <option value="linha-11">linha-11</option>
+            <option value="linha-12">linha-12</option>
+            <option value="linha-13">linha-13</option>
+        </select>
+        <label for="estacao">estacao:</label>
+        <select name="estacao" id="estacao" required>
+            <option value=""></option>
+            <option value="linha-7">linha-7</option>
+            <option value="linha-10">linha-10</option>
+            <option value="linha-11">linha-11</option>
+            <option value="linha-12">linha-12</option>
+            <option value="linha-13">linha-13</option>     
+            <option value="estacao_tatuape">estacao tatuape</option>
+            <option value="estacao_bras">estacao_bras</option>
+            <option value="estacao_eng_goulart">estacao eng. goulart</option>      
+        </select>
+        <br>
+        <label for="Inviabilizou_o_bloco">Inviabilizou o bloco: </label>
+        <input type="radio" id="Inviabilizou_o_bloco" name="Inviabilizou_o_bloco" value="Inviabilizou_o_bloco" required><br>
+        <label for="Impacto_na_velocidade: ">Impacto na velocidade: </label>
+        <input type="radio" id="Impacto_na_velocidade" name="Impacto_na_velocidade" value="Impacto na velocidade" required><br>
+        <label for="descricao">descricao:</label><br>
+        <textarea id="descricao" name="descricao" rows="4" required></textarea><br>
+        <br>
+        <input type="submit" value="voltar"/>
+        <input type="submit" value="enviar"/>
+    </form>
+</body>
+</html>
