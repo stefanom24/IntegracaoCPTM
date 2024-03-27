@@ -19,7 +19,8 @@
             align-items: center;
             padding: 5% 10%;
             gap: 15px;
-            margin-bottom: 80px; /* Espaço adicional para o footer quando necessário */
+            margin-bottom: 80px;
+            margin-top: 5%; /* Espaço adicional para o footer quando necessário */
         }
         .welcome {
             color: white;
@@ -39,32 +40,36 @@
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.37);
             cursor: pointer;
             transition: background-color 0.3s ease;
+            margin-left: 40px;
         }
         .button:hover {
-            background-color: #f2ecec87;
+            background-color: #e34f4f;
         }
         .button-text {
             color: black;
             font-size: 32px;
             font-weight: 300;
         }
-        footer {
-            width: 100%;
-            padding: 20px;
-            box-sizing: border-box;
-            text-align: center; /* Centraliza o conteúdo do footer */
-        }
+        
         .trem {
             max-width: 50%;
             height: auto;
-            align-self: left ; /* Centraliza a imagem na tela */
+            align-self: bottom left ; /* Centraliza a imagem na tela */
+            margin-top: 30px;
         }
         .logo-cptm {
             height: auto;
             width: auto;
             align-self: left ;
             background-color: #6F7173;
-            background: size 50%;
+            
             background-position: center;
             
+        }
+        
+        .button-container{
+
+            justify-content: center;
+            display: flex;
+
         }
