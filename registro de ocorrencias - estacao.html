@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/CSS/header.css">
-    <link rel="stylesheet" href="static/CSS/detalhes.css">
-
+    <!--<link rel="stylesheet" href="static/CSS/detalhes.css"> -->
     <title>Registro de ocorrencia - estação</title>
 </head>
 
@@ -23,17 +22,17 @@
 </header>
 
 <body>
-    <h1>Ocorrências:</h1>
+<h1>Ocorrências:</h1>
     <form method="GET" ></form>
 <div class="formulario1"></div>
         <label for="data">data:</label>
 	    <input type="date" id="date" name="date">
         <label for="horario"> Horário: </label>
         <input type="time" id="horario" nome="horario"> </input>
-</div>
+    </div>
 <div class="formulario2"></div> 
         <label for="linha">linha:</label>
-        <select name="linha" id="linha" required>
+        <select name="linha" id="linha" type="linha" required>
             <option value=""></option>
             <option value="linha-7">linha-7</option>
             <option value="linha-10">linha-10</option>
@@ -42,7 +41,7 @@
             <option value="linha-13">linha-13</option>
         </select>
         <label for="estacao">estacao:</label>
-        <select name="estacao" id="estacao" required>
+        <select name="estacao" id="estacao" type= "estacao" required>
             <option value=""></option>
             <option value="linha-7">linha-7</option>
             <option value="linha-10">linha-10</option>
@@ -55,15 +54,21 @@
         </select>
 </div>
         <br>
+<div class="formulario3"></div> 
         <label for="Inviabilizou_o_bloco">Inviabilizou o bloco: </label>
-        <input type="radio" id="Inviabilizou_o_bloco" name="Inviabilizou_o_bloco" value="Inviabilizou_o_bloco" required>
+        <input type="radio" id="Inviabilizou_o_bloco" name="Inviabilizou_o_bloco" value="Inviabilizou_o_bloco" required><br>
+</div>
+<div class="formulario4"></div> 
         <label for="Impacto_na_velocidade: ">Impacto na velocidade: </label>
-        <input type="radio" id="Impacto_na_velocidade" name="Impacto_na_velocidade" value="Impacto na velocidade" required>
+        <input type="radio" id="Impacto_na_velocidade" name="Impacto_na_velocidade" value="Impacto na velocidade" required><br>
+</div>
+<div class="formulario5"></div> 
         <label for="descricao">descricao:</label>
-        <textarea id="descricao" name="descricao" rows="4" required></textarea>
-        
-        <button type="submit" value="enviar"> Enviar </button>
+        <textarea id="descricao" name="descricao" rows=4 required></textarea>
+</div>
+        <br>
         <button type="submit" value="voltar"> Voltar</button>
+        <button type="submit" value="enviar"> Enviar </button>
     </form>
 </body>
 </html>

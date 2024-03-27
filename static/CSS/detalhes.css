@@ -22,8 +22,8 @@ input[type="date"] {
     border-radius: 5px;
     padding: 5px;
     margin: 0;
-    margin-left: %;
-    margin-right: 20%;
-    display: inline-block;
+    margin-left:0;
+    margin-right:20%;
+    display:inline-block;
     
 }
