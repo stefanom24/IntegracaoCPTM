@@ -4,69 +4,60 @@ body {
 }
 
 .categorias {
-    margin-left: 100px;
-    float: left;
+    margin: 20px;
 }
 
 .status {
-    margin-left: 200px;
-    float: center;
+    margin: 20px;
 
 }
 
 .inicio
 
 {
-    margin-right: 100px;
-    float: right;
+    margin: 20px;
 
 }
 
 
 .final {
-
-    margin-right: 100px;
-    float: right;
+    margin: 20px;
+    
 
 }
 
-.tabela {
-    margin-top: 100px;
-    width: 400%;
-    margin-left: 100px;
+.tabela table {
+    width: 100%;
     border-collapse: collapse;
 }
 
 .tabela th, .tabela td {
     border: 1px solid #ddd;
     padding: 8px;
+    text-align: left;
 }
 
 .tabela tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-.tabela tr:hover {
-    background-color: #ddd;
+.botoes {
+    width: 100%;
+    position: absolute;
+    bottom: 5%;
+    display: flex;
+    justify-content: center;
 }
 
-.tabela th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #6F7173;
-    color: white;
-}
-
-.button {
-    background-color: #6F7173;
+.botoes button {
+    
+    padding: 10px 20px;
     border: none;
+    background-color: #969896;
     color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
     cursor: pointer;
+}
+
+.botoes button:hover {
+    background-color: #e82813;
 }
