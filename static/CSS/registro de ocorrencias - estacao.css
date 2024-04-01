@@ -1,0 +1,39 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1{
+    margin-left: 90px; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 45px;
+    margin-top: 40px;
+}
+
+.formulario1 {
+    text-align: center;
+    margin-bottom: 20px; /* Espaço inferior entre os elementos */
+}
+
+/* Alinhar data e horário ao centro */
+.formulario1 #date,
+.formulario1 #horario {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px; /* Espaço inferior entre os campos */
+}
+
+/* Alinhar linha e estação ao centro */
+.formulario2 #linha,
+.formulario2 #estacao {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px; /* Espaço inferior entre os campos */
+}
+
+/* Estilo para as opções de rádio */
+.formulario3 input[type="radio"],
+.formulario4 input[type="radio"] {
+    display: inline-block; /* Coloca os radio buttons em linha */
+    vertical-align: middle; /* Alinha verticalmente com o texto */
+    margin-right: 5px; /* Espaço entre os radio buttons */
+}

@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.categorias {
+    margin: 20px;
+}
+
+.status {
+    margin: 20px;
+
+}
+
+.inicio
+
+{
+    margin: 20px;
+
+}
+
+
+.final {
+    margin: 20px;
+    
+
+}
+
+.tabela table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela th, .tabela td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.tabela tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.botoes {
+    width: 100%;
+    position: absolute;
+    bottom: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.botoes button {
+    
+    padding: 10px 20px;
+    border: none;
+    background-color: #969896;
+    color: white;
+    cursor: pointer;
+}
+
+.botoes button:hover {
+    background-color: #e82813;
+}
