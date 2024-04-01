@@ -1,34 +1,45 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex; /* Habilita Flexbox */
+    flex-direction: column; /* Organiza os filhos em coluna */
+    align-items: center; /* Centraliza os filhos horizontalmente */
+    justify-content: center; /* Centraliza os filhos verticalmente (se houver espaço) */
+    min-height: 100vh; /* Faz o body ocupar no mínimo a altura total da tela */
+    margin: 0;
+    padding: 20px; /* Adiciona um pouco de espaço ao redor dos conteúdos para evitar que toquem as bordas da tela */
+    background-color: #f0f0f0;
 }
 
-.categorias {
-    margin: 20px;
-}
-
-.status {
-    margin: 20px;
-
-}
-
-.inicio
-
-{
-    margin: 20px;
-
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 
-.final {
-    margin: 20px;
-    
+.categorias, .status, .inicio, .final, .tabela{
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
+    max-width: 600px; 
+}
 
+label {
+    margin-right: 10px;
 }
 
 .tabela table {
     width: 100%;
     border-collapse: collapse;
+    margin: 0 auto; /* Centraliza a tabela horizontalmente */
 }
 
 .tabela th, .tabela td {
@@ -41,23 +52,20 @@ body {
     background-color: #f2f2f2;
 }
 
-.botoes {
-    width: 100%;
-    position: absolute;
-    bottom: 5%;
-    display: flex;
-    justify-content: center;
-}
 
 .botoes button {
     
     padding: 10px 20px;
+    background-color: #ff0000;
+    color: #ffffff;
     border: none;
-    background-color: #969896;
-    color: white;
+    border-radius: 5px;
     cursor: pointer;
+    margin-right: 10px; /* Espaço ao lado do botão, se houver mais de um */
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .botoes button:hover {
-    background-color: #e82813;
+    background-color: #f56c6c;
 }
