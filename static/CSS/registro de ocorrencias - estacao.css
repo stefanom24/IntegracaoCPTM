@@ -1,39 +1,84 @@
+/* Estilos Gerais */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex; /* Habilita Flexbox */
+    flex-direction: column; /* Organiza os filhos em coluna */
+    align-items: center; /* Centraliza os filhos horizontalmente */
+    justify-content: center; /* Centraliza os filhos verticalmente (se houver espaço) */
+    min-height: 100vh; /* Faz o body ocupar no mínimo a altura total da tela */
+    margin: 0;
+    padding: 20px; /* Adiciona um pouco de espaço ao redor dos conteúdos para evitar que toquem as bordas da tela */
+    background-color: #f0f0f0; /* Apenas para manter o fundo como no exemplo anterior */
 }
 
-h1{
-    margin-left: 90px; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 45px;
-    margin-top: 40px;
-}
-
-.formulario1 {
+h1 {
+    color: #333;
     text-align: center;
-    margin-bottom: 20px; /* Espaço inferior entre os elementos */
+    margin-bottom: 20px;
 }
 
-/* Alinhar data e horário ao centro */
-.formulario1 #date,
-.formulario1 #horario {
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 10px; /* Espaço inferior entre os campos */
+/* Estilização do cabeçalho já deve estar definida em header.css */
+
+/* Estilos para os formulários */
+.formulario1, .formulario2, .formulario3, .formulario4, .formulario5 {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Garante que os itens fiquem distribuídos */
+    align-items: center; /* Alinha verticalmente */
+    width: 100%; /* Adapta-se à largura do container pai */
+    max-width: 600px; /* Largura máxima para não estender demais em telas grandes */
 }
 
-/* Alinhar linha e estação ao centro */
-.formulario2 #linha,
-.formulario2 #estacao {
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 10px; /* Espaço inferior entre os campos */
+label {
+    margin-right: 10px; /* Espaço entre o label e o campo */
 }
 
-/* Estilo para as opções de rádio */
-.formulario3 input[type="radio"],
-.formulario4 input[type="radio"] {
-    display: inline-block; /* Coloca os radio buttons em linha */
-    vertical-align: middle; /* Alinha verticalmente com o texto */
-    margin-right: 5px; /* Espaço entre os radio buttons */
+input[type="date"],
+input[type="time"],
+select,
+textarea {
+    padding: 10px;
+    margin-bottom: 10px; /* Espaço abaixo de cada campo */
+    border: 1px solid #ccc; /* Borda sutil */
+    border-radius: 4px; /* Bordas levemente arredondadas */
+    width: calc(50% - 20px); /* Ajusta a largura para caber dois por linha, considerando o padding/margin */
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+textarea {
+    width: 100%; /* Textarea ocupa a largura total */
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px; /* Espaço ao lado do botão, se houver mais de um */
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #f56c6c;
+}
+
+.input-group {
+    display: flex; /* Ativa Flexbox */
+    align-items: center; /* Centraliza verticalmente */
+    margin-bottom: 10px; /* Espaço abaixo de cada grupo de input */
+    margin-right: 30px;
+    gap: 30px; /* Espaçamento entre o label e o input dentro do mesmo grupo */
+}
+
+.input-group input[type="time"] {
+    margin-right: 10px; /* Aplica margem à direita de todos os elementos, exceto o último */
 }

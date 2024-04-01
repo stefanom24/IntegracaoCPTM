@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/CSS/header.css">
-    <link rel="stylesheet" href="static/CSS/registro-t.css">
+    <link rel="stylesheet" href="static/CSS/registro de ocorrencias - estacao.css">
 
     <title>Registro de ocorrencia - estação</title>
 </head>
@@ -68,6 +68,19 @@
         <label for="Impacto_na_velocidade: ">Impacto na velocidade: </label>
         <input type="radio" id="Impacto_na_velocidade" name="Impacto_na_velocidade" value="Impacto na velocidade" required><br>
 </div>
+
+<div class="formulario5">
+    <label for="Categoria">Categoria: </label>
+    <select name="Categoria" id="Categoria" type="Categoria" required>
+        <option value=""></option>
+        <option value="Obra">Obra</option>
+        <option value="Interditada">Interditada</option>
+        <option value="Queda de energia">Queda de energia</option>
+        <option value="Falha no sistema">Falha no sistema</option>
+        <option value="Outro">Outro</option>
+    </select>
+</div>
+
 <div class="formulario4">
         <label for="descricao">descricao:</label>
         <textarea id="descricao" name="descricao" rows=4 required></textarea>
