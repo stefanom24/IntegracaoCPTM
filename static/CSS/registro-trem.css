@@ -19,7 +19,7 @@ h1 {
 /* Estilização do cabeçalho já deve estar definida em header.css */
 
 /* Estilos para os formulários */
-.formulario1, .formulario2, .formulario3, .formulario4 {
+.formulario1, .formulario2, .formulario3, .formulario4, .formulario5 {
     background-color: #fff;
     padding: 20px;
     margin-bottom: 20px;
@@ -87,4 +87,8 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.alinhar_formulario2{
+    margin-right: 30px;
 }
