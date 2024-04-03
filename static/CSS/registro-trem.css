@@ -82,3 +82,9 @@ button:hover {
 .input-group input[type="time"] {
     margin-right: 10px; /* Aplica margem à direita de todos os elementos, exceto o último */
 }
+
+.enviar_voltar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
