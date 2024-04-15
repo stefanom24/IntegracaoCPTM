@@ -1,6 +1,7 @@
+/* Estilos Gerais */
 body {
-    display: flex; 
-    flex-direction: column;
+    display: flex; /* Habilita Flexbox */
+    flex-direction: column; /* Organiza os filhos em coluna */
     align-items: center; /* Centraliza os filhos horizontalmente */
     justify-content: center; /* Centraliza os filhos verticalmente (se houver espaço) */
     min-height: 100vh; /* Faz o body ocupar no mínimo a altura total da tela */
@@ -15,7 +16,10 @@ h1 {
     margin-bottom: 20px;
 }
 
-.formulario1, .formulario2, .formulario3, .formulario4 {
+/* Estilização do cabeçalho já deve estar definida em header.css */
+
+/* Estilos para os formulários */
+.formulario1, .formulario2, .formulario3, .formulario4, .formulario5 {
     background-color: #fff;
     padding: 20px;
     margin-bottom: 20px;
@@ -23,14 +27,14 @@ h1 {
     box-shadow: 0 2px 4px rgba(0,0,0,.1);
     display: flex;
     flex-wrap: wrap;
-    justify-content: normal; 
-    align-items: center; 
-    width: 100%; 
-    max-width: 600px; 
+    justify-content: space-between; /* Garante que os itens fiquem distribuídos */
+    align-items: center; /* Alinha verticalmente */
+    width: 100%; /* Adapta-se à largura do container pai */
+    max-width: 600px; /* Largura máxima para não estender demais em telas grandes */
 }
 
 label {
-    margin-right: 10px; 
+    margin-right: 10px; /* Espaço entre o label e o campo */
 }
 
 input[type="date"],
@@ -83,4 +87,8 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.alinhar_formulario2{
+    margin-right: -35px;
 }
