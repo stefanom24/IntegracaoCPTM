@@ -1,13 +1,14 @@
-/* Estilos Gerais */
 body {
-    display: flex; /* Habilita Flexbox */
-    flex-direction: column; /* Organiza os filhos em coluna */
-    align-items: center; /* Centraliza os filhos horizontalmente */
-    justify-content: center; /* Centraliza os filhos verticalmente (se houver espaço) */
-    min-height: 100vh; /* Faz o body ocupar no mínimo a altura total da tela */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    min-height: 100vh; 
     margin: 0;
-    padding: 20px; /* Adiciona um pouco de espaço ao redor dos conteúdos para evitar que toquem as bordas da tela */
-    background-color: #f0f0f0; /* Apenas para manter o fundo como no exemplo anterior */
+    padding: 0;
+    background-color: #f0f0f0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
 }
 
 h1 {
