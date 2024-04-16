@@ -8,7 +8,7 @@ body {
     padding: 0; 
     background-color: #f0f0f0; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-top: 0;
+    margin-top: 0;;
 
 }
 
@@ -57,20 +57,27 @@ textarea {
     width: 100%; 
 }
 
-button {
+
+.enviar_voltar {
+    text-align: center; 
+}
+
+.enviar_voltar button {
     padding: 10px 20px;
     background-color: #ff0000;
     color: #ffffff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 10px; 
+    margin-right: 10px;
     margin-bottom: 20px;
+    display: inline-block; 
 }
 
-button:hover {
+.enviar_voltar button:hover {
     background-color: #f56c6c;
 }
+
 
 .input-group {
     display: flex; 
