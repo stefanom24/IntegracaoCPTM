@@ -1,14 +1,16 @@
-/* Estilos Gerais */
 body {
-    display: flex; /* Habilita Flexbox */
-    flex-direction: column; /* Organiza os filhos em coluna */
-    align-items: center; /* Centraliza os filhos horizontalmente */
-    justify-content: center; /* Centraliza os filhos verticalmente (se houver espaço) */
-    min-height: 100vh; /* Faz o body ocupar no mínimo a altura total da tela */
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    min-height: 100vh; 
+    padding: 20px; 
+    background-color: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    padding: 20px; /* Adiciona um pouco de espaço ao redor dos conteúdos para evitar que toquem as bordas da tela */
-    background-color: #f0f0f0; /* Apenas para manter o fundo como no exemplo anterior */
+    padding: 0;
 }
+
 
 h1 {
     color: #333;
@@ -16,9 +18,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Estilização do cabeçalho já deve estar definida em header.css */
-
-/* Estilos para os formulários */
 .formulario1, .formulario2, .formulario3, .formulario4, .formulario5 {
     background-color: #fff;
     padding: 20px;
@@ -27,14 +26,14 @@ h1 {
     box-shadow: 0 2px 4px rgba(0,0,0,.1);
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* Garante que os itens fiquem distribuídos */
-    align-items: center; /* Alinha verticalmente */
-    width: 100%; /* Adapta-se à largura do container pai */
-    max-width: 600px; /* Largura máxima para não estender demais em telas grandes */
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
+    max-width: 600px; 
 }
 
 label {
-    margin-right: 10px; /* Espaço entre o label e o campo */
+    margin-right: 10px; 
 }
 
 input[type="date"],
@@ -42,10 +41,10 @@ input[type="time"],
 select,
 textarea {
     padding: 10px;
-    margin-bottom: 10px; /* Espaço abaixo de cada campo */
-    border: 1px solid #ccc; /* Borda sutil */
-    border-radius: 4px; /* Bordas levemente arredondadas */
-    width: calc(50% - 20px); /* Ajusta a largura para caber dois por linha, considerando o padding/margin */
+    margin-bottom: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+    width: calc(50% - 20px); 
 }
 
 input[type="radio"] {
@@ -53,7 +52,7 @@ input[type="radio"] {
 }
 
 textarea {
-    width: 100%; /* Textarea ocupa a largura total */
+    width: 100%; 
 }
 
 button {
@@ -63,7 +62,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 10px; /* Espaço ao lado do botão, se houver mais de um */
+    margin-right: 10px; 
     margin-bottom: 20px;
 }
 
@@ -72,15 +71,15 @@ button:hover {
 }
 
 .input-group {
-    display: flex; /* Ativa Flexbox */
-    align-items: center; /* Centraliza verticalmente */
-    margin-bottom: 10px; /* Espaço abaixo de cada grupo de input */
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 10px; 
     margin-right: 30px;
-    gap: 30px; /* Espaçamento entre o label e o input dentro do mesmo grupo */
+    gap: 30px; 
 }
 
 .input-group input[type="time"] {
-    margin-right: 10px; /* Aplica margem à direita de todos os elementos, exceto o último */
+    margin-right: 10px;
 }
 
 .enviar_voltar{
