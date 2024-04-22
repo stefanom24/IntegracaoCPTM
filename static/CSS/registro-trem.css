@@ -8,7 +8,7 @@ body {
     padding: 0; 
     background-color: #f0f0f0; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-top: 0;;
+    margin-top: 0;
 
 }
 
@@ -91,7 +91,7 @@ textarea {
     margin-right: 10px; 
 }
 
-.enviar_voltar{
+.enviar{
     display: flex;
     align-items: center;
     justify-content: center;
