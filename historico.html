@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/CSS/header.css">
+    <link rel="stylesheet" href="static/CSS/historico.css">
+
+    <title>Histórico</title>
+</head>
+
+<header>
+    <div>
+        <img src="static/imagens/logo.png" alt="logo">
+    </div>
+    <div class="subheader">
+        <ul>
+            <li><a href="menu-registro.html" >Registro de Ocorrência</a></li>
+            <li><a href="historico.html" class="estilo">Histórico</a></li>
+            <li><a href="display.html">Sair</a></li>
+        </ul>
+    </div>
+</header>
+
+<body>
+
+    <h1> Histórico de Ocorrências </h1>
+
+
+    <div class="categorias">
+        <label for="categ"> Categorias:</label>
+        <select id = "categ" name="categ">
+            <option value="todos"> Todos</option>
+            <option value="trem"> Trem</option>
+            <option value="linha"> Linha</option>
+            <option value="estacao"> Estação</option>
+        </select>
+
+    </div>
+
+    <div class="status">
+        <label for="status"> Status:</label>
+        <select id = "status" name="status">
+            <option value="todos"> Todos</option>
+            <option value="aberto"> Em aberto</option>
+            <option value="resolvido"> Resolvido</option>
+        </select>
+    </div>
+
+
+    
+    <div class="inicio">
+        <label for="data"> Data de início:</label>
+        <input type="date" id="date" nome="data"> </input>
+    
+    </div>
+
+    <div class ="final">
+        <label for="data"> Data final:</label>
+        <input type="date" id="date" nome="data"> </input>
+
+    </div>
+
+    
+<div class="tabela">
+    <table>
+        <tr>
+          <th>Data:</th>
+          <th>Horário:</th>
+          <th>Linha:</th>
+          <th>Ocorrências:</th>
+          <th>Status:</th>
+          <th>Abrir: </th>
+        </tr>
+        <tr>
+          <td>10/01/24</td>
+          <td>17h24</td>
+          <td>Linha-7</td>
+          <td>Portas</td>
+          <td> 
+            <select>
+                <option value="andamento"> Em andamento</option>
+                <option value="concluido"> Concluído</option>
+            </select>
+            </td>
+          <td>
+            <a href="detalhes.html"><button type="button"> Abrir</button></a> </td>
+
+    
+        </tr>
+        <tr>
+          <td>07/01/24</td>
+          <td>10h16</td>
+          <td>Linha-10</td>
+          <td>Usuários na via</td>
+          <td> 
+            <select>
+                <option value="andamento"> Em andamento</option>
+                <option value="concluido"> Concluído</option>
+            </select>
+            </td>
+          <td>
+            <a href="detalhes.html"><button type="button"> Abrir</button></a> </td>
+        </tr>
+        <tr>
+            <td>12/01/24</td>
+            <td>12h00</td>
+            <td>Linha-11</td>
+            <td>Indefinido</td>
+            <td> 
+                <select>
+                    <option value="andamento"> Em andamento</option>
+                    <option value="concluido"> Concluído</option>
+                </select>
+                </td>
+            <td>
+                <a href="detalhes.html"><button type="button"> Abrir</button></a> </td>
+          </tr>
+
+        <tr>
+            <td>24/01/24</td>
+            <td>05h40</td>
+            <td>Linha-11</td>
+            <td>Alagamento</td>
+            <td> 
+                <select>
+                    <option value="andamento"> Em andamento</option>
+                    <option value="concluido"> Concluído</option>
+                </select>
+                </td>
+            <td>
+                <a href="detalhes.html"><button type="button"> Abrir</button></a> </td>
+          </tr>
+    </table>
+
+
+
+</div>
+
+
+<div class="botoes">
+    <button type="submit"> Voltar </button> 
+    <button type="submit"> Salvar </button>
+</div>
+
+
+</body>
+</html>
+

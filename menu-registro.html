@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/CSS/header.css">
+    <link rel="stylesheet" href="static/CSS/menu-registro.css">
+    <title>Registro de Ocorrência</title>
+</head>
+
+<header>
+    <div>
+        <img src="static/imagens/logo.png" alt="logo">
+    </div>
+    <div class="subheader">
+        <ul>
+            <li><a href="menu-registro.html" class="estilo">Registro de Ocorrência</a></li>
+            <li><a href="historico.html">Histórico</a></li>
+            <li><a href="display.html">Sair</a></li>
+        </ul>
+    </div>
+</header>
+
+<body>
+    <img src="static/imagens/metro.png" alt="metro">
+    <h1>Ocorrências:</h1><br><br>
+    <label for="tipo">Tipo de ocorrências:</label><br>
+    <select id="tipo" name="tipo" onchange="redirectToLink(this)">
+        <option value="vazio">Selecione</option>
+        <option value="trem">Trem</option>
+        <option value="linha">Linha</option>
+        <option value="estacao">Estação</option>
+    </select>
+
+    <script>
+        function redirectToLink(selectElement) {
+            var selectedValue = selectElement.value;
+            
+            // Verificar o valor selecionado e redirecionar para o link correspondente
+            if (selectedValue === "trem") {
+                window.location.href = "registro-trem.html";
+            } else if (selectedValue === "linha") {
+                window.location.href = "registro-linha.html";
+            } else if (selectedValue === "estacao") {
+                window.location.href = "registro-estacao.html";
+            }
+        }
+    </script>
+</body>
+</html>

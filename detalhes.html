@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/CSS/header.css">
+    <link rel="stylesheet" href="static/CSS/detalhes.css">
+
+    <title>Destalhes da Ocorrência</title>
+</head>
+
+<header>
+    <div>
+        <img src="static/imagens/logo.png" alt="logo">
+    </div>
+    <div class="subheader">
+        <ul>
+            <li><a href="menu-registro.html" class="estilo">Registro de Ocorrência</a></li>
+            <li><a href="historico.html">Histórico</a></li>
+            <li><a href="display.html">Sair</a></li>
+        </ul>
+    </div>
+</header>
+
+<body>
+
+    <h1> Detalhes da Ocorrência </h1>
+
+<div class="datahorario">
+    <label for="data"> Data: </label>
+    <input type="date" id="date" nome="data"> </input>
+
+    <label for="horario"> Horário: </label>
+    <input type="time" id="horario" nome="horario"> </input>
+</div>
+
+<div class="categorialinha">
+    <label for="categoria"> &nbsp;&nbsp;Categoria: </label>
+    <input type="text" id="categoria" nome="categoria"></input>
+    
+    <label for="linha"> Linha: </label>
+    <input type="text" id="linha" nome="linha"> </input> <br> <br> 
+</div>
+
+<div class="descricao">
+    <label for="descricao"> Descrição: </label>
+    <textarea id="descricao" name="descricao" rows="4" cols="50"></textarea>
+</div> 
+
+<form action="historico.html">
+    <div class="botao">
+        <button type="submit">Voltar</button>
+    </div>
+</form>
+      
+    
+</body>
+</html>

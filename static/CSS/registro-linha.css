@@ -1,0 +1,95 @@
+body {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    min-height: 100vh; 
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilização do cabeçalho já deve estar definida em header.css */
+
+/* Estilos para os formulários */
+.formulario1, .formulario2, .formulario3, .formulario4, .formulario5 {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Garante que os itens fiquem distribuídos */
+    align-items: center; /* Alinha verticalmente */
+    width: 100%; /* Adapta-se à largura do container pai */
+    max-width: 600px; /* Largura máxima para não estender demais em telas grandes */
+}
+
+label {
+    margin-right: 10px; /* Espaço entre o label e o campo */
+}
+
+input[type="date"],
+input[type="time"],
+select,
+textarea {
+    padding: 10px;
+    margin-bottom: 10px; /* Espaço abaixo de cada campo */
+    border: 1px solid #ccc; /* Borda sutil */
+    border-radius: 4px; /* Bordas levemente arredondadas */
+    width: calc(50% - 20px); /* Ajusta a largura para caber dois por linha, considerando o padding/margin */
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+textarea {
+    width: 100%; /* Textarea ocupa a largura total */
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px; /* Espaço ao lado do botão, se houver mais de um */
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #f56c6c;
+}
+
+.input-group {
+    display: flex; /* Ativa Flexbox */
+    align-items: center; /* Centraliza verticalmente */
+    margin-bottom: 10px; /* Espaço abaixo de cada grupo de input */
+    margin-right: 30px;
+    gap: 30px; /* Espaçamento entre o label e o input dentro do mesmo grupo */
+}
+
+.input-group input[type="time"] {
+    margin-right: 10px; /* Aplica margem à direita de todos os elementos, exceto o último */
+}
+
+.enviar_voltar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alinhar_formulario2{
+    margin-right: -35px;
+}
