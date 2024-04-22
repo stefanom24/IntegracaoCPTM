@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
     <title>Estações</title>
 </head>
 <body>
+    <main> 
+    <header>
+        <%- include ('navbar') %>
+    </header>
      <h2>Registro de Estações</h2>
      <form action="/result" method="get">
         <label for="nome">Nome:</label>
@@ -21,5 +25,11 @@
 
         <input type="submit" value="Enviar">
      </form>
+     <footer>
+        <%- include ('footer') %>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+     </main>
 </body>
 </html>

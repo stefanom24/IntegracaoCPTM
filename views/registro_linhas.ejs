@@ -6,11 +6,15 @@
     <title> Registro Linha </title>
 </head>
 <body>
+    <main>
+    <header>
+        <%- include ('navbar') %>
+    </header>
     <a href="/index" > Voltar </a>
 
     <h1> Registrar Linhas </h1>
 
-    <form action="/registroLinha", method="post">
+    <form action="/registroLinha", method="POST">
         <label for="NomeLinha"> Nome da Linha: </label>
         <input type="text" id="NomeLinha" name="NomeLinha">
         <label for="Estacoes"> Numero de Estaões </label>
@@ -43,6 +47,13 @@
         <input type="number" id="ConsumoEnergia" name="ConsumoEnergia">
     
     </form>
+    </main>
+
+    <footer>
+        <%- include ('footer') %>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
     
 </body>
 </html>

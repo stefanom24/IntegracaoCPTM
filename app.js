@@ -50,6 +50,10 @@ app.get('/ocoEstacoes', (req, res) => {
     res.render('');
 });
 
+app.get('/historico', (req, res) => {
+    res.render('historico');
+});
+
 // Recebendo dados do Login
 app.post('/login', (req, res) => {
     let email = req.body.loginEmail;
