@@ -37,17 +37,17 @@ app.get('/estacoes', (req, res) => {
 
 // Roteando pagina ocorrencias de trens
 app.get('/ocoTrens', (req, res) => {
-    res.render('');
+    res.render('oco_trem');
 });
 
 // Roteando pagina ocorrencias de linhas
 app.get('/ocoLinhas', (req, res) => {
-    res.render('');
+    res.render('oco_linha');
 });
 
 // Roteando pagina ocorrencias de estações
 app.get('/ocoEstacoes', (req, res) => {
-    res.render('');
+    res.render('oco_estacao');
 });
 
 app.get('/historico', (req, res) => {
