@@ -37,7 +37,7 @@ app.get('/estacoes', (req, res) => {
 
 // Roteando pagina ocorrencias de trens
 app.get('/ocoTrens', (req, res) => {
-    res.render('oco_trem');
+    res.render('ocoTrens');
 });
 
 // Roteando pagina ocorrencias de linhas
