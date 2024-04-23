@@ -42,12 +42,12 @@ app.get('/ocoTrens', (req, res) => {
 
 // Roteando pagina ocorrencias de linhas
 app.get('/ocoLinhas', (req, res) => {
-    res.render('oco_linha');
+    res.render('ocoLinhas');
 });
 
 // Roteando pagina ocorrencias de estações
 app.get('/ocoEstacoes', (req, res) => {
-    res.render('oco_estacao');
+    res.render('ocoEstacoes');
 });
 
 app.get('/historico', (req, res) => {
