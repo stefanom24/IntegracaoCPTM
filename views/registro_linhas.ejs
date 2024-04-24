@@ -8,15 +8,40 @@
 
     <title> Registro Linha </title>
 </head>
+
+<style> 
+   .custom-title {
+            color: #F20505; 
+        }
+
+        .btn-red {
+            background-color: #F20505;
+            border-color: #F20505;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+</style>
+
+
+
 <body>
     <main>
+
     <header>
         <%- include ('navbar') %>
     </header>
+
     <a href="/index" > Voltar </a>
 
-    <h1> Registrar Linhas </h1>
-
+    <main class="container mt-5">
+        <div class="text-center">
+            <h1 class="display-2 custom-title">Histórico de Ocorrências</h1>
+        </div>
+        
     <form action="/registroLinha", method="POST">
         <label for="NomeLinha"> Nome da Linha: </label>
         <input type="text" id="NomeLinha" name="NomeLinha">
@@ -25,8 +50,8 @@
         <label for="Extensao"> Extrensão da Linha </label>
         <input typr="number" id="Extensao" name="Extensao">
 
-        <p> Trecho </p>
-        <label for="Velocidade"> Velocidade </label>
+    <h2 class="display-2 custom-title">Histórico de Ocorrências</h2></div>        
+    <label for="Velocidade"> Velocidade </label>
         <select id="Velocidade" name="Velocidade">
             <option value=""> Nivel 1 </option>
             <option value=""> Nivel 2 </option>
