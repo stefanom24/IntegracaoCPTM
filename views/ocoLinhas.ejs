@@ -9,14 +9,27 @@
 
     <title>Registro de Ocorrência de Linha</title>
 </head>
+<style>
+    .custom-title {
+      color: #F20505; 
+      text-align: center;
+    }
+  
+    .btn-red {
+      background-color: #F20505;
+      border-color: #F20505;
+      
+    }
+
+</style> 
 
 
 <body>
     <header>
-        <%- include ('navbar') %> 
+         <%- include ('navbar') %> 
     </header>
-    <main>
-        <h1 class="mt-5">Ocorrência em Linha</h1>
+    <main class="container">
+        <br><br><h1 class="display-2 custom-title">Ocorrência em Linha</h1>
         <form action="/ocoLinhas" method="post">
             <div class="row">
                 <div class="col-md-6">
@@ -78,13 +91,11 @@
                     <label for="descricao" class="form-label">Descrição:</label>
                     <textarea id="descricao" class="form-control" name="descricao" rows="4"></textarea>
                 </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-md-6">
-                    <button type="submit" class="btn btn-secondary">Voltar</button>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                </div>
-            </div>
+            </div><br>
+            <div class="text-center">
+                <button type="submit" class="btn btn-secondary me-2 btn-red">Enviar</button>
+                <button type="submit" class="btn btn-primary btn-red">Voltar</button>
+            </div><br>
         </form>
     </main> 
     <footer>

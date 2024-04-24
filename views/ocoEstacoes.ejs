@@ -8,12 +8,33 @@
 
     <title>Registro de Ocorrência de Estação</title>
 </head>
+
+<style>
+   
+
+    .custom-title {
+      color: #F20505; 
+      text-align: center;
+    }
+  
+    .btn-red {
+      background-color: #F20505;
+      border-color: #F20505;
+    }
+
+    label {
+        margin-left: 20px;
+        display: inline-block;
+    }
+
+</style> 
+
 <body>
     <main>
         <header>
             <%- include ('navbar') %>
         </header>
-        <h1 class="my-4">Ocorrência em Estação</h1>
+        <br><br><h1 class="display-2 custom-title">Ocorrência em Linha</h1>
         <form action="/ocoEstacoes" method="post">
             <div class="mb-3">
                 <label for="date" class="form-label">Data:</label>
@@ -26,14 +47,12 @@
             <div class="mb-3">
                 <label for="linha" class="form-label">Linha:</label>
                 <select name="linha" id="linha" class="form-select">
-                    <!-- options -->
                 </select>
             </div>
             <div class="mb-3">
                 <label for="estacao" class="form-label">Estação:</label>
                 <select name="estacao" id="estacao" class="form-select">
-                    <!-- options -->
-                </select>
+]                </select>
             </div>
             <div class="mb-3">
                 <label for="bloco" class="form-label">Bloco:</label>
@@ -60,15 +79,17 @@
                 <label for="descricao" class="form-label">Descrição:</label>
                 <textarea id="descricao" name="descricao" rows="4" class="form-control"></textarea>
             </div>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="submit" formaction="menu-registro.html" class="btn btn-secondary">Voltar</button>
-                <button type="submit" formaction="historico.html" class="btn btn-primary">Enviar</button>
-            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-secondary me-2 btn-red">Enviar</button>
+                <button type="submit" class="btn btn-primary btn-red">Voltar</button>
+            </div><br>
         </form>
     </main>
+    </body>
     <footer>
         <%- include ('footer') %>
     </footer>
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+

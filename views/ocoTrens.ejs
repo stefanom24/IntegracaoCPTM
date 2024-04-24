@@ -10,24 +10,40 @@
     <title>Registro de Ocorrência de Trem</title>
 </head>
 
+<style>
+    .custom-title {
+      color: #F20505; 
+      text-align: center;
+    }
+  
+    .btn-red {
+      background-color: #F20505;
+      border-color: #F20505;
+      
+    }
+
+</style> 
+
 
 <body>
     <header>
          <%- include ('navbar') %> 
     </header>
     <main class="container">
-        <h1 class="mt-5">Ocorrência em Trem</h1>
+        <br><br><h1 class="display-2 custom-title">Ocorrência de trem</h1>
         <form action="/ocoTrens" method="post">
             <div class="mb-3">
                 <label for="data" class="form-label">Data:</label>
-                <input type="date" class="form-control" id="date" name="date">
+                <input type="date" class="form-control" id="date" name="date"><br>
                 <label for="horario" class="form-label">Horário:</label>
                 <input type="time" class="form-control" id="horario" name="horario">
             </div>
-            <div class="mb-3">
-                <label for="codigo_trem" class="form-label">Código de trem:</label>
-                <input type="text" class="form-control" id="codigo_trem" name="codigo_trem">
-            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label for="codigo" class="form-label">Código do trem:</label>
+                    <input type="text" class="form-control" id="codigo_trem" name="codigo_trem">
+                </div>
+
             <div class="mb-3">
                 <label for="linha" class="form-label">Linha:</label>
                 <select name="linha" id="linha" class="form-select">
@@ -39,9 +55,9 @@
                     <option value="linha-13">Linha-13</option>
                 </select>
             </div>
-            <div class="mb-3">
+            <div class="col-md-6">
                 <label for="bloco" class="form-label">Bloco:</label>
-                <input type="text" class="form-control" id="bloco" name="bloco">
+                <input type="text" class="form-control" id="bloco" name="blobo">
             </div>
             <div class="mb-3">
                 <label class="form-check-label">Inviabilizou o bloco:</label>
@@ -63,14 +79,16 @@
                     <option value="Outro">Outro</option>
                 </select>
             </div>
-            <div class="mb-3">
-                <label for="descricao" class="form-label">Descrição:</label>
-                <textarea id="descricao" class="form-control" name="descricao" rows="4"></textarea>
-            </div>
-            <div class="mb-3">
-                <button type="submit" class="btn btn-secondary me-2">Voltar</button>
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label for="descricao" class="form-label">Descrição:</label>
+                    <textarea id="descricao" class="form-control" name="descricao" rows="4"></textarea>
+                </div>
+            </div><br><br>
+            <div class="text-center">
+                <button type="submit" class="btn btn-secondary me-2 btn-red">Enviar</button>
+                <button type="submit" class="btn btn-primary btn-red">Voltar</button>
+            </div><br>
         </form>
     </main>
     <footer>
