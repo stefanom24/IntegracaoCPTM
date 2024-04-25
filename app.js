@@ -54,6 +54,9 @@ app.get('/historico', (req, res) => {
     res.render('historico');
 });
 
+app.get('/detalhes', (req, res) => {
+    res.render('detalhes');
+});
 // Recebendo dados do Login
 app.post('/login', (req, res) => {
     let email = req.body.loginEmail;
@@ -111,3 +114,4 @@ function ler(callback){
     });
     callback();
 };
+
