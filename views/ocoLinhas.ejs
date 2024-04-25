@@ -16,10 +16,14 @@
     }
   
     .btn-red {
-      background-color: #F20505;
-      border-color: #F20505;
-      
-    }
+            background-color: #ff0000; 
+            border-color: #ff0000; 
+}
+
+    .btn-red:hover {
+        background-color: #f97e7e;
+        border-color: #f97e7e; 
+}
 
 </style> 
 
@@ -29,7 +33,7 @@
          <%- include ('navbar') %> 
     </header>
     <main class="container">
-        <br><br><h1 class="display-2 custom-title">Ocorrência em Linha</h1>
+        <br><br><h1 class="display-2 custom-title">Ocorrência de Linha</h1>
         <form action="/ocoLinhas" method="post">
             <div class="row">
                 <div class="col-md-6">
