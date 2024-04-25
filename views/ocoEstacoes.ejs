@@ -18,9 +18,15 @@
     }
   
     .btn-red {
-      background-color: #F20505;
-      border-color: #F20505;
-    }
+            background-color: #ff0000; /* Vermelho padrão */
+            border-color: #ff0000; /* Bordas no mesmo tom do fundo */
+}
+
+    .btn-red:hover {
+        background-color: #f97e7e; /* Vermelho mais claro no hover */
+        border-color: #f97e7e; /* Bordas no mesmo tom do hover */
+}
+
 
     label {
         margin-left: 20px;
@@ -34,7 +40,7 @@
         <header>
             <%- include ('navbar') %>
         </header>
-        <br><br><h1 class="display-2 custom-title">Ocorrência em Linha</h1>
+        <br><br><h1 class="display-2 custom-title">Ocorrência em Estação</h1>
         <form action="/ocoEstacoes" method="post">
             <div class="mb-3">
                 <label for="date" class="form-label">Data:</label>
