@@ -73,6 +73,56 @@ app.post('/login', (req, res) => {
     });
 });
 
+// Para registrar Estações (Incompleto)
+app.post('/registroEstacao', (req, res) => {
+    let Nome = req.body.nome;
+    let Blocks = req.body.blocos;
+    let FStation = req.body.LinhaPertence;
+    
+    let estacao = {
+        "nome": Nome,
+        "blocos": Blocks,
+        "estacaof": FStation
+    }
+    // Precisa gravar os dados
+});
+
+// Para registrar Linhas (Incompleto)
+app.post('/registroLinha', (req, res) => {
+    let NomeL = req.body.NomeLinha;
+    let Stations = req.body.Estacoes;
+    let Extension = req.body.Extensao;
+    let Speed = req.body.Velocidade;
+    let Load = req.body.Carga;
+    let Hw = req.body.HW;
+    let Trips = req.body.Viagens;
+    let Passengerspers = req.body.MediaPassageiros;
+    let EnergyUse = req.body.ConsumoEnergia; 
+    
+    let linhas = {
+        "nomel": NomeL,
+        "estacoes": Stations,
+        "extensao": Extension,
+        "velocidade": Speed,
+        "carga": Load,
+        "hw": Hw,
+        "viagens": Trips,
+        "mediapassageiros": Passengerspers,
+        "consumoenergia": EnergyUse
+    }
+    // Precisa gravar os dados
+});
+
+// Para registrar Trens (Incompleto)
+app.post('/registroTrens', (req, res) => {
+
+    
+    let estacao = {
+    }
+    // Precisa gravar os dados
+});
+
+
 app.listen(3000, () => {
     console.log('Servidor iniciado.');
 });
