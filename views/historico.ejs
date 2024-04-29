@@ -22,6 +22,10 @@
         border-color: #f97e7e; /* Bordas no mesmo tom do hover */
 }
 
+        .btn-red:hover {
+            background-color: #f97e7e;
+            border-color: #f97e7e; 
+}
         footer {
             position: absolute;
             bottom: 0;
@@ -41,7 +45,7 @@
             <h1 class="display-2 custom-title">Histórico de Ocorrências</h1>
         </div>
 
-        <form action="/historico" method="post">
+        <form action="/historico" method="get">
             <div class="row mt-3">
                 <div class="col-md-3">
                     <label for="categ" class="form-label">Categorias:</label>
@@ -95,9 +99,54 @@
                                 </select>
                             </td>
                             <td>
-                                <a href="detalhes.html" class="btn btn-primary btn-sm btn-red">Abrir</a>
+                                <a href="/detalhes" class="btn btn-primary btn-sm btn-red">Abrir</a>
                             </td>
                         </tr>
+                    </tr>
+                    <tr>
+                      <td>07/01/24</td>
+                      <td>10h16</td>
+                      <td>Linha-10</td>
+                      <td>Usuários na via</td>
+                      <td> 
+                        <select class="form-select">
+                            <option value="andamento"> Em andamento</option>
+                            <option value="concluido"> Concluído</option>
+                        </select>
+                        </td>
+                      <td>
+                        <a href="/detalhes" class="btn btn-primary btn-sm btn-red">Abrir</a>
+                    </tr>
+                    <tr>
+                        <td>12/01/24</td>
+                        <td>12h00</td>
+                        <td>Linha-11</td>
+                        <td>Indefinido</td>
+                        <td> 
+                            <select class="form-select">
+                                <option value="andamento"> Em andamento</option>
+                                <option value="concluido"> Concluído</option>
+                            </select>
+                            </td>
+                        <td>
+                            <a href="/detalhes" class="btn btn-primary btn-sm btn-red">Abrir</a> </td>
+                      </tr>
+            
+                    <tr>
+                        <td>24/01/24</td>
+                        <td>05h40</td>
+                        <td>Linha-11</td>
+                        <td>Alagamento</td>
+                        <td> 
+                            <select class="form-select">
+                                <option value="andamento"> Em andamento</option>
+                                <option value="concluido"> Concluído</option>
+                            </select>
+                            </td>
+                        <td>
+                            <a href="/detalhes" class="btn btn-primary btn-sm btn-red">Abrir</a> </td>
+                      </tr>
+                </table>
                     </tbody>
                 </table>
             </div>
