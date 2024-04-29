@@ -95,6 +95,8 @@ app.post('/registroEstacao', (req, res) => {
         "blocos": Blocks,
         "estacaof": FStation
     }
+
+    gravarjson(estacao,"registroEstacao.json")
     // Precisa gravar os dados
 });
 
@@ -121,15 +123,26 @@ app.post('/registroLinha', (req, res) => {
         "mediapassageiros": Passengerspers,
         "consumoenergia": EnergyUse
     }
+    gravarjson(linhas,"registroLinhas.json");
     // Precisa gravar os dados
 });
 
 // Para registrar Trens (Incompleto)
 app.post('/registroTrens', (req, res) => {
+    let Model = req.body.modelo;
+    let IDcode = req.body.codigoID;
+    let LineBelong = req.body.linha;
+    let Status = req.body.status;
+    let Classification = req.body.classificacao;
 
-    
-    let estacao = {
+    let trens = {
+        "modelo": Model,
+        "codeID": IDcode,
+        "linhaP": LineBelong,
+        "status": Status,
+        "class": Classification
     }
+    gravarjson(trens,"registroTrens.json");
     // Precisa gravar os dados
 });
 
@@ -156,6 +169,33 @@ function gravar(user, callback){
         callback(); // Chama `ler` somente após o arquivo ser gravado
     });
 };
+
+function gravarjson(dados, arq) {
+    const fs = require('fs');
+    let filejson;
+    filejson = require('./'+arq);
+    if (filejson == null) {
+        filejson = { data: [] }; // Cria um novo objeto se o arquivo não existir
+    }
+    filejson.data.push(dados);
+    fs.writeFile(arq, JSON.stringify(dados), err => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log('Gravado com Sucesso');
+    }) 
+    
+    //filejson = JSON.stringify(dados), err => {
+    //    if (err) {
+    //        console.error(err);
+    //        return;
+    //    }
+    //    console.log('Gravado');
+    //}
+
+}
+
 
 function ler(callback){
     const fs = require('fs');
