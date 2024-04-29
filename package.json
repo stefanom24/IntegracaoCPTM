@@ -1,5 +1,5 @@
 {
-  "name": "projetofront-node",
+  "name": "projetofrontintegracao",
   "version": "1.0.0",
   "description": "CPTM",
   "main": "app.js",
@@ -19,5 +19,13 @@
   },
   "devDependencies": {
     "sass": "^1.75.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefanom24/IntegracaoCPTM.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stefanom24/IntegracaoCPTM/issues"
+  },
+  "homepage": "https://github.com/stefanom24/IntegracaoCPTM#readme"
 }
