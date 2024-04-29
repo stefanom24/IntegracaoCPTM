@@ -74,7 +74,7 @@ app.post('/login', (req, res) => {
         "email": email,
         "password": password
     }
-    gravar(user, () => { // Passa a função `ler` como callback para ser chamada após `gravar`
+    gravarUser(user, () => { // Passa a função `ler` como callback para ser chamada após `gravar`
         ler(() => {
             if(user.email == "stefanom24@gmail.com"){
                 console.log('Login feito com sucesso!');
@@ -138,7 +138,7 @@ app.listen(3000, () => {
     console.log('Servidor iniciado.');
 });
 
-function gravar(user, callback){
+function gravarUser(user, callback){
     const fs = require('fs');
     let loginFile;
     try {
