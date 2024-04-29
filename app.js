@@ -54,6 +54,10 @@ app.get('/historico', (req, res) => {
     res.render('historico');
 });
 
+app.post('/historico', (req, resp) => {
+    let 
+})
+
 // Recebendo dados do Login
 app.post('/login', (req, res) => {
     let email = req.body.loginEmail;
