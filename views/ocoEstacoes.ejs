@@ -28,10 +28,6 @@
 }
 
 
-    .btn-red:hover {
-        background-color: #f97e7e;
-        border-color: #f97e7e; 
-}
     label {
         margin-left: 20px;
         display: inline-block;
@@ -44,7 +40,7 @@
         <header>
             <%- include ('navbar') %>
         </header>
-        <br><br><h1 class="display-2 custom-title">Ocorrência em Linha</h1>
+        <br><br><h1 class="display-2 custom-title">Ocorrência em Estação</h1>
         <form action="/ocoEstacoes" method="post">
             <div class="mb-3">
                 <label for="date" class="form-label">Data:</label>
@@ -57,21 +53,11 @@
             <div class="mb-3">
                 <label for="linha" class="form-label">Linha:</label>
                 <select name="linha" id="linha" class="form-select">
-                    <option value=""></option>
-                    <option value="linha-7">linha-7</option>
-                    <option value="linha-10">linha-10</option>
-                    <option value="linha-11">linha-11</option>
-                    <option value="linha-12">linha-12</option>
-                    <option value="linha-13">linha-13</option>
                 </select>
             </div>
             <div class="mb-3">
                 <label for="estacao" class="form-label">Estação:</label>
                 <select name="estacao" id="estacao" class="form-select">
-                    <option value=""></option>
-                    <option value="estacao_tatuape">estação Tatuapé</option>
-                    <option value="estacao_bras">estação Brás</option>
-                    <option value="estacao_eng_goulart">Estação Eng. Goulart</option>  
 ]                </select>
             </div>
             <div class="mb-3">
@@ -92,12 +78,7 @@
             <div class="mb-3">
                 <label for="Categoria" class="form-label">Categoria:</label>
                 <select name="Categoria" id="Categoria" class="form-select">
-                    <option value=""></option>
-                    <option value="Obra">Obra</option>
-                    <option value="Interditada">Interditada</option>
-                    <option value="Queda de energia">Queda de energia</option>
-                    <option value="Falha no sistema">Falha no sistema</option>
-                    <option value="Outro">Outro</option>
+                    <!-- options -->
                 </select>
             </div>
             <div class="mb-3">
