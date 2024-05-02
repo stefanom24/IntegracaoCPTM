@@ -134,7 +134,7 @@ app.post('/registroTrens', (req, res) => {
 });
 
 
-app.listen(3000, () => {
+app.listen(8000, () => {
     console.log('Servidor iniciado.');
 });
 
@@ -172,4 +172,103 @@ function ler(callback){
     });
     callback();
 };
+
+
+
+// Importações necessárias
+
+const bodyParser = require('body-parser');
+const path = require('path');
+
+// Configuração básica do servidor
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.use("/", express.static("./node_modules/bootstrap/dist/"));
+
+
+// Rota POST para registrar novas ocorrências
+app.post('/ocoLinhas', (req, res) => {
+    const newOcorrencia = {
+        data: req.body.data,
+        horario: req.body.horario,
+        linha: req.body.linha,
+        estacao: req.body.estacao,
+        bloco: req.body.bloco,
+        inviabilizou_o_bloco: req.body.Inviabilizou_o_bloco === 'Inviabilizou_o_bloco',
+        impacto_na_velocidade: req.body.Impacto_na_velocidade === 'Impacto na velocidade',
+        descricao: req.body.descricao
+    };
+
+    const filePath = path.join(__dirname, 'ocorrencias.json');
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error("Erro ao ler o arquivo:", err);
+            // Se ocorrer um erro na leitura, considere que o arquivo pode estar ausente e crie um novo
+            fs.writeFile(filePath, JSON.stringify([newOcorrencia], null, 2), writeErr => {
+                if (writeErr) {
+                    console.error("Falha ao criar o arquivo:", writeErr);
+                    res.status(500).send("Erro ao registrar a ocorrência.");
+                } else {
+                    res.send(`
+                        <div>
+                            <p>Ocorrência registrada com sucesso!</p>
+                            <button onclick="window.history.back();">Voltar</button>
+                        </div>
+                    `);
+                }
+            });
+        } else {
+            // Se o arquivo existir, parseie os dados, adicione a nova ocorrência e salve novamente
+            let ocorrencias = JSON.parse(data);
+            ocorrencias.push(newOcorrencia);
+            fs.writeFile(filePath, JSON.stringify(ocorrencias, null, 2), writeErr => {
+                if (writeErr) {
+                    console.error("Falha ao salvar o arquivo atualizado:", writeErr);
+                    res.status(500).send("Erro ao atualizar o registro de ocorrências.");
+                } else {
+                    res.send(`
+                        <div>
+                            <p>Ocorrência registrada com sucesso!</p>
+                            <button onclick="window.history.back();">Voltar</button>
+                        </div>
+                    `);
+                }
+            });
+        }
+    });
+});
+
+// Rota GET para exibir histórico de ocorrências
+// Rota GET para exibir histórico de ocorrências
+app.get('/historico', (req, res) => {
+    const filePath = path.join(__dirname, 'ocorrencias.json');
+    console.log("FilePath:", filePath); // Confirma o caminho do arquivo
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error("Erro ao ler o arquivo de ocorrências:", err);
+            res.render('historico', { ocorrencias: [] });
+        } else {
+            console.log("Dados lidos do arquivo:", data);
+            try {
+                const ocorrencias = JSON.parse(data);
+                console.log("Ocorrências:", ocorrencias); // Confirma dados lidos
+                console.log("Vai renderizar com ocorrencias:", ocorrencias);
+                res.render('historico', { ocorrencias: ocorrencias });
+            } catch (parseError) {
+                console.error("Erro ao analisar os dados do JSON:", parseError);
+                res.render('historico', { ocorrencias: [] });
+            }
+        }
+    });
+});
+
+
+
+
+
+
+
+
 
