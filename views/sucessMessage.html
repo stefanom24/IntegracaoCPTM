@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sucesso!</title>
+</head>
+
+<style>
+    .mensagem {
+        color: #F20505; 
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+  
+    .botao, .historico {
+        background-color: #ff0000; 
+        border: none;
+        color: #ffffff;
+        padding: 10px 10px; 
+        text-align: center;
+        text-decoration: none;
+        display: inline-block; 
+        margin: 5px;
+        border-radius: 5px; 
+        font-size: 16px;
+
+    }
+
+    .botao:hover, .historico:hover {
+        background-color: #f97e7e;
+    }
+</style>
+
+<body>
+    <div class="mensagem">
+        <h1> Ocorrência Registrada com sucesso!</h1>
+        <button class="botao" onclick="window.history.back();">Voltar</button>
+        <a class="historico" href="/historico">Histórico</a>
+    </div>
+</body>
+</html>

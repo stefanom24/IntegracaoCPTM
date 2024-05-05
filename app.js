@@ -266,7 +266,44 @@ app.get('/historico', (req, res) => {
 
 
 
+app.post('/ocoTrens', (req, res) => {
+    const novaOcorrenciaTrem = {
+        data: req.body.data,
+        horario: req.body.horario,
+        numero_do_trem: req.body.numero_do_trem,
+        linha: req.body.linha,
+        categoria: req.body.categoria,
+        descricao: req.body.descricao,
+        impacto_na_operacao: req.body.impacto_na_operacao === 'on'
+    };
 
+    const filePath = path.join(__dirname, 'ocorrenciasTrens.json');
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            // Se ocorrer um erro na leitura, considere que o arquivo pode estar ausente e crie um novo
+            fs.writeFile(filePath, JSON.stringify({ ocorrenciasTrens: [novaOcorrenciaTrem] }, null, 2), writeErr => {
+                if (writeErr) {
+                    console.error("Falha ao criar o arquivo:", writeErr);
+                    res.status(500).send("Erro ao registrar a ocorrência de trem.");
+                } else {
+                    res.send("Ocorrência de trem registrada com sucesso!");
+                }
+            });
+        } else {
+            // Se o arquivo existir, parseie os dados, adicione a nova ocorrência e salve novamente
+            let ocorrenciasTrens = JSON.parse(data).ocorrenciasTrens;
+            ocorrenciasTrens.push(novaOcorrenciaTrem);
+            fs.writeFile(filePath, JSON.stringify({ ocorrenciasTrens: ocorrenciasTrens }, null, 2), writeErr => {
+                if (writeErr) {
+                    console.error("Falha ao salvar o arquivo atualizado:", writeErr);
+                    res.status(500).send("Erro ao atualizar o registro de ocorrências de trens.");
+                } else {
+                    res.sendFile('sucessMessage.html', { root: path.join(__dirname, 'views') });
+                }
+            });
+        }
+    });
+});
 
 
 

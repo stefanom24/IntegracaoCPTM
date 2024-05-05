@@ -79,5 +79,14 @@
     "inviabilizou_o_bloco": true,
     "impacto_na_velocidade": true,
     "descricao": "abcdef"
+  },
+  {
+    "horario": "17:41",
+    "linha": "linha-11",
+    "estacao": "linha-12",
+    "bloco": "10",
+    "inviabilizou_o_bloco": true,
+    "impacto_na_velocidade": false,
+    "descricao": "oiiii"
   }
 ]
