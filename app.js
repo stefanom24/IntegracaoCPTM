@@ -260,7 +260,6 @@ app.get('/historico', (req, res) => {
             try {
                 const ocorrencias = JSON.parse(data);
                 console.log("Ocorrências:", ocorrencias); // Confirma dados lidos
-                console.log("Vai renderizar com ocorrencias:", ocorrencias);
                 res.render('historico', { ocorrencias: ocorrencias });
             } catch (parseError) {
                 console.error("Erro ao analisar os dados do JSON:", parseError);

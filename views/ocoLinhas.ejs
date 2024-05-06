@@ -24,44 +24,7 @@
         background-color: #f97e7e; /* Vermelho mais claro no hover */
         border-color: #f97e7e; /* Bordas no mesmo tom do hover */
 }
-
-.container {
-    max-width: 800px; 
-    margin: auto; 
-    padding: 20px; 
-}
-
-.form-group {
-    margin-bottom: 15px; 
-}
-
-.form-control{
-    width: 100%;
-}
-
-label {
-    font-weight: bold; 
-    margin-bottom: 5px; 
-    display: block;
-    color: #5d5d5d;
-}
-
-.campo {
-    width: 100%; 
-    padding: 8px;
-    margin-top: 5px;
-
-}
-
-.row-mt-3{
-    display: flex;
-    justify-content: space-between;
-    width: 100%
-}
-
-</style> 
-
-
+</style>
 
 <body>
 
@@ -91,7 +54,6 @@ label {
 
             <div class="d-flex align-items-center justify-content-center vh-20">
                 <div class="form-floating mb-3 w-50">
-                    <label for="linha" class="form-label">Linha:</label>
                     <select name="linha" id="linha" class="form-select">
                         <option value=""></option>
                         <option value="linha-7">linha-7</option>
@@ -100,18 +62,19 @@ label {
                         <option value="linha-12">linha-12</option>
                         <option value="linha-13">linha-13</option>
                     </select>
+                    <label for="linha" class="form-label">Linha:</label>
                 </div>
             </div>
 
             <div class="d-flex align-items-center justify-content-center vh-20">
-                <div clas="form-floating mb-3 w-50">
-                    <label for="estacao" class="form-label">Estação:</label>
+                <div class="form-floating mb-3 w-50">
                     <select name="estacao" id="estacao" class="form-select">
                         <option value=""></option>
                         <option value="estacao_tatuape">Estação Tatuapé</option>
                         <option value="estacao_bras">Estação Brás</option>
                         <option value="estacao_eng_goulart">Estação Eng. Goulart</option>
                     </select>
+                    <label for="estacao" class="form-label">Estação:</label>
                 </div>
             </div>
 
