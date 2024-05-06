@@ -65,6 +65,12 @@ app.post('/historico', (req, resp) => {
 app.get('/detalhes', (req, res) => {
     res.render('detalhes');
 });
+
+app.get('/index', (req, res) => {
+    res.render('index');
+});
+
+
 // Recebendo dados do Login
 app.post('/login', (req, res) => {
     let email = req.body.loginEmail;
