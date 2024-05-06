@@ -210,12 +210,12 @@ function gravarLinhas(dados) {
     let filejson;
     
     try {
-        filejson = require('./registroLinha.json');
+        filejson = require('./registroLinhas.json');
     } catch(error) {
         filejson = { data: [] }; // Cria um novo objeto se o arquivo não existir
     }
     filejson.data.push(dados);
-    fs.writeFile("registroLinha.json", JSON.stringify(filejson), err => {
+    fs.writeFile("registroLinhas.json", JSON.stringify(filejson), err => {
         if (err) {
             console.error(err);
             return;
