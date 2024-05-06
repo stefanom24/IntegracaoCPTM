@@ -282,6 +282,9 @@ app.post('/ocoTrens', (req, res) => {
         impacto_na_operacao: req.body.impacto_na_operacao === 'on'
     };
 
+    //ver como aparecer no console
+    //console.log("Nova ocorrência de Trem:", novaOcorrenciaTrem)
+
     const filePath = path.join(__dirname, 'ocorrenciasTrens.json');
     fs.readFile(filePath, 'utf8', (err, data) => {
         if (err) {
