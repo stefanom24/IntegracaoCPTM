@@ -96,7 +96,9 @@ app.post('/registroEstacao', (req, res) => {
         "estacaof": FStation
     }
 
-    gravarjson(estacao,"registroEstacao.json")
+    gravarEstacao(estacao, () => {
+        console.log("Gravar json completo.");
+    })
     // Precisa gravar os dados
 });
 
@@ -123,7 +125,10 @@ app.post('/registroLinha', (req, res) => {
         "mediapassageiros": Passengerspers,
         "consumoenergia": EnergyUse
     }
-    gravarjson(linhas,"registroLinhas.json");
+
+    gravarLinhas(linhas, () => {
+        console.log("Gravar json completo.");
+    })
     // Precisa gravar os dados
 });
 
@@ -142,7 +147,9 @@ app.post('/registroTrens', (req, res) => {
         "status": Status,
         "class": Classification
     }
-    gravarjson(trens,"registroTrens.json");
+    gravarTrens(trens, () => {
+        console.log("Gravar json completo.");
+    })
     // Precisa gravar os dados
 });
 
@@ -170,15 +177,17 @@ function gravar(user, callback){
     });
 };
 
-function gravarjson(dados, arq) {
+function gravarTrens(dados) {
     const fs = require('fs');
     let filejson;
-    filejson = require('./'+arq);
-    if (filejson == null) {
+    
+    try {
+        filejson = require('./registroTrens.json');
+    } catch(error) {
         filejson = { data: [] }; // Cria um novo objeto se o arquivo não existir
     }
     filejson.data.push(dados);
-    fs.writeFile(arq, JSON.stringify(dados), err => {
+    fs.writeFile("registroTrens.json", JSON.stringify(filejson), err => {
         if (err) {
             console.error(err);
             return;
@@ -194,6 +203,44 @@ function gravarjson(dados, arq) {
     //    console.log('Gravado');
     //}
 
+}
+
+function gravarLinhas(dados) {
+    const fs = require('fs');
+    let filejson;
+    
+    try {
+        filejson = require('./registroLinha.json');
+    } catch(error) {
+        filejson = { data: [] }; // Cria um novo objeto se o arquivo não existir
+    }
+    filejson.data.push(dados);
+    fs.writeFile("registroLinha.json", JSON.stringify(filejson), err => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log('Gravado com Sucesso');
+    }) 
+}
+
+function gravarEstacao(dados) {
+    const fs = require('fs');
+    let filejson;
+    
+    try {
+        filejson = require('./registroEstacao.json');
+    } catch(error) {
+        filejson = { data: [] }; // Cria um novo objeto se o arquivo não existir
+    }
+    filejson.data.push(dados);
+    fs.writeFile("registroEstacao.json", JSON.stringify(filejson), err => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log('Gravado com Sucesso');
+    }) 
 }
 
 
