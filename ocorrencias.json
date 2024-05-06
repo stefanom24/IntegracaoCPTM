@@ -81,6 +81,7 @@
     "descricao": "abcdef"
   },
   {
+<<<<<<< HEAD
     "horario": "13:59",
     "linha": "linha-10",
     "estacao": "linha-10",
@@ -113,5 +114,13 @@
     "data": "2024-05-09",
     "horario": "14:58",
     "linha": "linha-10"
+=======
+    "horario": "17:41",
+    "linha": "linha-11",
+    "estacao": "linha-12",
+    "bloco": "10",
+    "inviabilizou_o_bloco": true,
+    "impacto_na_velocidade": false,
+    "descricao": "oiiii"
+>>>>>>> origin/Grupo-2
   }
-]

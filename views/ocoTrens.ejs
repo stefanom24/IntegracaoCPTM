@@ -26,17 +26,52 @@
         border-color: #f97e7e; 
 }
 
-.mb-3 {
-      color: #000000; 
-      text-align: center;
-    }
+    .mb-3 {
+        color: #000000; 
+        text-align: center;
+        }
+
+    .container {
+    max-width: 800px; 
+    margin: auto; 
+    padding: 20px; 
+}
+
+h1 {
+    color: #ff0000;
+    text-align: center; 
+}
+
+.form-group {
+    margin-bottom: 15px; 
+}
+
+.form-control{
+    width: 100%;
+}
+
+label {
+    font-weight: bold; 
+    margin-bottom: 5px; 
+    display: block;
+    color: #5d5d5d;
+}
+
+.campo {
+    width: 100%; 
+    padding: 8px;
+    margin-top: 5px;
+
+}
 
 .row-mt-3{
-    text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    width: 100%
 }
+
 </style> 
+
 
 
 <body>
@@ -46,20 +81,21 @@
     <main class="container">
         <br><br><h1 class="display-2 custom-title">Ocorrência de trem</h1>
         <form action="/ocoTrens" method="post">
-            <div class="mb-3">
+            <div class="mb-3 campo">
                 <label for="data" class="form-label">Data:</label>
-                <input type="date" class="form-control" id="date" name="date"><br>
+                <input type="date" class="form-control" id="data" name="data"><br>
+                
                 <label for="horario" class="form-label">Horário:</label>
                 <input type="time" class="form-control" id="horario" name="horario">
             </div>
-            <div class="row-mt-3">
+            <div class="row-mt-3 campo">
                 <div class="col-md-6">
                     <label for="codigo" class="form-label">Código do trem:</label>
                     <input type="text" class="form-control" id="codigo_trem" name="codigo_trem">
                 </div>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 campo">
                 <label for="linha" class="form-label">Linha:</label>
                 <select name="linha" id="linha" class="form-select">
                     <option value=""></option>
@@ -70,8 +106,8 @@
                     <option value="linha-13">Linha-13</option>
                 </select>
             </div>
-            <div class="row-mt-3">
-                <div class="col-md-6">
+            <div class="row-mt-3 campo">
+                <div class="col-md-6" >
                     <label for="bloco" class="form-label">Bloco:</label>
                     <input type="text" class="form-control" id="bloco" name="blobo">
                 </div>
@@ -80,11 +116,11 @@
                 <label class="form-check-label">Inviabilizou o bloco:</label>
                 <input type="radio" class="form-check-input" id="Inviabilizou_o_bloco" name="Inviabilizou_o_bloco" value="Inviabilizou_o_bloco">
             </div>
-            <div class="mb-3">
+            <div class="mb-3" >
                 <label class="form-check-label">Impacto na velocidade:</label>
                 <input type="radio" class="form-check-input" id="Impacto_na_velocidade" name="Impacto_na_velocidade" value="Impacto_na_velocidade">
             </div>
-            <div class="mb-3">
+            <div class="mb-3 campo">
                 <label for="Categoria" class="form-label">Categoria:</label>
                 <select name="Categoria" id="Categoria" class="form-select">
                     <option value=""></option>
@@ -96,8 +132,8 @@
                     <option value="Outro">Outro</option>
                 </select>
             </div>
-            <div class="row-mt-3">
-                <div class="col-md-6">
+            <div class="row-mt-3" >
+                <div class="col-md-6 campo">
                     <label for="descricao" class="form-label">Descrição:</label>
                     <textarea id="descricao" class="form-control" name="descricao" rows="4"></textarea>
                 </div>

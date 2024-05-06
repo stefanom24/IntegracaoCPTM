@@ -25,8 +25,42 @@
         border-color: #f97e7e; /* Bordas no mesmo tom do hover */
 }
 
+.container {
+    max-width: 800px; 
+    margin: auto; 
+    padding: 20px; 
+}
+
+.form-group {
+    margin-bottom: 15px; 
+}
+
+.form-control{
+    width: 100%;
+}
+
+label {
+    font-weight: bold; 
+    margin-bottom: 5px; 
+    display: block;
+    color: #5d5d5d;
+}
+
+.campo {
+    width: 100%; 
+    padding: 8px;
+    margin-top: 5px;
+
+}
+
+.row-mt-3{
+    display: flex;
+    justify-content: space-between;
+    width: 100%
+}
 
 </style> 
+
 
 
 <body>
@@ -36,7 +70,7 @@
     <main class="container">
         <br><br><h1 class="display-2 custom-title">Ocorrência de Linha</h1>
         <form action="/ocoLinhas" method="post">
-            <div class="row">
+            <div class="row campo">
                 <div class="col-md-6">
                     <label for="data" class="form-label">Data:</label>
                     <input type="date" class="form-control" id="data" name="data">
@@ -46,7 +80,7 @@
                     <input type="time" class="form-control" id="horario" name="horario">
                 </div>
             </div>
-            <div class="row mt-3">
+            <div class="row mt-3 campo">
                 <div class="col-md-6">
                     <label for="linha" class="form-label">Linha:</label>
                     <select name="linha" id="linha" class="form-select">
@@ -58,7 +92,7 @@
                         <option value="linha-13">linha-13</option>
                     </select>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 campo">
                     <label for="estacao" class="form-label">Estação:</label>
                     <select name="estacao" id="estacao" class="form-select">
                         <option value=""></option>
@@ -73,7 +107,7 @@
                     </select>
                 </div>
             </div>
-            <div class="row mt-3">
+            <div class="row mt-3 campo">
                 <div class="col-md-6">
                     <label for="bloco" class="form-label">Bloco:</label>
                     <input type="text" class="form-control" id="bloco" name="bloco">
@@ -91,7 +125,7 @@
                     <input type="radio" class="form-check-input" id="Impacto_na_velocidade" name="Impacto_na_velocidade" value="Impacto na velocidade">
                 </div>
             </div>
-            <div class="row mt-3">
+            <div class="row mt-3 campo">
                 <div class="col-md-6">
                     <label for="descricao" class="form-label">Descrição:</label>
                     <textarea id="descricao" class="form-control" name="descricao" rows="4"></textarea>

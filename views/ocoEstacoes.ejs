@@ -28,39 +28,80 @@
 }
 
 
-    label {
-        margin-left: 20px;
-        display: inline-block;
-    }
+.container {
+    max-width: 800px; 
+    margin: auto; 
+    padding: 20px; 
+}
+
+.form-group {
+    margin-bottom: 15px; 
+}
+
+.form-control{
+    width: 100%;
+}
+
+label {
+    font-weight: bold; 
+    margin-bottom: 5px; 
+    display: block;
+    color: #5d5d5d;
+}
+
+.campo {
+    width: 100%; 
+    padding: 8px;
+    margin-top: 5px;
+
+}
+
+.row-mt-3{
+    display: flex;
+    justify-content: space-between;
+    width: 100%
+}
 
 </style> 
+
 
 <body>
     <main>
         <header>
             <%- include ('navbar') %>
         </header>
-        <br><br><h1 class="display-2 custom-title">Ocorrência em Estação</h1>
+        <br><br>
+        <h1 class="display-2 custom-title">Ocorrência em Estação</h1>
         <form action="/ocoEstacoes" method="post">
-            <div class="mb-3">
+            <div class="mb-3 campo">
                 <label for="date" class="form-label">Data:</label>
                 <input type="date" id="date" name="date" class="form-control">
             </div>
-            <div class="mb-3">
+            <div class="mb-3 campo">
                 <label for="horario" class="form-label">Horário:</label>
                 <input type="time" id="horario" name="horario" class="form-control">
             </div>
-            <div class="mb-3">
+            <div class="mb-3 campo">
                 <label for="linha" class="form-label">Linha:</label>
                 <select name="linha" id="linha" class="form-select">
+                    <option value=""></option>
+                    <option value="linha-7">Linha-7</option>
+                    <option value="linha-10">Linha-10</option>
+                    <option value="linha-11">Linha-11</option>
+                    <option value="linha-12">Linha-12</option>
+                    <option value="linha-13">Linha-13</option>
                 </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 campo">
                 <label for="estacao" class="form-label">Estação:</label>
                 <select name="estacao" id="estacao" class="form-select">
+                    <option value=""></option>
+                    <option value="estacao_tatuape">Estação Tatuapé</option>
+                    <option value="estacao_bras">Estação Brás</option>
+                    <option value="estacao_eng_goulart">Estação Eng. Goulart</option>   
 ]                </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 campo">
                 <label for="bloco" class="form-label">Bloco:</label>
                 <input type="text" id="bloco" name="bloco" class="form-control">
             </div>
@@ -75,13 +116,18 @@
                     <label for="Impacto_na_velocidade" class="form-check-label">Impacto na velocidade</label>
                 </div>
             </fieldset>
-            <div class="mb-3">
+            <div class="mb-3 campo">
                 <label for="Categoria" class="form-label">Categoria:</label>
                 <select name="Categoria" id="Categoria" class="form-select">
-                    <!-- options -->
+                    <option value=""></option>
+                    <option value="Obra">Obra</option>
+                    <option value="Interditada">Interditada</option>
+                    <option value="Queda de energia">Queda de energia</option>
+                    <option value="Falha no sistema">Falha no sistema</option>
+                    <option value="Outro">Outro</option>
                 </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 campo">
                 <label for="descricao" class="form-label">Descrição:</label>
                 <textarea id="descricao" name="descricao" rows="4" class="form-control"></textarea>
             </div>
