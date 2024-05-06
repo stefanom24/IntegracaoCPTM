@@ -70,67 +70,96 @@ label {
         <header>
             <%- include ('navbar') %>
         </header>
-        <br><br>
-        <h1 class="display-2 custom-title">Ocorrência em Estação</h1>
+
+        <main class="container mt-5">
+            <div class="text-center"> 
+                <h1 class="display-2 custom-title">Ocorrência em Estação</h1>
+            </div>
+
         <form action="/ocoEstacoes" method="post">
-            <div class="mb-3 campo">
-                <label for="date" class="form-label">Data:</label>
-                <input type="date" id="date" name="date" class="form-control">
-            </div>
-            <div class="mb-3 campo">
-                <label for="horario" class="form-label">Horário:</label>
-                <input type="time" id="horario" name="horario" class="form-control">
-            </div>
-            <div class="mb-3 campo">
-                <label for="linha" class="form-label">Linha:</label>
-                <select name="linha" id="linha" class="form-select">
-                    <option value=""></option>
-                    <option value="linha-7">Linha-7</option>
-                    <option value="linha-10">Linha-10</option>
-                    <option value="linha-11">Linha-11</option>
-                    <option value="linha-12">Linha-12</option>
-                    <option value="linha-13">Linha-13</option>
-                </select>
-            </div>
-            <div class="mb-3 campo">
-                <label for="estacao" class="form-label">Estação:</label>
-                <select name="estacao" id="estacao" class="form-select">
-                    <option value=""></option>
-                    <option value="estacao_tatuape">Estação Tatuapé</option>
-                    <option value="estacao_bras">Estação Brás</option>
-                    <option value="estacao_eng_goulart">Estação Eng. Goulart</option>   
-]                </select>
-            </div>
-            <div class="mb-3 campo">
-                <label for="bloco" class="form-label">Bloco:</label>
-                <input type="text" id="bloco" name="bloco" class="form-control">
-            </div>
-            <fieldset class="mb-3">
-                <legend>Detalhes</legend>
-                <div class="form-check">
-                    <input type="radio" id="Inviabilizou_o_bloco" name="impact_type" class="form-check-input">
-                    <label for="Inviabilizou_o_bloco" class="form-check-label">Inviabilizou o bloco</label>
+            <div class="d-flex align-items-center justify-content-center vh-20">
+                <div class="form-floating mb-3 w-50">
+                    <input type="date" class="form-control" id="data" name="data">
+                    <label for="data" class="form-label">Data:</label>
                 </div>
-                <div class="form-check">
-                    <input type="radio" id="Impacto_na_velocidade" name="impact_type" class="form-check-input">
-                    <label for="Impacto_na_velocidade" class="form-check-label">Impacto na velocidade</label>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-center vh-20"> 
+                <div class="form-floating mb-3 w-50">
+                    <input type="time" class="form-control" id="horario" name="horario">
+                    <label for="horario" class="form-label">Horário:</label>
                 </div>
-            </fieldset>
-            <div class="mb-3 campo">
-                <label for="Categoria" class="form-label">Categoria:</label>
-                <select name="Categoria" id="Categoria" class="form-select">
-                    <option value=""></option>
-                    <option value="Obra">Obra</option>
-                    <option value="Interditada">Interditada</option>
-                    <option value="Queda de energia">Queda de energia</option>
-                    <option value="Falha no sistema">Falha no sistema</option>
-                    <option value="Outro">Outro</option>
-                </select>
             </div>
-            <div class="mb-3 campo">
-                <label for="descricao" class="form-label">Descrição:</label>
-                <textarea id="descricao" name="descricao" rows="4" class="form-control"></textarea>
+            
+            <div class="d-flex align-items-center justify-content-center vh-20">
+                <div class="form-floating mb-3 w-50">
+                    <select name="linha" id="linha" class="form-select">
+                        <option value=""></option>
+                        <option value="linha-7">linha-7</option>
+                        <option value="linha-10">linha-10</option>
+                        <option value="linha-11">linha-11</option>
+                        <option value="linha-12">linha-12</option>
+                        <option value="linha-13">linha-13</option>
+                    </select>
+                    <label for="linha" class="form-label">Linha:</label>
+                </div>
             </div>
+
+            <div class="d-flex align-items-center justify-content-center vh-20">
+                <div class="form-floating mb-3 w-50">
+                    <select name="estacao" id="estacao" class="form-select">
+                        <option value=""></option>
+                        <option value="estacao_tatuape">Estação Tatuapé</option>
+                        <option value="estacao_bras">Estação Brás</option>
+                        <option value="estacao_eng_goulart">Estação Eng. Goulart</option>
+                    </select>
+                    <label for="estacao" class="form-label">Estação:</label>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-center vh-20">
+                <div class="form-floating mb-3 w-50">
+                    <input type="text" class="form-control" id="bloco" name="bloco">
+                    <label for="bloco" class="form-label">Bloco:</label>
+                </div>
+            </div>
+
+            
+            <div class="d-flex align-items-center justify-content-center vh-20">
+                <div>
+                    <input type="radio" class="form-check-input" id="Inviabilizou_o_bloco" name="Inviabilizou_o_bloco" value="Inviabilizou_o_bloco">
+                    <label class="form-check-label">Inviabilizou o bloco:</label>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-center vh-20">
+                <div>
+                    <input type="radio" class="form-check-input" id="Impacto_na_velocidade" name="Impacto_na_velocidade" value="Impacto na velocidade">
+                    <label class="form-check-label">Impacto na velocidade:</label> 
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-center vh-20"> 
+                <div class="form-floating mb-3 w-50">
+                    <select name="Categoria" id="Categoria" class="form-select">
+                        <option value=""></option>
+                        <option value="Lotação excessiva">Lotação excessiva</option>
+                        <option value="Falha na sinalização">Falha na sinalização</option>
+                        <option value="Queda de energia">Queda de energia</option>
+                        <option value="Emergencia">Emergência</option>
+                        <option value="Quebra">Quebra</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                    <label for="Categoria" class="form-label">Categoria:</label>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-center vh-20">
+                <div class="form-floating mb-3 w-50">
+                    <textarea id="descricao" class="form-control" name="descricao" rows="4"></textarea>
+                    <label for="descricao" class="form-label">Descrição:</label>
+                </div>
+            </div><br>
             <div class="text-center">
                 <button type="submit" class="btn btn-secondary me-2 btn-red">Enviar</button>
                 <button type="submit" class="btn btn-primary btn-red">Voltar</button>
