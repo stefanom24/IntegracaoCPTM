@@ -87,12 +87,12 @@ app.post('/login', (req, res) => {
 // Para registrar Estações (Incompleto)
 app.post('/registroEstacao', (req, res) => {
     let Nome = req.body.nome;
-    let Blocks = req.body.blocos;
+    let KLM = req.body.km;
     let FStation = req.body.LinhaPertence;
     
     let estacao = {
         "nome": Nome,
-        "blocos": Blocks,
+        "km": KLM,
         "estacaof": FStation
     }
 
