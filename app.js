@@ -20,9 +20,27 @@ app.get('/trens', (req, res) => {
     res.render('trens');
 });
 
-// Recebendo dados do cadastro de trens
-app.post('/trens', (req, res) => {
-    //Fazer toda logica de escrever para json.
+// Para registrar Trens.
+app.post('/registroTrens', (req, res) => {
+    let Model = req.body.modelo;
+    let IDcode = req.body.codigoID;
+    let LineBelong = req.body.linha;
+    let Status = req.body.status;
+    let Classification = req.body.classificacao;
+    // Declarar Dados.
+
+    let trens = {
+        "modelo": Model,
+        "codeID": IDcode,
+        "linhaP": LineBelong,
+        "status": Status,
+        "class": Classification
+    }
+    // Criar Objeto para conseguir passar todos os dados.
+
+    gravarTrens(trens, () => {
+        console.log("Gravar json completo.");
+    })
 });
 
 // Roteando pagina cadastro de linhas
@@ -30,9 +48,59 @@ app.get('/linhas', (req, res) => {
     res.render('linhas');
 });
 
+// Para registrar Linhas
+app.post('/registroLinha', (req, res) => {
+    let NomeL = req.body.NomeLinha;
+    let Stations = req.body.Estacoes;
+    let Extension = req.body.Extensao;
+    let Speed = req.body.Velocidade;
+    let Load = req.body.Carga;
+    let Hw = req.body.HW;
+    let Trips = req.body.Viagens;
+    let Passengerspers = req.body.MediaPassageiros;
+    let EnergyUse = req.body.ConsumoEnergia; 
+    // Declarar Dados.  
+    
+    let linhas = {
+        "nomel": NomeL,
+        "estacoes": Stations,
+        "extensao": Extension,
+        "velocidade": Speed,
+        "carga": Load,
+        "hw": Hw,
+        "viagens": Trips,
+        "mediapassageiros": Passengerspers,
+        "consumoenergia": EnergyUse
+    }
+    // Criar Objeto para conseguir passar todos os dados.
+
+    gravarLinhas(linhas, () => {
+        console.log("Gravar json completo.");
+    })
+});
+
 // Roteando pagina cadastro de estações
 app.get('/estacoes', (req, res) => {
     res.render('estacoes');
+});
+
+// Para registrar Estações 
+app.post('/registroEstacao', (req, res) => {
+    let Nome = req.body.nome;
+    let KLM = req.body.km;
+    let FStation = req.body.LinhaPertence;
+    // Declarar Dados.
+    
+    let estacao = {
+        "nome": Nome,
+        "km": KLM,
+        "estacaof": FStation
+    }
+    // Criar Objeto para conseguir passar todos os dados.
+
+    gravarEstacao(estacao, () => {
+        console.log("Gravar json completo.");
+    })
 });
 
 // Roteando pagina ocorrencias de trens
@@ -84,84 +152,11 @@ app.post('/login', (req, res) => {
     });
 });
 
-// Para registrar Estações 
-app.post('/registroEstacao', (req, res) => {
-    let Nome = req.body.nome;
-    let KLM = req.body.km;
-    let FStation = req.body.LinhaPertence;
-    // Declarar Dados.
-    
-    let estacao = {
-        "nome": Nome,
-        "km": KLM,
-        "estacaof": FStation
-    }
-    // Criar Objeto para conseguir passar todos os dados.
-
-    gravarEstacao(estacao, () => {
-        console.log("Gravar json completo.");
-    })
-});
-
-// Para registrar Linhas
-app.post('/registroLinha', (req, res) => {
-    let NomeL = req.body.NomeLinha;
-    let Stations = req.body.Estacoes;
-    let Extension = req.body.Extensao;
-    let Speed = req.body.Velocidade;
-    let Load = req.body.Carga;
-    let Hw = req.body.HW;
-    let Trips = req.body.Viagens;
-    let Passengerspers = req.body.MediaPassageiros;
-    let EnergyUse = req.body.ConsumoEnergia; 
-    // Declarar Dados.  
-    
-    let linhas = {
-        "nomel": NomeL,
-        "estacoes": Stations,
-        "extensao": Extension,
-        "velocidade": Speed,
-        "carga": Load,
-        "hw": Hw,
-        "viagens": Trips,
-        "mediapassageiros": Passengerspers,
-        "consumoenergia": EnergyUse
-    }
-    // Criar Objeto para conseguir passar todos os dados.
-
-    gravarLinhas(linhas, () => {
-        console.log("Gravar json completo.");
-    })
-});
-
-// Para registrar Trens.
-app.post('/registroTrens', (req, res) => {
-    let Model = req.body.modelo;
-    let IDcode = req.body.codigoID;
-    let LineBelong = req.body.linha;
-    let Status = req.body.status;
-    let Classification = req.body.classificacao;
-    // Declarar Dados.
-
-    let trens = {
-        "modelo": Model,
-        "codeID": IDcode,
-        "linhaP": LineBelong,
-        "status": Status,
-        "class": Classification
-    }
-    // Criar Objeto para conseguir passar todos os dados.
-
-    gravarTrens(trens, () => {
-        console.log("Gravar json completo.");
-    })
-});
-
-
 app.listen(3000, () => {
     console.log('Servidor iniciado.');
 });
 
+// Funções para gravar e ler arquivos JSON
 function gravar(user, callback){
     const fs = require('fs');
     let loginFile;
