@@ -84,25 +84,26 @@ app.post('/login', (req, res) => {
     });
 });
 
-// Para registrar Estações (Incompleto)
+// Para registrar Estações 
 app.post('/registroEstacao', (req, res) => {
     let Nome = req.body.nome;
     let KLM = req.body.km;
     let FStation = req.body.LinhaPertence;
+    // Declarar Dados.
     
     let estacao = {
         "nome": Nome,
         "km": KLM,
         "estacaof": FStation
     }
+    // Criar Objeto para conseguir passar todos os dados.
 
     gravarEstacao(estacao, () => {
         console.log("Gravar json completo.");
     })
-    // Precisa gravar os dados
 });
 
-// Para registrar Linhas (Incompleto)
+// Para registrar Linhas
 app.post('/registroLinha', (req, res) => {
     let NomeL = req.body.NomeLinha;
     let Stations = req.body.Estacoes;
@@ -113,6 +114,7 @@ app.post('/registroLinha', (req, res) => {
     let Trips = req.body.Viagens;
     let Passengerspers = req.body.MediaPassageiros;
     let EnergyUse = req.body.ConsumoEnergia; 
+    // Declarar Dados.  
     
     let linhas = {
         "nomel": NomeL,
@@ -125,20 +127,21 @@ app.post('/registroLinha', (req, res) => {
         "mediapassageiros": Passengerspers,
         "consumoenergia": EnergyUse
     }
+    // Criar Objeto para conseguir passar todos os dados.
 
     gravarLinhas(linhas, () => {
         console.log("Gravar json completo.");
     })
-    // Precisa gravar os dados
 });
 
-// Para registrar Trens (Incompleto)
+// Para registrar Trens.
 app.post('/registroTrens', (req, res) => {
     let Model = req.body.modelo;
     let IDcode = req.body.codigoID;
     let LineBelong = req.body.linha;
     let Status = req.body.status;
     let Classification = req.body.classificacao;
+    // Declarar Dados.
 
     let trens = {
         "modelo": Model,
@@ -147,10 +150,11 @@ app.post('/registroTrens', (req, res) => {
         "status": Status,
         "class": Classification
     }
+    // Criar Objeto para conseguir passar todos os dados.
+
     gravarTrens(trens, () => {
         console.log("Gravar json completo.");
     })
-    // Precisa gravar os dados
 });
 
 
@@ -194,14 +198,6 @@ function gravarTrens(dados) {
         }
         console.log('Gravado com Sucesso');
     }) 
-    
-    //filejson = JSON.stringify(dados), err => {
-    //    if (err) {
-    //        console.error(err);
-    //        return;
-    //    }
-    //    console.log('Gravado');
-    //}
 
 }
 
