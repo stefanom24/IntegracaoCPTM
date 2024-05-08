@@ -194,7 +194,7 @@ function gravarTrens(dados) {
         console.log('Gravado com Sucesso');
     }) 
 
-}
+};
 
 function gravarLinhas(dados) {
     const fs = require('fs');
@@ -213,7 +213,7 @@ function gravarLinhas(dados) {
         }
         console.log('Gravado com Sucesso');
     }) 
-}
+};
 
 function gravarEstacao(dados) {
     const fs = require('fs');
@@ -232,7 +232,7 @@ function gravarEstacao(dados) {
         }
         console.log('Gravado com Sucesso');
     }) 
-}
+};
 
 
 function ler(callback){
