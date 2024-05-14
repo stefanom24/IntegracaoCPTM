@@ -11,18 +11,22 @@
 
 <style>
   .custom-title {
-    color: #F20505; 
+    color: #F20505;
+    font-family: 'Roboto', sans-serif; 
   }
 
   .btn-red {
-    background-color: #F20505;
+    background-color: #F20505;  
     border-color: #F20505;
+    font-family: 'Roboto', sans-serif; 
+    color: white;
+    padding: 10px 24px;
+    border-radius: 4px;
+    transition: all 0.3s ease 0s;
   }
-
-  footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+  .btn-red:hover {
+    background-color: #d10404;
+    border-color: white;
   }
 
 </style>
@@ -33,7 +37,7 @@
         <%- include ('navbar') %>
     </header>
     
-    <main class="container mt-5">
+    <main class="container mt-5 shadow p-3 mb-5 bg-body-tertiary rounded">
       <div class="text-center">
           <h1 class="display-2 custom-title">Trens</h1>
       </div>

@@ -13,11 +13,13 @@
   .custom-title {
     color: #F20505; 
     text-align: center;
+    font-family: 'Roboto', sans-serif; 
   }
 
   .btn-red {
     background-color: #F20505;
     border-color: #F20505;
+    font-family: 'Roboto', sans-serif; 
   }
 
 
@@ -29,9 +31,10 @@
         <%- include ('navbar') %>
     </header>
     
-    <main>
+    <main class="container shadow p-3 mb-5 bg-body-tertiary rounded">
     <br><br>
       <h1 class="display-2 custom-title">Registro de Linhas</h1>
+      <br>
     
     <form action="/registroLinha", method="post">
 
@@ -55,6 +58,7 @@
               <label for="Extensao">Extensão da Linha: </label>
             </div>
         </div>
+        <br>
 
     
         <h2 class="display-2 custom-title">Trecho</h2>
@@ -126,8 +130,3 @@
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
-  <body>
-    
-  </body>
