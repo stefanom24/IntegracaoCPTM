@@ -243,6 +243,8 @@ app.post("/ocoLinhas", (req, res) => {
   });
 });
 
+
+
 // Rota GET para exibir histórico de ocorrências
 // Rota GET para exibir histórico de ocorrências
 app.get("/historico", (req, res) => {

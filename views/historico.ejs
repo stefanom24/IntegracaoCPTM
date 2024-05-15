@@ -95,7 +95,7 @@
                 </div>
             </div>
     
-            <div class="table-responsive mt-4">
+           <!-- <div class="table-responsive mt-4">
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -107,7 +107,7 @@
                          </tr>
                     </thead>
                    
-            </div>
+            </div>-->
 
             <div class="text-center">
                 <button type="submit" class="btn btn-secondary me-2 btn-red">Voltar</button>
@@ -125,7 +125,7 @@
 </html>
 
 
-<body>
+<!--<body>
     <table id='tabela' border='2' width='100%'></table>
 
 <script>
@@ -188,6 +188,90 @@
 
     var tabela = document.getElementById("tabela")
     populateTable(tabela, config);
-</script>
-    
+</script> --> 
 
+<body>
+    <div style="margin: 20px; width: calc(100% - 40px);"> <!-- Adiciona margem ao redor da tabela -->
+        <table id='tabela' border='2' style="width: 100%; margin: auto;"> <!-- Centraliza a tabela com margem automática -->
+        </table>
+    </div>
+
+    <script>
+        var config = {
+            values: [{
+                data: '24/04',
+                horario: '13:00',
+                linha: 'Linha 12',
+                categoria: 'Portas'
+            }, {
+                data: '24/04',
+                horario: '13:00',
+                linha: 'Linha 12',
+                categoria: 'Portas'
+            }, {
+                data: '24/04',
+                horario: '13:00',
+                linha: 'Linha 12',
+                categoria: 'Portas'
+            }, {
+                data: '24/04',
+                horario: '13:00',
+                linha: 'Linha 12',
+                categoria: 'Portas'
+            }],
+            headers: [
+                { key: 'data', name: 'Data' },
+                { key: 'horario', name: 'Horário' },
+                { key: 'linha', name: 'Linha' },
+                { key: 'categoria', name: 'Categoria' },
+                { key: 'abrir', name: 'Abrir' }
+            ]
+        };
+
+        function populateTable(c, config) {
+            var thead = c.createTHead();
+            var headerRow = thead.insertRow();
+
+            // Define cabeçalhos
+            config.headers.forEach(function(header) {
+                var cell = headerRow.insertCell();
+                cell.textContent = header.name;
+                cell.style.fontWeight = 'bold';  // Define cabeçalhos em negrito
+            });
+
+            // Cria corpo da tabela
+            var tbody = document.createElement('tbody');
+            c.appendChild(tbody);
+
+            // Insere dados no corpo
+            config.values.forEach(function(item) {
+                var row = tbody.insertRow();
+                config.headers.forEach(function(header) {
+                    var cell = row.insertCell();
+                    cell.textContent = item[header.key] || '';
+                });
+            });
+        }
+
+        var tabela = document.getElementById("tabela");
+        populateTable(tabela, config);
+    </script>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;  
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;  
+        }
+    </style>
+</body>
