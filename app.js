@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const fs = require('fs');
+const $ = require('jquery');
 
 // Deixando o node/express utilizar e ler arquivos html
 app.use(express.urlencoded({extended: true}));
@@ -156,12 +157,7 @@ app.listen(3000, () => {
     console.log('Servidor iniciado.');
 });
 
-// <<<<<< HEAD
-// function gravarUser(user, callback){
-// =======
-// Funções para gravar e ler arquivos JSON
-function gravar(user, callback){
-// >>>>>>> 2f6ff10e8af0cb6908cf97d97a2fcdf5b1b6e23e
+function gravarUser(user, callback){
     const fs = require('fs');
     let loginFile;
     try {
@@ -178,7 +174,7 @@ function gravar(user, callback){
         console.log('Gravado');
         callback(); // Chama `ler` somente após o arquivo ser gravado
     });
-};
+};''
 
 function gravarTrens(dados) {
     const fs = require('fs');
@@ -254,4 +250,3 @@ function ler(callback){
     });
     callback();
 };
-
