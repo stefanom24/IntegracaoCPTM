@@ -13,14 +13,18 @@
   .custom-title {
     color: #F20505; 
     text-align: center;
+    font-family: 'Roboto', sans-serif; 
   }
 
   .btn-red {
     background-color: #F20505;
     border-color: #F20505;
+    font-family: 'Roboto', sans-serif; 
   }
 
-
+  .setinha {
+    appearance: none;
+  }
 
 </style>
 
@@ -29,95 +33,90 @@
         <%- include ('navbar') %>
     </header>
     
-    <main>
-    <br><br>
-      <h1 class="display-2 custom-title">Registro de Linhas</h1>
-    
-    <form id="formLinha" action="/registroLinha" method="post">
+    <fieldset class="container shadow p-3 mb-5 mt-5 bg-body-tertiary rounded mx-auto w-75">
 
-      <div class="d-flex align-items-center justify-content-center vh-20">
-         <div class="form-floating mb-3 w-50">
-            <input type="number" class="form-control" name="NomeLinha" id="NomeLinha" placeholder="Nome">
-            <label for="NomeLinha">Nome da Linha: </label>
+        <h1 class="display-2 custom-title">Linhas</h1><br>
+
+      <form id="formLinha" action="/registroLinha" method="post">
+
+        <div class="d-flex align-items-center justify-content-center">
+          <div class=" mb-3 w-50">
+              <label for="NomeLinha">Nome da Linha: </label>
+              <input type="text" class="form-control" name="NomeLinha" id="NomeLinha">
+            </div>
+        </div>
+          
+        <div class="d-flex align-items-center justify-content-center">
+          <div class="mb-3 w-50">
+              <label for="Estacoes">Número de Estações: </label>
+              <input type="number" class="form-control setinha" name="Estacoes" id="Estacoes">
+            </div>
+        </div>
+
+        <!-- Inicio da linha -->
+        <div class="d-flex align-items-center justify-content-center vh-20">
+          <div class=" mb-3 w-50">
+              <label for="Estacoes">Início da Linha: </label>
+              <input type="text" class="form-control" name="IniciaLinha" id="IniciaLinha">
           </div>
       </div>
+
+        <!-- Fim da linha -->
+        <div class="d-flex align-items-center justify-content-center">
+          <div class="mb-3 w-50">
+              <label for="Estacoes">Fim da Linha: </label>
+              <input type="text" class="form-control" name="FimLinha" id="FimLinha">
+          </div>
+      </div>
+
+      
+      
+        <div class="d-flex align-items-center justify-content-center">
+          <div class="mb-3 w-50">
+            <label for="HW"> Consumo de Energia (Hw): </label>
+            <input type="number" class="form-control" name="HW" id="HW">
+          </div>
+        </div>
         
-      <div class="d-flex align-items-center justify-content-center vh-20">
-         <div class="form-floating mb-3 w-50">
-            <input type="number" class="form-control" name="Estacoes" id="Estacoes" placeholder="Nome">
-            <label for="Estacoes">Numero de Estações: </label>
+        <div class="d-flex align-items-center justify-content-center">
+          <div class="mb-3 w-50">
+            <label for="MediaPassageiros">Média de Passageiros: </label>
+            <input type="text" class="form-control" name="MediaPassageiros" id="MediaPassageiros">
           </div>
-      </div>
-
-      <div class="d-flex align-items-center justify-content-center vh-20">
-          <div class="form-floating mb-3 w-50">
-            <input type="number" class="form-control" name="Extensao" id="Extensao" placeholder="Nome">
-            <label for="Extensao">Extensão da Linha: </label>
-          </div>
-      </div>
-
-    
-      <h2 class="display-2 custom-title">Trecho</h2>
-      <div class="d-flex align-items-center justify-content-left" style="margin-left: 25%; color: #6F7173; font-weight: bold;">
-        <label for="velocidade" class="form-label"> Velocidade:</label>
-      </div>
-      <div class="d-flex align-items-center justify-content-center vh-20"> 
-         <select class="form-select w-50" name="Velocidade" id="Velocidade">
-            <option value="Nivel 1"> Nivel 1 </option>
-            <option value="Nivel 2"> Nivel 2 </option>
-            <option value="Nivel 3"> Nivel 3 </option>
-            <option value="Nivel 4"> Nivel 4 </option>
-          </select>
-      </div><br>
-
-      <div class="d-flex align-items-center justify-content-left" style="margin-left: 25%; color: #6F7173; font-weight: bold;">
-        <label for="carga" class="form-label"> Tem carga em circulação? :</label>
-      </div>
-        <div class="d-flex align-items-center justify-content-center vh-20"> 
-          <select class="form-select w-50" name="Carga" id="Carga">
-             <option value="Sim"> Sim </option>
-              <option value="Não"> Nao </option>
-          </select>
-      </div><br>
-            
-      <div class="d-flex align-items-center justify-content-center vh-20">
-         <div class="form-floating mb-3 w-50">
-            <input type="number" class="form-control" name="HW" id="HW" placeholder="Nome">
-            <label for="HW">Hw: </label>
-          </div>
-      </div>
-
-      <div class="d-flex align-items-center justify-content-center vh-20">
-          <div class="form-floating mb-3 w-50">
-            <input type="number" class="form-control" name="Viagens" id="Viagens" placeholder="Nome">
-            <label for="Viagens">Numero de Viagens: </label>
-          </div>
-      </div>
-
-      <div class="d-flex align-items-center justify-content-center vh-20">
-          <div class="form-floating mb-3 w-50">
-            <input type="number" class="form-control" name="MediaPassageiros" id="MediaPassageiros" placeholder="Nome">
-            <label for="MediaPassageiros">Media de Passageiros: </label>
-          </div>
-      </div>
-
-      <div class="d-flex align-items-center justify-content-center vh-20">
-          <div class="form-floating mb-3 w-50">
-            <input type="number" class="form-control" name="ConsumoEnergia" id="ConsumoEnergia" placeholder="Nome">
-            <label for="ConsumoEnergia">Consumo de Energia: </label>
-          </div>
-      </div>
-
+        </div>
         
-      <div class="text-center">
-        <h1 class="display-3"> 
-            <button id="enviar" type="submit" class="btn btn-primary btn-red">Enviar</button>   
-        </h1>
+        <!-- Código -->
+        <div class="d-flex align-items-center justify-content-center">
+          <div class="mb-3 w-50">
+              <label for="Estacoes">Código da Linha: </label>
+              <input type="text" class="form-control" name="CodigoLinha" id="CodigoLinha">
+          </div>
       </div>
 
-        
-    </form>
-    </main>
+      <div class="container text-center">
+        <div class="row ">
+          <div class="col-sm">
+            <div class="text-center">
+              <h1 class="display-3"> 
+                <a href="/" class="btn btn-primary btn-red" role="button">Voltar</a>
+              </h1>
+            </div>
+          </div>
+          
+          <div class="col-sm"></div>
+          
+          <div class="col-sm">
+            <div class="text-center">
+              <h1 class="display-3"> 
+                <button type="submit" id="enviar" class="btn btn-primary btn-red">Enviar</button>   
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+                    
+      </form>
+    </fieldset>
 
     <footer>
         <%- include ('footer') %>
@@ -126,8 +125,3 @@
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
-  <body>
-    
-  </body>

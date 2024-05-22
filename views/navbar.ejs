@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3 bg-body-tertiary rounded fw-bold">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="images/logo.png" alt="Logo" width="128" height="64">
+            <img src="images/logo.png" alt="Logo" width="211.25" height="65">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -34,11 +34,11 @@
       <ul class="navbar-nav">
         <!-- Botão Sign Up -->
         <li class="nav-item">
-            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</a>
+            <a class="nav-link btn btn-custom" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</a>
         </li>
         <!-- Botão Login -->
         <li class="nav-item">
-            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+            <a class="nav-link btn btn-custom" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
         </li>
     </ul>
     </div>
@@ -62,7 +62,7 @@
                         <label for="signupPassword" class="form-label">Senha</label>
                         <input type="password" class="form-control" name="signupPassword" id="signupPassword">
                     </div>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="submit" class="btn btn-primary btn-red">Enviar</button>
                 </form>
             </div>
         </div>
@@ -88,9 +88,47 @@
                         <label for="loginPassword" class="form-label">Senha</label>
                         <input type="password" class="form-control" id="loginPassword" name="loginPassword">
                     </div>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="submit" class="btn btn-primary btn-red">Enviar</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+<style> 
+
+.btn-custom:hover {
+    background-color: #F20505;
+    border-color: #F20505;
+    color: white; 
+}
+
+.btn-red {
+    background-color: #F20505;
+    border-color: #F20505;
+    font-family: 'Roboto', sans-serif; 
+    color: white;
+    padding: 7px 17px;
+    border-radius: 4px;
+    transition: all 0.3s ease 0s;
+  }
+.btn-red:hover {
+    background-color: #d10404;
+    border-color: white;
+  }
+
+.navbar-nav .nav-link:hover, .navbar-nav .nav-item.active .nav-link { 
+    background-color: #F20505; 
+    color: white; 
+    border-radius: 4px; 
+    transition: background-color 0.3s; 
+}
+
+.nav-item {
+    margin-right: 5px; 
+}
+
+.linhas-margin {
+  margin-bottom: 3rem;
+}
+
+</style>

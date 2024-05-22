@@ -5,26 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/fonte.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 
     <title>Home</title>
 </head>
 
 <style>
-    .custom-title {
-      color: #F20505; 
-      text-align: center;
-    }
-  
-    .btn-red {
-      background-color: #F20505;
-      border-color: #F20505;
-    }
-
-    footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+  .custom-title {
+    color: #F20505;
+    font-family: 'Roboto', sans-serif; 
   }
+
+  .btn-red {
+    background-color: #F20505;  
+    border-color: #F20505;
+    font-family: 'Roboto', sans-serif; 
+    color: white;
+    padding: 10px 24px;
+    border-radius: 4px;
+    transition: all 0.3s ease 0s;
+  }
+  .btn-red:hover {
+    background-color: #d10404;
+    border-color: white;
+  }
+
+
   </style>
 
 <body>
@@ -32,51 +38,78 @@
         <%- include ('navbar') %>
     </header>
     
-    <main>
+    <main class = "container mt-5 shadow p-3 mb-5 bg-body-tertiary rounded ">
         <br><br>
-        <h1 class="display-2 custom-title">Registro de Estações</h1>
+        <h1 class="display-2 custom-title d-flex align-items-center justify-content-center vh-20 "> Estações</h1>
         <form id="estacao" action="/registroEstacao" method="post">
-
-            <div class="d-flex align-items-center justify-content-center vh-20">
-                <div class="form-floating mb-3 w-50">
-                  <input type="text" class="form-control" name="nome" id="nome" placeholder="nome">
-                  <label for="nome">Nome: </label>
+          <br>
+            <div class="d-flex align-items-center justify-content-center " style=" color: #363737; font-weight: bold;">
+                <div class="mb-3 w-50">
+                  <label for="nome">Nome da Estação: </label>
+                  <input type="text" class="form-control" name="nome" id="nome">
+                  
+                </div>
+            </div>
+            
+            <div class="d-flex align-items-center justify-content-center " style=" color: #363737; font-weight: bold;">
+                <div class="mb-3 w-50">
+                  <label for="cod-id">Código da Estação: </label>
+                  <input type="text" class="form-control" name="cod-id" id="cod-id">
+                  
                 </div>
             </div>
    
 
-            <div class="d-flex align-items-center justify-content-left" style="margin-left: 25%; color: #6F7173; font-weight: bold;">
-                <label for="velocidade" class="form-label"> Linha que Pertence:</label>
+            <div class="d-flex align-items-center justify-content-left" style="margin-left: 25%; color: #363737; font-weight: bold;">
+                <label for="LinhaPertence" class="form-label"> Linha(s) que Pertence:</label>
               </div>
               <div class="d-flex align-items-center justify-content-center vh-20"> 
-                 <select class="form-select w-50" name="LinhaPertence" id="LinhaPertence">
+                 <select class="form-select w-50" name="LinhaPertence" id="LinhaPertence" multiple>
                       <option value="Linha 1"> Linha 1 </option>
                       <option value="Linha 2"> Linha 2 </option>
                       <option value="Linha 3"> Linha 3 </option>
                       <option value="Linha 4"> Linha 4 </option>
+                      <option value="Linha 5"> Linha 5 </option>
+                      <option value="Linha 6"> Linha 6 </option>
                  </select>
                </div><br>
 
 
-            <div class="d-flex align-items-center justify-content-left" style="margin-left: 25%; color: #6F7173; font-weight: bold;">
-                <label for="km" class="form-label"> Kilometragem:</label>
+            <div class="d-flex align-items-center justify-content-left" style="margin-left: 25%; color: #363737; font-weight: bold;">
+                <label for="bloco" class="form-label"> Bloco(s):</label>
               </div>
               <div class="d-flex align-items-center justify-content-center vh-20"> 
-                 <select class="form-select w-50" name="km" id="km">
-                      <option value="KM1"> KM 1 </option>
-                      <option value="KM2"> KM 2 </option>
-                      <option value="KM3"> KM 3 </option>
-                      <option value="KM4"> KM 4 </option>
+                 <select class="form-select w-50" name="bloco" id="bloco" multiple>
+                      <option value="BloboA"> Bloco A </option>
+                      <option value="BlocoB"> Bloco B </option>
+                      <option value="BlocoC"> Bloco C </option>
+                      <option value="BlocoD"> Bloco D </option>
+                      <option value="BlocoE"> Bloco E </option>
+                      <option value="BlocoF"> Bloco F</option>
                  </select>
                </div><br>
 
-
-
-               <div class="text-center">
-                <h1 class="display-3"> 
-                    <button id="enviar" type="submit" class="btn btn-primary btn-red">Enviar</button>   
-                </h1>
+               <div class="container text-center">
+                <div class="row ">
+                  <div class="col-sm">
+                    <div class="text-center">
+                      <h1 class="display-3"> 
+                        <a href="/" class="btn btn-primary btn-red" role="button">Voltar</a>
+                      </h1>
+                    </div>
+                  </div>
+                  
+                  <div class="col-sm"></div>
+                  
+                  <div class="col-sm">
+                    <div class="text-center">
+                      <h1 class="display-3"> 
+                        <button type="submit" id="enviar" class="btn btn-primary btn-red">Enviar</button>   
+                      </h1>
+                    </div>
+                  </div>
                 </div>
+              </div>
 
            <div class="container-fluid"></div>
         </form>
@@ -90,6 +123,16 @@
     </footer>
 
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+          $('#LinhaPertence').select2();
+          $('#bloco').select2();
+      });
+    </script> 
+
 </body>
 </html>
 
