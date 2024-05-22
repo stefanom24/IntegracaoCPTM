@@ -45,7 +45,7 @@
     <main class = "container mt-5 shadow p-3 mb-5 bg-body-tertiary rounded ">
         <br><br>
         <h1 class="display-2 custom-title d-flex align-items-center justify-content-center vh-20 "> Estações</h1>
-        <form action="/registroEstacao" method="post">
+        <form id="estacao" action="/registroEstacao" method="post">
           <br>
             <div class="d-flex align-items-center justify-content-center " style=" color: #363737; font-weight: bold;">
                 <div class="mb-3 w-50">
@@ -117,6 +117,9 @@
 
            <div class="container-fluid"></div>
         </form>
+        <div id="successMessage" class="alert alert-success" role="alert" style="display: none;">
+          Estação registrada com sucesso!
+        </div>
     </main>
 
     <footer>
