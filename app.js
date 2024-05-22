@@ -165,7 +165,7 @@ function gravarUser(user, callback){
     const fs = require('fs');
     let loginFile;
     try {
-        loginFile = require('./login.json');
+        loginFile = require('data/login.json');
     } catch (error) {
         loginFile = { users: [] }; // Cria um novo objeto se o arquivo não existir
     }
@@ -185,7 +185,7 @@ function gravarTrens(dados) {
     let filejson;
     
     try {
-        filejson = require('./registroTrens.json');
+        filejson = require('data/registroTrens.json');
     } catch(error) {
         filejson = { data: [] }; // Cria um novo objeto se o arquivo não existir
     }
@@ -205,12 +205,12 @@ async function gravarLinhas(dados) {
     let filejson;
     
     try {
-        filejson = require('./registroLinhas.json');
+        filejson = require('data/registroLinhas.json');
     } catch(error) {
         filejson = { data: [] }; // Cria um novo objeto se o arquivo não existir
     }
     filejson.data.push(dados);
-    fs.writeFile("registroLinhas.json", JSON.stringify(filejson), err => {
+    fs.writeFile("data/registroLinhas.json", JSON.stringify(filejson), err => {
         if (err) {
             console.error(err);
             return;
@@ -225,12 +225,12 @@ function gravarEstacao(dados) {
     let filejson;
     
     try {
-        filejson = require('./registroEstacao.json');
+        filejson = require('data/registroEstacao.json');
     } catch(error) {
         filejson = { data: [] }; // Cria um novo objeto se o arquivo não existir
     }
     filejson.data.push(dados);
-    fs.writeFile("registroEstacao.json", JSON.stringify(filejson), err => {
+    fs.writeFile("data/registroEstacao.json", JSON.stringify(filejson), err => {
         if (err) {
             console.error(err);
             return;
