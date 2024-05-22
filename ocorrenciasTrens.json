@@ -239,6 +239,7 @@
       "impacto_na_operacao": false
     },
     {
+<<<<<<< HEAD
       "data": "",
       "horario": "",
       "linha": "",
@@ -336,6 +337,13 @@
       "inviabilizou_o_bloco": false,
       "impacto_na_velocidade": false,
       "descricao": "testeeeeeeeeee"
+=======
+      "data": "3232-02-21",
+      "horario": "03:12",
+      "linha": "linha-12",
+      "descricao": "qwr2r",
+      "impacto_na_operacao": false
+>>>>>>> 79fd8ce67b60c4619901e47a69d1eddabfecdb83
     }
   ]
 }
