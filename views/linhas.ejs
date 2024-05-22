@@ -46,87 +46,87 @@ input[type="number"] {
     
     <fieldset class="container shadow p-3 mb-5 mt-5 bg-body-tertiary rounded mx-auto w-75">
 
-        <h1 class="display-2 custom-title">Linhas</h1><br>
+      <h1 class="display-2 custom-title">Linhas</h1><br>
 
-      <form id="formLinha" action="/registroLinha" method="post">
+        <form id="formLinha" action="/registroLinha" method="post">
 
-        <div class="d-flex align-items-center justify-content-center" style=" color: #363737; font-weight: bold;">
-          <div class=" mb-3 w-50">
-              <label for="NomeLinha">Nome da Linha: </label>
-              <input type="text" class="form-control" name="NomeLinha" id="NomeLinha">
+          <div class="d-flex align-items-center justify-content-center" style=" color: #363737; font-weight: bold;">
+            <div class=" mb-3 w-50">
+                <label for="NomeLinha">Nome da Linha: </label>
+                <input type="text" class="form-control" name="NomeLinha" id="NomeLinha">
             </div>
-        </div>
+          </div>
           
-        <div class="d-flex align-items-center justify-content-center" style=" color: #363737; font-weight: bold;">
-          <div class="mb-3 w-50">
-              <label for="Estacoes">Número de Estações: </label>
-              <input type="number" class="form-control setinha" name="Estacoes" id="Estacoes">
+          <div class="d-flex align-items-center justify-content-center" style=" color: #363737; font-weight: bold;">
+            <div class="mb-3 w-50">
+                <label for="Estacoes">Número de Estações: </label>
+                <input type="number" class="form-control setinha" name="Estacoes" id="Estacoes">
+              </div>
+          </div>
+
+          <!-- Inicio da linha -->
+          <div class="d-flex align-items-center justify-content-center" style=" color: #363737; font-weight: bold;">
+            <div class=" mb-3 w-50">
+                <label for="Estacoes">Início da Linha: </label>
+                <input type="text" class="form-control" name="IniciaLinha" id="IniciaLinha">
             </div>
-        </div>
-
-        <!-- Inicio da linha -->
-        <div class="d-flex align-items-center justify-content-center" style=" color: #363737; font-weight: bold;">
-          <div class=" mb-3 w-50">
-              <label for="Estacoes">Início da Linha: </label>
-              <input type="text" class="form-control" name="IniciaLinha" id="IniciaLinha">
           </div>
-      </div>
 
-        <!-- Fim da linha -->
-        <div class="d-flex align-items-center justify-content-center" style=" color: #363737; font-weight: bold;">
-          <div class="mb-3 w-50">
-              <label for="Estacoes">Fim da Linha: </label>
-              <input type="text" class="form-control" name="FimLinha" id="FimLinha">
+          <!-- Fim da linha -->
+          <div class="d-flex align-items-center justify-content-center" style=" color: #363737; font-weight: bold;">
+            <div class="mb-3 w-50">
+                <label for="Estacoes">Fim da Linha: </label>
+                <input type="text" class="form-control" name="FimLinha" id="FimLinha">
+            </div>
           </div>
-      </div>
 
       
       
-        <div class="d-flex align-items-center justify-content-center" style=" color: #363737; font-weight: bold;">
-          <div class="mb-3 w-50">
-            <label for="HW"> Consumo de Energia (Hw): </label>
-            <input type="number" class="form-control" name="HW" id="HW">
+          <div class="d-flex align-items-center justify-content-center" style=" color: #363737; font-weight: bold;">
+            <div class="mb-3 w-50">
+              <label for="HW"> Consumo de Energia (Hw): </label>
+              <input type="number" class="form-control" name="HW" id="HW">
+            </div>
           </div>
-        </div>
         
-        <div class="d-flex align-items-center justify-content-center" style=" color: #363737; font-weight: bold;">
-          <div class="mb-3 w-50">
-            <label for="MediaPassageiros">Média de Passageiros: </label>
-            <input type="number" class="form-control" name="MediaPassageiros" id="MediaPassageiros">
+          <div class="d-flex align-items-center justify-content-center" style=" color: #363737; font-weight: bold;">
+            <div class="mb-3 w-50">
+              <label for="MediaPassageiros">Média de Passageiros: </label>
+              <input type="number" class="form-control" name="MediaPassageiros" id="MediaPassageiros">
+            </div>
           </div>
-        </div>
         
-        <!-- Código -->
-        <div class="d-flex align-items-center justify-content-center" style=" color: #363737; font-weight: bold;">
-          <div class="mb-3 w-50">
-              <label for="Estacoes">Código da Linha: </label>
-              <input type="text" class="form-control" name="CodigoLinha" id="CodigoLinha">
+          <!-- Código -->
+          <div class="d-flex align-items-center justify-content-center" style=" color: #363737; font-weight: bold;">
+            <div class="mb-3 w-50">
+                <label for="Estacoes">Código da Linha: </label>
+                <input type="text" class="form-control" name="CodigoLinha" id="CodigoLinha">
+            </div>
           </div>
-      </div>
 
-      <div class="container text-center" >
-        <div class="row ">
-          <div class="col-sm">
-            <div class="text-center">
-              <h1 class="display-3"> 
-                <a href="/" class="btn btn-primary btn-red" role="button">Voltar</a>
-              </h1>
+          <div class="container text-center" >
+            <div class="row ">
+              <div class="col-sm">
+                <div class="text-center">
+                  <h1 class="display-3"> 
+                    <a href="/" class="btn btn-primary btn-red" role="button">Voltar</a>
+                  </h1>
+                </div>
+              </div>
+              
+              <div class="col-sm"></div>
+              
+              <div class="col-sm">
+                <div class="text-center">
+                  <h1 class="display-3"> 
+                    <button type="submit" id="enviar" class="btn btn-primary btn-red">Enviar</button>   
+                  </h1>
+                </div>
+              </div>
             </div>
           </div>
-          
-          <div class="col-sm"></div>
-          
-          <div class="col-sm">
-            <div class="text-center">
-              <h1 class="display-3"> 
-                <button type="submit" id="enviar" class="btn btn-primary btn-red">Enviar</button>   
-              </h1>
-            </div>
-          </div>
-        </div>
-      </div>
                     
-      </form>
+        </form>
     </fieldset>
 
     <footer>
