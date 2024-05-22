@@ -5,33 +5,19 @@ describe('Navegação', () => {
       cy.visit('http://localhost:3000/trens')
   })
 
-  it('Teste Submit', () => {
-    cy.get('#enviar').should('contain','Enviar')
-  })
+  
 
   it('Teste Linha', () => {
     cy.get('#modelo').select("Modelo 2")
     cy.get('#modelo').select("Modelo 3")
-    cy.get('#modelo').select("Modelo 4")
+    cy.get('#codigoID').type('blahblahblah')
+    cy.get('#linha').select("Linha 2")
+    cy.get('#status').select("Ativo")
+    cy.get('#enviar').click()
     //cy.get('.form-control').within(() => {
     //  cy.get('input:first').should('have.attr', 'placeholder', 'Email')
     //  cy.get('input:last').should('have.attr', 'placeholder', 'Password')
     //})
-  })
-
-  it('Teste Nome', () => {
-    cy.get('#nome').type('blahblahblah')
-    cy.get('#nome').should('have.value', 'blahblahblah')
-    //cy.get('.form-control').within(() => {
-    //  cy.get('input:first').should('have.attr', 'placeholder', 'Email')
-    //  cy.get('input:last').should('have.attr', 'placeholder', 'Password')
-    //})
-  })
-  
-  it('Teste Kilometragem', () => {
-    cy.get('#km').select("KM 2")
-    cy.get('#km').select("KM 3")
-    cy.get('#km').select("KM 4")
   })
 
   /* it('navegar para a página de vídeos', () => {

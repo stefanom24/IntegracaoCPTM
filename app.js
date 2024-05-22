@@ -39,8 +39,11 @@ app.post('/registroTrens', (req, res) => {
     // Criar Objeto para conseguir passar todos os dados.
 
     gravarTrens(trens, () => {
-        console.log("Gravar json completo.");
-    })
+        
+        
+    });
+    console.log("Gravar json completo.");
+    res.redirect('/trens');
 });
 
 // Roteando pagina cadastro de linhas
@@ -75,8 +78,11 @@ app.post('/registroLinha', (req, res) => {
     // Criar Objeto para conseguir passar todos os dados.
 
     gravarLinhas(linhas, () => {
-        console.log("Gravar json completo.");
-    })
+        
+    });
+    if (typeof window !== 'undefined') {
+    };
+    console.log("Gravar json completo.");
 });
 
 // Roteando pagina cadastro de estações
@@ -88,19 +94,22 @@ app.get('/estacoes', (req, res) => {
 app.post('/registroEstacao', (req, res) => {
     let Nome = req.body.nome;
     let KLM = req.body.km;
-    let FStation = req.body.LinhaPertence;
-    // Declarar Dados.
-    
+    let Station = req.body.LinhaPertence;
+
     let estacao = {
         "nome": Nome,
         "km": KLM,
-        "estacaof": FStation
-    }
-    // Criar Objeto para conseguir passar todos os dados.
-
-    gravarEstacao(estacao, () => {
+        "estacao": Station
+    };
+    check = false;
+    check = gravarEstacao(estacao, () => {
         console.log("Gravar json completo.");
-    })
+        res.redirect('/estacoes');
+    });
+    if (check == true) {
+        console.log("Gravar json completo.");
+        res.redirect('/estacoes');
+    }
 });
 
 // Roteando pagina ocorrencias de trens
@@ -123,12 +132,7 @@ app.get('/historico', (req, res) => {
 });
 
 app.post('/historico', (req, resp) => {
-    let 
-})
-
-app.post('/historico', (req, resp) => {
-    let 
-})
+});
 
 app.get('/detalhes', (req, res) => {
     res.render('detalhes');
@@ -166,7 +170,7 @@ function gravar(user, callback){
         loginFile = { users: [] }; // Cria um novo objeto se o arquivo não existir
     }
     loginFile.users.push(user);
-    fs.writeFile('login.json', JSON.stringify(loginFile), err => {
+    fs.writeFile('data/login.json', JSON.stringify(loginFile), err => {
         if (err) {
             console.error(err);
             return;
@@ -196,7 +200,7 @@ function gravarTrens(dados) {
 
 };
 
-function gravarLinhas(dados) {
+async function gravarLinhas(dados) {
     const fs = require('fs');
     let filejson;
     
@@ -212,7 +216,8 @@ function gravarLinhas(dados) {
             return;
         }
         console.log('Gravado com Sucesso');
-    }) 
+    });
+    return true;
 };
 
 function gravarEstacao(dados) {
@@ -231,7 +236,7 @@ function gravarEstacao(dados) {
             return;
         }
         console.log('Gravado com Sucesso');
-    }) 
+    });
 };
 
 

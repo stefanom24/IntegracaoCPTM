@@ -35,7 +35,7 @@
     <main>
         <br><br>
         <h1 class="display-2 custom-title">Registro de Estações</h1>
-        <form action="/registroEstacao" method="post">
+        <form id="estacao" action="/registroEstacao" method="post">
 
             <div class="d-flex align-items-center justify-content-center vh-20">
                 <div class="form-floating mb-3 w-50">
@@ -80,6 +80,9 @@
 
            <div class="container-fluid"></div>
         </form>
+        <div id="successMessage" class="alert alert-success" role="alert" style="display: none;">
+          Estação registrada com sucesso!
+        </div>
     </main>
 
     <footer>
