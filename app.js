@@ -198,8 +198,11 @@ app.post('/ocoLinhas', (req, res) => {
       bloco: req.body.bloco,
       inviabilizou_o_bloco: req.body.Inviabilizou_o_bloco === 'on',
       impacto_na_velocidade: req.body.Impacto_na_velocidade === 'on',
+      categoria: req.body.categoria,
       descricao: req.body.descricao
   };
+
+  console.log('Nova ocorrência recebida:', newOcorrencia);
 
   const filePath = path.join(__dirname, 'ocorrencias.json');
 
@@ -234,13 +237,16 @@ app.post('/ocoTrens', (req, res) => {
   const newOcorrencia = {
       data: req.body.data,
       horario: req.body.horario,
+      codigo_trem: req.body.codigo_trem,
       linha: req.body.linha,
-      estacao: req.body.estacao,
       bloco: req.body.bloco,
       inviabilizou_o_bloco: req.body.Inviabilizou_o_bloco === 'on',
       impacto_na_velocidade: req.body.Impacto_na_velocidade === 'on',
+      categoria: req.body.categoria,
       descricao: req.body.descricao
   };
+
+  console.log('Nova ocorrência recebida:', newOcorrencia);
 
   const filePath = path.join(__dirname, 'ocorrenciasTrens.json');
 
@@ -258,15 +264,6 @@ app.post('/ocoTrens', (req, res) => {
       }
 
       ocorrenciasTrens.push(newOcorrencia);
-
-      fs.writeFile(filePath, JSON.stringify({ ocorrenciasTrens: ocorrenciasTrens }, null, 2), writeErr => {
-          if (writeErr) {
-              console.error("Falha ao salvar o arquivo atualizado:", writeErr);
-              res.status(500).send("Erro ao atualizar o registro de ocorrências.");
-          } else {
-              res.send("Ocorrência registrada com sucesso!");
-          }
-      });
   });
 });
 
@@ -275,11 +272,16 @@ app.post('/ocoEstacoes', (req, res) => {
   const newOcorrencia = {
       data: req.body.data,
       horario: req.body.horario,
+      linha: req.body.linha,
       estacao: req.body.estacao,
-      detalhes: req.body.detalhes,
-      impacto: req.body.impacto === 'on',
+      bloco: req.body.bloco,
+      inviabilizou_o_bloco: req.body.Inviabilizou_o_bloco === 'on',
+      impacto_na_velocidade: req.body.Impacto_na_velocidade === 'on',
+      categoria: req.body.categoria,
       descricao: req.body.descricao
   };
+
+  console.log('Nova ocorrência recebida:', newOcorrencia);
 
   const filePath = path.join(__dirname, 'ocorrenciasEstacoes.json');
 
