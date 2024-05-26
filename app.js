@@ -242,7 +242,7 @@ app.post('/ocoTrens', (req, res) => {
       bloco: req.body.bloco,
       inviabilizou_o_bloco: req.body.Inviabilizou_o_bloco === 'on',
       impacto_na_velocidade: req.body.Impacto_na_velocidade === 'on',
-      categoria: req.body.categoria,
+      categoria: req.body.Categoria,
       descricao: req.body.descricao
   };
 
@@ -277,7 +277,7 @@ app.post('/ocoEstacoes', (req, res) => {
       bloco: req.body.bloco,
       inviabilizou_o_bloco: req.body.Inviabilizou_o_bloco === 'on',
       impacto_na_velocidade: req.body.Impacto_na_velocidade === 'on',
-      categoria: req.body.categoria,
+      categoria: req.body.Categoria,
       descricao: req.body.descricao
   };
 
