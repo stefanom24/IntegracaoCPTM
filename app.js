@@ -198,7 +198,6 @@ app.post('/ocoLinhas', (req, res) => {
       bloco: req.body.bloco,
       inviabilizou_o_bloco: req.body.Inviabilizou_o_bloco === 'on',
       impacto_na_velocidade: req.body.Impacto_na_velocidade === 'on',
-      categoria: req.body.categoria,
       descricao: req.body.descricao
   };
 
@@ -264,6 +263,15 @@ app.post('/ocoTrens', (req, res) => {
       }
 
       ocorrenciasTrens.push(newOcorrencia);
+
+      fs.writeFile(filePath, JSON.stringify({ ocorrenciasTrens: ocorrenciasTrens }, null, 2), writeErr => {
+        if (writeErr) {
+            console.error("Falha ao salvar o arquivo atualizado:", writeErr);
+            res.status(500).send("Erro ao atualizar o registro de ocorrências.");
+        } else {
+            res.send("Ocorrência de trem registrada com sucesso!");
+        }
+    });
   });
 });
 
@@ -314,25 +322,25 @@ app.post('/ocoEstacoes', (req, res) => {
 
 //ainda não está pronto
 // Rota GET para exibir histórico de ocorrências
-app.get("/historico", (req, res) => {
-  const filePaths = {
-    trens: path.join(__dirname, "ocorrenciasTrens.json"),
-    linhas: path.join(__dirname, "ocorrenciasLinhas.json"),
-    estacoes: path.join(__dirname, "ocorrenciasEstacoes.json")
-  };
+app.get('/historico', (req, res) => {
+    const filePaths = {
+        ocorrenciasTrens: path.join(__dirname, 'ocorrenciasTrens.json'),
+        ocorrenciasLinhas: path.join(__dirname, 'ocorrenciasLinhas.json'),
+        ocorrenciasEstacoes: path.join(__dirname, 'ocorrenciasEstacoes.json')
+    };
 
-  // Lê e combina as ocorrências de todos os arquivos
-  Promise.all(Object.entries(filePaths).map(([key, path]) => 
-    fs.promises.readFile(path, "utf8").then(data => JSON.parse(data)[key] || []).catch(err => {
-      console.error(`Erro ao ler o arquivo de ${key}:`, err);
-      return [];  // Retorna um array vazio em caso de erro
-    })
-  )).then(results => {
-    // Combina todos os arrays de ocorrências em um único array
-    const ocorrencias = results.flat();
-    res.render("historico", { ocorrencias });
-  }).catch(error => {
-    console.error("Erro ao processar os arquivos de ocorrências:", error);
-    res.render("historico", { ocorrencias: [] });
-  });
+    // Lê e combina as ocorrências de todos os arquivos
+    Promise.all(Object.entries(filePaths).map(([key, filePath]) =>
+        fs.promises.readFile(filePath, 'utf8').then(data => JSON.parse(data)[key] || []).catch(err => {
+            console.error(`Erro ao ler o arquivo de ${key}:`, err);
+            return [];  // Retorna um array vazio em caso de erro
+        })
+    )).then(results => {
+        // Combina todos os arrays de ocorrências em um único array
+        const ocorrencias = results.flat();
+        res.render('historico', { ocorrencias });
+    }).catch(error => {
+        console.error("Erro ao processar os arquivos de ocorrências:", error);
+        res.render('historico', { ocorrencias: [] });
+    });
 });
