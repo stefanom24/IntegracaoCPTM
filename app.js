@@ -186,6 +186,10 @@ app.use(express.json());
 
 // Rota POST para registrar novas ocorrências
 //LINHAS
+app.get('/ocorrencias', (req, res) => {
+  res.sendFile(path.join(__dirname, 'ocorrencias.json')); // Certifique-se que o caminho está correto
+});
+
 app.post('/ocoLinhas', (req, res) => {
   const newOcorrencia = {
       data: req.body.data,
