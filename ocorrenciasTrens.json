@@ -73,6 +73,39 @@
       "impacto_na_velocidade": false,
       "categoria": "Queda de energia",
       "descricao": "teste"
+    },
+    {
+      "data": "2024-05-08",
+      "horario": "18:12",
+      "codigo_trem": "05621-025",
+      "linha": "linha-10",
+      "bloco": "A3",
+      "inviabilizou_o_bloco": false,
+      "impacto_na_velocidade": false,
+      "categoria": "Falha na sinalização",
+      "descricao": "oi oi oi"
+    },
+    {
+      "data": "2024-05-27",
+      "horario": "16:12",
+      "codigo_trem": "05621-025",
+      "linha": "linha-7",
+      "bloco": "A3",
+      "inviabilizou_o_bloco": false,
+      "impacto_na_velocidade": false,
+      "categoria": "Quebra",
+      "descricao": "Quebrooooo"
+    },
+    {
+      "data": "",
+      "horario": "",
+      "codigo_trem": "",
+      "linha": "",
+      "bloco": "",
+      "inviabilizou_o_bloco": false,
+      "impacto_na_velocidade": false,
+      "categoria": "",
+      "descricao": ""
     }
   ]
 }
