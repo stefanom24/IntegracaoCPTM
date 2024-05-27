@@ -62,6 +62,17 @@
       "inviabilizou_o_bloco": false,
       "impacto_na_velocidade": false,
       "descricao": ""
+    },
+    {
+      "data": "2024-05-29",
+      "horario": "16:07",
+      "codigo_trem": "12",
+      "linha": "linha-11",
+      "bloco": "10",
+      "inviabilizou_o_bloco": false,
+      "impacto_na_velocidade": false,
+      "categoria": "Queda de energia",
+      "descricao": "teste"
     }
   ]
 }

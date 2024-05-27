@@ -143,27 +143,53 @@
         <%- include ('footer') %>
     </footer>
     <script src="js/bootstrap.bundle.min.js"></script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const form = document.getElementById("ocoTrensForm");
+            const form = document.getElementById("ocoEstacaoForm");
             const successMessage = document.getElementById("successMessage");
       
             form.addEventListener("submit", function (event) {
                 event.preventDefault(); // Evita o envio do formulário
-      
-                // Exibe a mensagem de sucesso
-                successMessage.style.display = "block";
-      
-                // Limpa os campos do formulário
-                form.reset();
-      
-                // Oculta a mensagem de sucesso após alguns segundos (opcional)
-                setTimeout(function () {
-                    successMessage.style.display = "none";
-                }, 5000); // Oculta após 5 segundos
+    
+                // Cria um objeto com os dados do formulário
+                const formData = {
+                    data: document.getElementById("data").value,
+                    horario: document.getElementById("horario").value,
+                    linha: document.getElementById("linha").value,
+                    estacao: document.getElementById("estacao").value,
+                    bloco: document.getElementById("bloco").value,
+                    Inviabilizou_o_bloco: document.getElementById("Inviabilizou_o_bloco").checked,
+                    Impacto_na_velocidade: document.getElementById("Impacto_na_velocidade").checked,
+                    Categoria: document.getElementById("Categoria").value,
+                    descricao: document.getElementById("descricao").value
+                };
+    
+                // Envia os dados como JSON
+                fetch('/ocoEstacoes', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => response.text())
+                .then(text => {
+                    console.log('Formulário enviado com sucesso:', text);
+                    // Exibe a mensagem de sucesso
+                    successMessage.style.display = "block";
+                    // Limpa os campos do formulário
+                    form.reset();
+                    // Oculta a mensagem de sucesso após alguns segundos (opcional)
+                    setTimeout(function () {
+                        successMessage.style.display = "none";
+                    }, 5000); // Oculta após 5 segundos
+                })
+                .catch(err => console.error('Erro ao enviar formulário:', err));
             });
         });
     </script>
+    
 </body>
 </html>
 

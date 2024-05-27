@@ -181,11 +181,8 @@ const bodyParser = require("body-parser");
 const path = require("path");
 
 // Configuração básica do servidor
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
-app.use("/", express.static("./node_modules/bootstrap/dist/"));
+app.use(express.urlencoded({ extended: true}));
+app.use(express.json());
 
 // Rota POST para registrar novas ocorrências
 //LINHAS
@@ -196,8 +193,8 @@ app.post('/ocoLinhas', (req, res) => {
       linha: req.body.linha,
       estacao: req.body.estacao,
       bloco: req.body.bloco,
-      inviabilizou_o_bloco: req.body.Inviabilizou_o_bloco === 'on',
-      impacto_na_velocidade: req.body.Impacto_na_velocidade === 'on',
+      inviabilizou_o_bloco: req.body.Inviabilizou_o_bloco == 'on',
+      impacto_na_velocidade: req.body.Impacto_na_velocidade == 'on',
       descricao: req.body.descricao
   };
 
@@ -214,7 +211,7 @@ app.post('/ocoLinhas', (req, res) => {
               ocorrencias = JSON.parse(data).ocorrencias || [];
           } catch (parseError) {
               console.error("Erro ao analisar os dados do JSON:", parseError);
-              // Se houver erro no parse, consideramos 'ocorrencias' ainda como array vazio.
+              // Se houver erro no parse, consideramos 'ocorrenciasEstacoes' ainda como array vazio.
           }
       }
 
@@ -225,7 +222,7 @@ app.post('/ocoLinhas', (req, res) => {
               console.error("Falha ao salvar o arquivo atualizado:", writeErr);
               res.status(500).send("Erro ao atualizar o registro de ocorrências.");
           } else {
-              res.send("Ocorrência registrada com sucesso!");
+              res.send("Ocorrência de estação registrada com sucesso!");
           }
       });
   });
@@ -258,20 +255,20 @@ app.post('/ocoTrens', (req, res) => {
               ocorrenciasTrens = JSON.parse(data).ocorrenciasTrens || [];
           } catch (parseError) {
               console.error("Erro ao analisar os dados do JSON:", parseError);
-              // Se houver erro no parse, consideramos 'ocorrenciasTrens' ainda como array vazio.
+              // Se houver erro no parse, consideramos 'ocorrenciasEstacoes' ainda como array vazio.
           }
       }
 
       ocorrenciasTrens.push(newOcorrencia);
 
       fs.writeFile(filePath, JSON.stringify({ ocorrenciasTrens: ocorrenciasTrens }, null, 2), writeErr => {
-        if (writeErr) {
-            console.error("Falha ao salvar o arquivo atualizado:", writeErr);
-            res.status(500).send("Erro ao atualizar o registro de ocorrências.");
-        } else {
-            res.send("Ocorrência de trem registrada com sucesso!");
-        }
-    });
+          if (writeErr) {
+              console.error("Falha ao salvar o arquivo atualizado:", writeErr);
+              res.status(500).send("Erro ao atualizar o registro de ocorrências.");
+          } else {
+              res.send("Ocorrência de estação registrada com sucesso!");
+          }
+      });
   });
 });
 
