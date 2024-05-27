@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const fs = require('fs');
-const $ = require('jquery');
 
 // Deixando o node/express utilizar e ler arquivos html
 app.use(express.urlencoded({extended: true}));
@@ -40,11 +39,8 @@ app.post('/registroTrens', (req, res) => {
     // Criar Objeto para conseguir passar todos os dados.
 
     gravarTrens(trens, () => {
-        
-        
-    });
-    console.log("Gravar json completo.");
-    res.redirect('/trens');
+        console.log("Gravar json completo.");
+    })
 });
 
 // Roteando pagina cadastro de linhas
@@ -79,11 +75,8 @@ app.post('/registroLinha', (req, res) => {
     // Criar Objeto para conseguir passar todos os dados.
 
     gravarLinhas(linhas, () => {
-        
-    });
-    if (typeof window !== 'undefined') {
-    };
-    console.log("Gravar json completo.");
+        console.log("Gravar json completo.");
+    })
 });
 
 // Roteando pagina cadastro de estações
@@ -95,22 +88,24 @@ app.get('/estacoes', (req, res) => {
 app.post('/registroEstacao', (req, res) => {
     let Nome = req.body.nome;
     let KLM = req.body.km;
-    let Station = req.body.LinhaPertence;
-
+    let FStation = req.body.LinhaPertence;
+    // Declarar Dados.
+    
     let estacao = {
         "nome": Nome,
         "km": KLM,
-        "estacao": Station
-    };
-    check = false;
-    check = gravarEstacao(estacao, () => {
-        console.log("Gravar json completo.");
-        res.redirect('/estacoes');
-    });
-    if (check == true) {
-        console.log("Gravar json completo.");
-        res.redirect('/estacoes');
+        "estacaof": FStation
     }
+    // Criar Objeto para conseguir passar todos os dados.
+
+    gravarEstacao(estacao, () => {
+        console.log("Gravar json completo.");
+    })
+});
+
+// Roteando pagina Cadastrados
+app.get('/cadastrados', (req,res) => {
+    res.render('cadastrados');
 });
 
 // Roteando pagina ocorrencias de trens
@@ -132,8 +127,9 @@ app.get('/historico', (req, res) => {
     res.render('historico');
 });
 
-app.post('/historico', (req, resp) => {
-});
+app.post('/historico', (req, res) => {
+    let 
+})
 
 app.get('/detalhes', (req, res) => {
     res.render('detalhes');
@@ -161,16 +157,21 @@ app.listen(3000, () => {
     console.log('Servidor iniciado.');
 });
 
-function gravarUser(user, callback){
+// <<<<<< HEAD
+// function gravarUser(user, callback){
+// =======
+// Funções para gravar e ler arquivos JSON
+function gravar(user, callback){
+// >>>>>>> 2f6ff10e8af0cb6908cf97d97a2fcdf5b1b6e23e
     const fs = require('fs');
     let loginFile;
     try {
-        loginFile = require('data/login.json');
+        loginFile = require('./login.json');
     } catch (error) {
         loginFile = { users: [] }; // Cria um novo objeto se o arquivo não existir
     }
     loginFile.users.push(user);
-    fs.writeFile('data/login.json', JSON.stringify(loginFile), err => {
+    fs.writeFile('login.json', JSON.stringify(loginFile), err => {
         if (err) {
             console.error(err);
             return;
@@ -178,14 +179,14 @@ function gravarUser(user, callback){
         console.log('Gravado');
         callback(); // Chama `ler` somente após o arquivo ser gravado
     });
-};''
+};
 
 function gravarTrens(dados) {
     const fs = require('fs');
     let filejson;
     
     try {
-        filejson = require('data/registroTrens.json');
+        filejson = require('./registroTrens.json');
     } catch(error) {
         filejson = { data: [] }; // Cria um novo objeto se o arquivo não existir
     }
@@ -200,24 +201,23 @@ function gravarTrens(dados) {
 
 };
 
-async function gravarLinhas(dados) {
+function gravarLinhas(dados) {
     const fs = require('fs');
     let filejson;
     
     try {
-        filejson = require('data/registroLinhas.json');
+        filejson = require('./registroLinhas.json');
     } catch(error) {
         filejson = { data: [] }; // Cria um novo objeto se o arquivo não existir
     }
     filejson.data.push(dados);
-    fs.writeFile("data/registroLinhas.json", JSON.stringify(filejson), err => {
+    fs.writeFile("registroLinhas.json", JSON.stringify(filejson), err => {
         if (err) {
             console.error(err);
             return;
         }
         console.log('Gravado com Sucesso');
-    });
-    return true;
+    }) 
 };
 
 function gravarEstacao(dados) {
@@ -225,18 +225,18 @@ function gravarEstacao(dados) {
     let filejson;
     
     try {
-        filejson = require('data/registroEstacao.json');
+        filejson = require('./registroEstacao.json');
     } catch(error) {
         filejson = { data: [] }; // Cria um novo objeto se o arquivo não existir
     }
     filejson.data.push(dados);
-    fs.writeFile("data/registroEstacao.json", JSON.stringify(filejson), err => {
+    fs.writeFile("registroEstacao.json", JSON.stringify(filejson), err => {
         if (err) {
             console.error(err);
             return;
         }
         console.log('Gravado com Sucesso');
-    });
+    }) 
 };
 
 
@@ -255,3 +255,4 @@ function ler(callback){
     });
     callback();
 };
+
