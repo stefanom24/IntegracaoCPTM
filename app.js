@@ -345,3 +345,8 @@ app.get('/historico', (req, res) => {
         res.render('historico', { ocorrencias: [] });
     });
 });
+
+app.get("/I", (req, res) => {
+  res.render("index2");
+});
+

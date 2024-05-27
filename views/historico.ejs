@@ -149,12 +149,45 @@
                         abrir: ''
                     }));
                     populateTable(tabela, ocorrencias);
+                    addButtonEventListeners(); // Adiciona os eventos aos botões após popular a tabela
                 })
                 .catch(error => console.error('Erro ao carregar as ocorrências:', error));
         }
 
         // Carregar ocorrências quando a página é carregada
         document.addEventListener('DOMContentLoaded', fetchOccurrences);
+
+        
+        // Função para exibir os detalhes da ocorrência no modal
+        function showDetails(item) {
+            document.getElementById('detalhesData').textContent = item.data;
+            document.getElementById('detalhesHorario').textContent = item.horario;
+            document.getElementById('detalhesLinha').textContent = item.linha;
+            document.getElementById('detalhesCategoria').textContent = item.categoria;
+            
+
+            var detalhesOcorrenciaModal = new bootstrap.Modal(document.getElementById('detalhesOcorrenciaModal'));
+            detalhesOcorrenciaModal.show();
+        }
+        
+         // Adiciona evento de clique aos botões "Abrir"
+    function addButtonEventListeners() {
+        document.querySelectorAll('button.btn-primary').forEach(function(button) {
+            button.addEventListener('click', function() {
+                var row = button.closest('tr');
+                var item = {
+                    data: row.querySelector('td:nth-child(1)').textContent,
+                    horario: row.querySelector('td:nth-child(2)').textContent,
+                    linha: row.querySelector('td:nth-child(3)').textContent,
+                    categoria: row.querySelector('td:nth-child(4)').textContent,
+                    
+                };
+                showDetails(item);
+            });
+        });
+    }
+
+
     </script>
 
     <style>
@@ -263,5 +296,29 @@
      <footer>
         <%- include ('footer') %> 
    </footer>
+
+   <!-- Modal para exibir detalhes da ocorrência -->
+<div class="modal fade" id="detalhesOcorrenciaModal" tabindex="-1" aria-labelledby="detalhesOcorrenciaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="detalhesOcorrenciaModalLabel">Detalhes da Ocorrência</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Detalhes da ocorrência serão inseridos aqui -->
+                <p><strong>Data:</strong> <span id="detalhesData"></span></p>
+                <p><strong>Horário:</strong> <span id="detalhesHorario"></span></p>
+                <p><strong>Linha:</strong> <span id="detalhesLinha"></span></p>
+                <p><strong>Categoria:</strong> <span id="detalhesCategoria"></span></p>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
