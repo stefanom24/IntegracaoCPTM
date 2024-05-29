@@ -106,7 +106,9 @@ app.post('/registroEstacao', (req, res) => {
 // Roteando pagina Cadastrados
 app.get('/cadastrados', (req,res) => {
     res.render('cadastrados');
+    let escolha = 
 });
+
 
 // Roteando pagina ocorrencias de trens
 app.get('/ocoTrens', (req, res) => {
