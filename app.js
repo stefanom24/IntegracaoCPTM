@@ -103,9 +103,19 @@ app.post('/registroEstacao', (req, res) => {
     })
 });
 
-// Roteando pagina Cadastrados
-app.get('/cadastrados', (req,res) => {
-    res.render('cadastrados');
+// Roteando pagina Cadastro de Trens
+app.get('/cadTrens', (req,res) => {
+    res.render('cadTrens');
+});
+
+// Roteando pagina Cadastro de Estação
+app.get('/cadEstacoes', (req,res) => {
+    res.render('cadEstacoes');
+});
+
+// Roteando pagina Cadastro de Linha
+app.get('/cadLinhas', (req,res) => {
+    res.render('cadLinhas');
 });
 
 
