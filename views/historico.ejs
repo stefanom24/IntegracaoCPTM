@@ -99,7 +99,9 @@
             { key: 'horario', name: 'Horário' },
             { key: 'linha', name: 'Linha' },
             { key: 'categoria', name: 'Categoria' },
+            { key:'tag', name:'Tipo' },
             { key: 'abrir', name: 'Abrir' }
+            
         ];
 
         // Função para popular a tabela com dados
@@ -145,7 +147,9 @@
                         data: ocorrencia.data,
                         horario: ocorrencia.horario,
                         linha: ocorrencia.linha,
-                        categoria: ocorrencia.descricao, // Supondo que 'descricao' seja a 'categoria'
+                        categoria: ocorrencia.categoria,
+                        tag: ocorrencia.tag,
+                         // Supondo que 'descricao' seja a 'categoria'
                         abrir: ''
                     }));
                     populateTable(tabela, ocorrencias);
@@ -163,7 +167,7 @@
             document.getElementById('detalhesData').textContent = item.data;
             document.getElementById('detalhesHorario').textContent = item.horario;
             document.getElementById('detalhesLinha').textContent = item.linha;
-            document.getElementById('detalhesCategoria').textContent = item.categoria;
+            document.getElementById('detalhesDescricao').textContent = item.descricao;
             
 
             var detalhesOcorrenciaModal = new bootstrap.Modal(document.getElementById('detalhesOcorrenciaModal'));
@@ -208,90 +212,7 @@
         }
     </style>
 
-    <!--<script>
-        var config = {
-            values: [{
-                data: '24/04',
-                horario: '13:00',
-                linha: 'Linha 12',
-                categoria: 'Portas'
-            }, {
-                data: '24/04',
-                horario: '13:00',
-                linha: 'Linha 12',
-                categoria: 'Portas'
-            }, {
-                data: '24/04',
-                horario: '13:00',
-                linha: 'Linha 12',
-                categoria: 'Portas'
-            }, {
-                data: '24/04',
-                horario: '13:00',
-                linha: 'Linha 12',
-                categoria: 'Portas'
-            }],
-            headers: [
-                { key: 'data', name: 'Data' },
-                { key: 'horario', name: 'Horário' },
-                { key: 'linha', name: 'Linha' },
-                { key: 'categoria', name: 'Categoria' },
-                { key: 'abrir', name: 'Abrir' }
-            ]
-        };
-
-        function populateTable(c, config) {
-            var thead = c.createTHead();
-            var headerRow = thead.insertRow();
-
-            // Define cabeçalhos
-            config.headers.forEach(function(header) {
-                var cell = headerRow.insertCell();
-                cell.textContent = header.name;
-                cell.style.fontWeight = 'bold';  // Define cabeçalhos em negrito
-            });
-
-            // Cria corpo da tabela
-            var tbody = document.createElement('tbody');
-            c.appendChild(tbody);
-
-            // Insere dados no corpo
-            config.values.forEach(function(item) {
-                var row = tbody.insertRow();
-                config.headers.forEach(function(header) {
-                    var cell = row.insertCell();
-                    cell.textContent = item[header.key] || '';
-                });
-            });
-        }
-
-        var tabela = document.getElementById("tabela");
-        populateTable(tabela, config);
-    </script>
-
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;  
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f8f9fa;
-            font-weight: bold;  
-        }
-    </style> 
-    <br>
-    <div class="text-center">
-        <button type="submit" class="btn btn-secondary me-2 btn-red">Voltar</button>
-        <button type="submit" class="btn btn-primary btn-red">Salvar</button>
-     </div> 
-     <br><br><br><br><br> -->
+    
     
      <footer>
         <%- include ('footer') %> 

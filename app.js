@@ -54,13 +54,7 @@ app.get("/historico", (req, res) => {
   res.render("historico");
 });
 
-app.post("/historico", (req, resp) => {
-  let;
-});
 
-app.post("/historico", (req, resp) => {
-  let;
-});
 
 app.get("/detalhes", (req, res) => {
   res.render("detalhes");
@@ -136,7 +130,7 @@ app.post("/registroTrens", (req, res) => {
   // Precisa gravar os dados
 });
 
-app.listen(9000, () => {
+app.listen(10000, () => {
   console.log("Servidor iniciado.");
 });
 
@@ -185,11 +179,44 @@ app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
 // Rota POST para registrar novas ocorrências
-//LINHAS
-app.get('/ocorrencias', (req, res) => {
-  res.sendFile(path.join(__dirname, 'ocorrencias.json')); // Certifique-se que o caminho está correto
-});
 
+// Função genérica para gravar ocorrências
+function gravarOcorrencia(novaOcorrencia, callback) {
+  const filePath = path.join(__dirname, 'ocorrencias.json'); // Caminho para o arquivo JSON
+  console.log("Lendo arquivo JSON:", filePath);
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error("Erro ao ler o arquivo:", err);
+      return callback(false);
+    }
+
+    let ocorrencias = [];
+    if (data) {
+      try {
+        ocorrencias = JSON.parse(data).ocorrencias || [];
+        console.log("Ocorrências existentes:", ocorrencias);
+      } catch (parseError) {
+        console.error("Erro ao analisar os dados do JSON:", parseError);
+        return callback(false);
+      }
+    }
+
+    ocorrencias.push(novaOcorrencia); // Adiciona a nova ocorrência ao array existente
+    console.log("Ocorrências atualizadas:", ocorrencias);
+
+    fs.writeFile(filePath, JSON.stringify({ ocorrencias: ocorrencias }, null, 2), writeErr => {
+      if (writeErr) {
+        console.error("Falha ao salvar o arquivo atualizado:", writeErr);
+        return callback(false);
+      }
+      console.log("Ocorrência salva com sucesso.");
+      callback(true);
+    });
+  });
+}
+
+//LINHAS
 app.post('/ocoLinhas', (req, res) => {
   const newOcorrencia = {
       data: req.body.data,
@@ -199,36 +226,20 @@ app.post('/ocoLinhas', (req, res) => {
       bloco: req.body.bloco,
       inviabilizou_o_bloco: req.body.Inviabilizou_o_bloco == 'on',
       impacto_na_velocidade: req.body.Impacto_na_velocidade == 'on',
-      descricao: req.body.descricao
+      descricao: req.body.descricao,
+      tag:"Linha",
+      codigo_trem: "",
+      categoria: req.body.categoria,
+
   };
 
   console.log('Nova ocorrência recebida:', newOcorrencia);
-
-  const filePath = path.join(__dirname, 'ocorrencias.json');
-
-  fs.readFile(filePath, 'utf8', (err, data) => {
-      let ocorrencias = [];
-
-      if (!err && data) {
-          try {
-              // Tente parsear os dados. Se houver erro, o bloco catch tratará.
-              ocorrencias = JSON.parse(data).ocorrencias || [];
-          } catch (parseError) {
-              console.error("Erro ao analisar os dados do JSON:", parseError);
-              // Se houver erro no parse, consideramos 'ocorrenciasEstacoes' ainda como array vazio.
-          }
-      }
-
-      ocorrencias.push(newOcorrencia);
-
-      fs.writeFile(filePath, JSON.stringify({ ocorrencias: ocorrencias }, null, 2), writeErr => {
-          if (writeErr) {
-              console.error("Falha ao salvar o arquivo atualizado:", writeErr);
-              res.status(500).send("Erro ao atualizar o registro de ocorrências.");
-          } else {
-              res.send("Ocorrência de estação registrada com sucesso!");
-          }
-      });
+  gravarOcorrencia(newOcorrencia, sucesso => {
+    if (sucesso) {
+      res.send("Ocorrência de linha registrada com sucesso!");
+    } else {
+      res.status(500).send("Erro ao atualizar o registro de ocorrências.");
+    }
   });
 });
 
@@ -237,43 +248,26 @@ app.post('/ocoTrens', (req, res) => {
   const newOcorrencia = {
       data: req.body.data,
       horario: req.body.horario,
-      codigo_trem: req.body.codigo_trem,
       linha: req.body.linha,
+      estacao: "",
       bloco: req.body.bloco,
       inviabilizou_o_bloco: req.body.Inviabilizou_o_bloco === 'on',
       impacto_na_velocidade: req.body.Impacto_na_velocidade === 'on',
+      descricao: req.body.descricao,
+      tag: "Trem",
+      codigo_trem: req.body.codigo_trem,
       categoria: req.body.Categoria,
-      descricao: req.body.descricao
   };
-
   console.log('Nova ocorrência recebida:', newOcorrencia);
-
-  const filePath = path.join(__dirname, 'ocorrenciasTrens.json');
-
-  fs.readFile(filePath, 'utf8', (err, data) => {
-      let ocorrenciasTrens = [];
-
-      if (!err && data) {
-          try {
-              // Tente parsear os dados. Se houver erro, o bloco catch tratará.
-              ocorrenciasTrens = JSON.parse(data).ocorrenciasTrens || [];
-          } catch (parseError) {
-              console.error("Erro ao analisar os dados do JSON:", parseError);
-              // Se houver erro no parse, consideramos 'ocorrenciasEstacoes' ainda como array vazio.
-          }
-      }
-
-      ocorrenciasTrens.push(newOcorrencia);
-
-      fs.writeFile(filePath, JSON.stringify({ ocorrenciasTrens: ocorrenciasTrens }, null, 2), writeErr => {
-          if (writeErr) {
-              console.error("Falha ao salvar o arquivo atualizado:", writeErr);
-              res.status(500).send("Erro ao atualizar o registro de ocorrências.");
-          } else {
-              res.send("Ocorrência de estação registrada com sucesso!");
-          }
-      });
+ 
+  gravarOcorrencia(newOcorrencia, sucesso => {
+    if (sucesso) {
+      res.send("Ocorrência de trem registrada com sucesso!");
+    } else {
+      res.status(500).send("Erro ao atualizar o registro de ocorrências.");
+    }
   });
+  
 });
 
 //ESTAÇÕES
@@ -286,65 +280,22 @@ app.post('/ocoEstacoes', (req, res) => {
       bloco: req.body.bloco,
       inviabilizou_o_bloco: req.body.Inviabilizou_o_bloco === 'on',
       impacto_na_velocidade: req.body.Impacto_na_velocidade === 'on',
-      categoria: req.body.Categoria,
-      descricao: req.body.descricao
+      descricao: req.body.descricao,
+      tag: "Estação",
+      codigo_trem:"",
+      categoria: req.body.Categoria,   
   };
-
   console.log('Nova ocorrência recebida:', newOcorrencia);
 
-  const filePath = path.join(__dirname, 'ocorrenciasEstacoes.json');
-
-  fs.readFile(filePath, 'utf8', (err, data) => {
-      let ocorrenciasEstacoes = [];
-
-      if (!err && data) {
-          try {
-              // Tente parsear os dados. Se houver erro, o bloco catch tratará.
-              ocorrenciasEstacoes = JSON.parse(data).ocorrenciasEstacoes || [];
-          } catch (parseError) {
-              console.error("Erro ao analisar os dados do JSON:", parseError);
-              // Se houver erro no parse, consideramos 'ocorrenciasEstacoes' ainda como array vazio.
-          }
-      }
-
-      ocorrenciasEstacoes.push(newOcorrencia);
-
-      fs.writeFile(filePath, JSON.stringify({ ocorrenciasEstacoes: ocorrenciasEstacoes }, null, 2), writeErr => {
-          if (writeErr) {
-              console.error("Falha ao salvar o arquivo atualizado:", writeErr);
-              res.status(500).send("Erro ao atualizar o registro de ocorrências.");
-          } else {
-              res.send("Ocorrência de estação registrada com sucesso!");
-          }
-      });
+  gravarOcorrencia(newOcorrencia, sucesso => {
+    if (sucesso) {
+      res.send("Ocorrência de estação registrada com sucesso!");
+    } else {
+      res.status(500).send("Erro ao atualizar o registro de ocorrências.");
+    }
   });
 });
 
-
-//ainda não está pronto
-// Rota GET para exibir histórico de ocorrências
-app.get('/historico', (req, res) => {
-    const filePaths = {
-        ocorrenciasTrens: path.join(__dirname, 'ocorrenciasTrens.json'),
-        ocorrenciasLinhas: path.join(__dirname, 'ocorrenciasLinhas.json'),
-        ocorrenciasEstacoes: path.join(__dirname, 'ocorrenciasEstacoes.json')
-    };
-
-    // Lê e combina as ocorrências de todos os arquivos
-    Promise.all(Object.entries(filePaths).map(([key, filePath]) =>
-        fs.promises.readFile(filePath, 'utf8').then(data => JSON.parse(data)[key] || []).catch(err => {
-            console.error(`Erro ao ler o arquivo de ${key}:`, err);
-            return [];  // Retorna um array vazio em caso de erro
-        })
-    )).then(results => {
-        // Combina todos os arrays de ocorrências em um único array
-        const ocorrencias = results.flat();
-        res.render('historico', { ocorrencias });
-    }).catch(error => {
-        console.error("Erro ao processar os arquivos de ocorrências:", error);
-        res.render('historico', { ocorrencias: [] });
-    });
-});
 
 app.get("/I", (req, res) => {
   res.render("index2");
