@@ -64,6 +64,11 @@ app.get("/index", (req, res) => {
   res.render("index");
 });
 
+app.get('/membros', (req, res) => {
+  res.render('membros'); 
+});
+
+
 // Recebendo dados do Login
 app.post("/login", (req, res) => {
   let email = req.body.loginEmail;
