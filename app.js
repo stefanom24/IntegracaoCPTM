@@ -64,8 +64,8 @@ app.get("/index", (req, res) => {
   res.render("index");
 });
 
-app.get('/membros', (req, res) => {
-  res.render('membros'); 
+app.get("/membros", (req, res) => {
+  res.render("membros"); 
 });
 
 
