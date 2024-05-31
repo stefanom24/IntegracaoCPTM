@@ -1,12 +1,15 @@
 const express = require("express");
 const app = express();
 const fs = require("fs");
+const path = require("path"); // Adicione esta linha
+
 
 // Deixando o node/express utilizar e ler arquivos html
 app.use(express.urlencoded({ extended: true }));
 
 // Definindo pasta de bootstrap para ser utilizado
-app.use("/", express.static("./node_modules/bootstrap/dist/"));
+app.use("/", express.static(path.join(__dirname, "node_modules/bootstrap/dist/")));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.set("view engine", "ejs");
 
