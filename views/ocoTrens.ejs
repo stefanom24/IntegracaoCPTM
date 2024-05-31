@@ -22,8 +22,8 @@
     }
 
     .btn-red:hover {
-    background-color: #f97e7e; /* Vermelho mais claro no hover */
-    border-color: #f97e7e; /* Bordas no mesmo tom do hover */
+    background-color: #f97e7e; 
+    border-color: #f97e7e; 
     }
 
 </style> 
@@ -45,28 +45,28 @@
 
             <div class="d-flex align-items-center justify-content-center vh-20">
                 <div class="form-floating mb-3 w-50">
-                    <input type="date" class="form-control" id="data" name="data"><br>
+                    <input type="date" class="form-control" id="data" name="data" required><br>
                     <label for="data" class="form-label">Data:</label>
                 </div>        
             </div>
 
             <div class="d-flex align-items-center justify-content-center vh-20"> 
                 <div class="form-floating mb-3 w-50"> 
-                    <input type="time" class="form-control" id="horario" name="horario">
+                    <input type="time" class="form-control" id="horario" name="horario" required>
                     <label for="horario" class="form-label">Horário:</label>
                 </div>
             </div>
 
             <div class="d-flex align-items-center justify-content-center vh-20">
                 <div class="form-floating mb-3 w-50">
-                    <input type="text" class="form-control" id="codigo_trem" name="codigo_trem">
+                    <input type="text" class="form-control" id="codigo_trem" name="codigo_trem" required>
                     <label for="codigo_trem" class="form-label">Código do trem:</label>
                 </div>
             </div>
 
             <div class="d-flex align-items-center justify-content-center vh-20"> 
                 <div class="form-floating mb-3 w-50">
-                    <select name="linha" id="linha" class="form-select">
+                    <select name="linha" id="linha" class="form-select" required>
                         <option value=""></option>
                         <option value="linha-7">Linha-7</option>
                         <option value="linha-10">Linha-10</option>
@@ -81,7 +81,7 @@
             
             <div class="d-flex align-items-center justify-content-center vh-20">
                 <div class="form-floating mb-3 w-50" >
-                    <input type="text" class="form-control" id="bloco" name="bloco">
+                    <input type="text" class="form-control" id="bloco" name="bloco" required>
                     <label for="bloco" class="form-label">Bloco:</label>
                 </div>
             </div>
@@ -100,7 +100,7 @@
 
             <div class="d-flex align-items-center justify-content-center vh-20"> 
                 <div class="form-floating mb-3 w-50">
-                    <select name="Categoria" id="Categoria" class="form-select">
+                    <select name="Categoria" id="Categoria" class="form-select" required>
                         <option value=""></option>
                         <option value="Lotação excessiva">Lotação excessiva</option>
                         <option value="Falha na sinalização">Falha na sinalização</option>

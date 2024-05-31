@@ -16,13 +16,13 @@
     }
   
     .btn-red {
-            background-color: #ff0000; /* Vermelho padrão */
-            border-color: #ff0000; /* Bordas no mesmo tom do fundo */
+            background-color: #ff0000; 
+            border-color: #ff0000; 
 }
 
     .btn-red:hover {
-        background-color: #f97e7e; /* Vermelho mais claro no hover */
-        border-color: #f97e7e; /* Bordas no mesmo tom do hover */
+        background-color: #f97e7e;
+        border-color: #f97e7e; 
 }
 </style>
 
@@ -40,21 +40,21 @@
         <form id="ocoTrensForm" action="/ocoLinhas" method="post">
             <div class="d-flex align-items-center justify-content-center vh-20">
                 <div class="form-floating mb-3 w-50">
-                    <input type="date" class="form-control" id="data" name="data">
+                    <input type="date" class="form-control" id="data" name="data" required>
                     <label for="data" class="form-label">Data:</label>
                 </div>
             </div>
 
             <div class="d-flex align-items-center justify-content-center vh-20"> 
                 <div class="form-floating mb-3 w-50">
-                    <input type="time" class="form-control" id="horario" name="horario">
+                    <input type="time" class="form-control" id="horario" name="horario" required>
                     <label for="horario" class="form-label">Horário:</label>
                 </div>
             </div>
 
             <div class="d-flex align-items-center justify-content-center vh-20">
                 <div class="form-floating mb-3 w-50">
-                    <select name="linha" id="linha" class="form-select">
+                    <select name="linha" id="linha" class="form-select" required>
                         <option value=""></option>
                         <option value="linha-7">linha-7</option>
                         <option value="linha-10">linha-10</option>
@@ -68,7 +68,7 @@
 
             <div class="d-flex align-items-center justify-content-center vh-20">
                 <div class="form-floating mb-3 w-50">
-                    <select name="estacao" id="estacao" class="form-select">
+                    <select name="estacao" id="estacao" class="form-select" required> 
                         <option value=""></option>
                         <option value="estacao_tatuape">Estação Tatuapé</option>
                         <option value="estacao_bras">Estação Brás</option>
@@ -80,7 +80,7 @@
 
             <div class="d-flex align-items-center justify-content-center vh-20">
                 <div class="form-floating mb-3 w-50">
-                    <input type="text" class="form-control" id="bloco" name="bloco">
+                    <input type="text" class="form-control" id="bloco" name="bloco" required>
                     <label for="bloco" class="form-label">Bloco:</label>
                 </div>
             </div>
@@ -102,7 +102,7 @@
 
             <div class="d-flex align-items-center justify-content-center vh-20"> 
                 <div class="form-floating mb-3 w-50">
-                    <select name="Categoria" id="Categoria" class="form-select">
+                    <select name="Categoria" id="Categoria" class="form-select" required>
                         <option value=""></option>
                         <option value="Lotação excessiva">Lotação excessiva</option>
                         <option value="Falha na sinalização">Falha na sinalização</option>
