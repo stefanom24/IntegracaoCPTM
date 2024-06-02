@@ -13,32 +13,30 @@
         }
 
         .btn-red {
-            background-color: #ff0000; /* Vermelho padrão */
-            border-color: #ff0000; /* Bordas no mesmo tom do fundo */
+            background-color: #ff0000; 
+            border-color: #ff0000; 
         }
 
         .btn-red:hover {
-            background-color: #f97e7e; /* Vermelho mais claro no hover */
-            border-color: #f97e7e; /* Bordas no mesmo tom do hover */
+            background-color: #f97e7e; 
+            border-color: #f97e7e; 
         }
 
-        
-        /* Estilos gerais da tabela */
         table {
             width: 100%;
-            border-collapse: collapse; /* Remove espaços entre as bordas das células */
+            border-collapse: collapse; 
         }
         th, td {
-            border: 2px solid #ddd; /* Borda cinza claro para cada célula */
-            padding: 8px; /* Espaçamento interno nas células */
-            text-align: left; /* Alinhamento do texto */
+            border: 2px solid #ddd; 
+            padding: 8px; 
+            text-align: left; 
         }
         th {
-            background-color: #f2f2f2; /* Cor de fundo para cabeçalho */
-            font-weight: bold; /* Texto em negrito para o cabeçalho */
+            background-color: #f2f2f2; 
+            font-weight: bold; 
         }
         tr:nth-child(even) {
-            background-color: #f9f9f9; /* Cor de fundo alternada para linhas pares */
+            background-color: #f9f9f9; 
         }
     </style>
 </head>
@@ -55,8 +53,8 @@
         <form action="/historico" method="get">
             <div class="row mt-3">
                 <div class="col-md-3">
-                    <label for="categ" class="form-label">Categorias:</label>
-                    <select id="categ" name="categ" class="form-select">
+                    <label for="tipo" class="form-label">Tipo:</label>
+                    <select id="tipo" name="tipo" class="form-select">
                         <option value="todos">Todos</option>
                         <option value="trem">Trem</option>
                         <option value="linha">Linha</option>
@@ -64,20 +62,16 @@
                     </select>
                 </div>
                 <div class="col-md-3">
-                    <label for="status" class="form-label">Status:</label>
-                    <select id="status" name="status" class="form-select">
+                    <label for="categoria" class="form-label">Categoria:</label>
+                    <select id="categoria" name="categoria" class="form-select">
                         <option value="todos">Todos</option>
-                        <option value="aberto">Em aberto</option>
-                        <option value="resolvido">Resolvido</option>
+                        <option value="categoria1">Lotação Excessiva</option>
+                        <option value="categoria2">Falha na sinalização</option>
+                        <option value="categoria3">Queda de energia</option>
+                        <option value="categoria4">Emergência</option>
+                        <option value="categoria5">Quebra</option>
+                        <option value="categoria6">Outro</option>
                     </select>
-                </div>
-                <div class="col-md-3">
-                    <label for="data_inicio" class="form-label">Data de início:</label>
-                    <input type="date" id="data_inicio" name="data_inicio" class="form-control">
-                </div>
-                <div class="col-md-3">
-                    <label for="data_final" class="form-label">Data final:</label>
-                    <input type="date" id="data_final" name="data_final" class="form-control">
                 </div>
             </div>
         </form>
@@ -99,28 +93,26 @@
             { key: 'horario', name: 'Horário' },
             { key: 'linha', name: 'Linha' },
             { key: 'categoria', name: 'Categoria' },
-            { key:'tag', name:'Tipo' },
+            { key: 'tag', name: 'Tipo' },
             { key: 'abrir', name: 'Abrir' }
-            
         ];
 
         // Função para popular a tabela com dados
         function populateTable(c, items) {
+            c.innerHTML = '';
+
             var thead = c.createTHead();
             var headerRow = thead.insertRow();
 
-            // Define cabeçalhos
             headers.forEach(function(header) {
                 var cell = headerRow.insertCell();
                 cell.textContent = header.name;
                 cell.style.fontWeight = 'bold'; // Define cabeçalhos em negrito
             });
 
-            // Cria corpo da tabela
             var tbody = document.createElement('tbody');
             c.appendChild(tbody);
 
-            // Insere dados no corpo
             items.forEach(function(item) {
                 var row = tbody.insertRow();
                 headers.forEach(function(header) {
@@ -128,70 +120,87 @@
                     if (header.key === 'abrir') {
                         var button = document.createElement('button');
                         button.textContent = 'Abrir';
-                        button.className = 'btn btn-primary';
+                        button.className = 'btn btn-primary btn-red';
+                        button.dataset.descricao = item.descricao; // Armazena a descrição no dataset do botão
                         cell.appendChild(button);
                     } else {
-                    cell.textContent = item[header.key] || '';
+                        cell.textContent = item[header.key] || '';
                     }
                 });
             });
         }
 
-        // Função para buscar ocorrências do JSON
-        function fetchOccurrences() {
+        function fetchAndFilterOccurrences() {
             fetch('/ocorrencias')
                 .then(response => response.json())
                 .then(data => {
+                    var tipo = document.getElementById('tipo').value;
+                    var categoria = document.getElementById('categoria').value;
+
+                    var ocorrencias = data.ocorrencias;
+
+                    // Filtra as ocorrências com base na seleção do usuário
+                    if (tipo !== 'todos') {
+                        ocorrencias = ocorrencias.filter(ocorrencia => ocorrencia.tag.toLowerCase() === tipo.toLowerCase());
+                    }
+
+                    if (categoria !== 'todos') {
+                        ocorrencias = ocorrencias.filter(ocorrencia => ocorrencia.categoria.toLowerCase() === categoria.toLowerCase());
+                    }
+
                     var tabela = document.getElementById("tabela");
-                    var ocorrencias = data.ocorrencias.map(ocorrencia => ({
+                    var formattedOccurrences = ocorrencias.map(ocorrencia => ({
                         data: ocorrencia.data,
                         horario: ocorrencia.horario,
                         linha: ocorrencia.linha,
                         categoria: ocorrencia.categoria,
+                        descricao: ocorrencia.descricao,
                         tag: ocorrencia.tag,
-                         // Supondo que 'descricao' seja a 'categoria'
                         abrir: ''
                     }));
-                    populateTable(tabela, ocorrencias);
+
+                    populateTable(tabela, formattedOccurrences);
                     addButtonEventListeners(); // Adiciona os eventos aos botões após popular a tabela
                 })
                 .catch(error => console.error('Erro ao carregar as ocorrências:', error));
         }
 
         // Carregar ocorrências quando a página é carregada
-        document.addEventListener('DOMContentLoaded', fetchOccurrences);
+        document.addEventListener('DOMContentLoaded', fetchAndFilterOccurrences);
 
-        
+        // Atualizar a tabela quando os filtros mudarem
+        document.getElementById('categ').addEventListener('change', fetchAndFilterOccurrences);
+        document.getElementById('categoria').addEventListener('change', fetchAndFilterOccurrences);
+
         // Função para exibir os detalhes da ocorrência no modal
         function showDetails(item) {
             document.getElementById('detalhesData').textContent = item.data;
             document.getElementById('detalhesHorario').textContent = item.horario;
             document.getElementById('detalhesLinha').textContent = item.linha;
             document.getElementById('detalhesDescricao').textContent = item.descricao;
-            
+            document.getElementById('detalhesCategoria').textContent = item.categoria;
 
             var detalhesOcorrenciaModal = new bootstrap.Modal(document.getElementById('detalhesOcorrenciaModal'));
             detalhesOcorrenciaModal.show();
         }
-        
-         // Adiciona evento de clique aos botões "Abrir"
-    function addButtonEventListeners() {
-        document.querySelectorAll('button.btn-primary').forEach(function(button) {
-            button.addEventListener('click', function() {
-                var row = button.closest('tr');
-                var item = {
-                    data: row.querySelector('td:nth-child(1)').textContent,
-                    horario: row.querySelector('td:nth-child(2)').textContent,
-                    linha: row.querySelector('td:nth-child(3)').textContent,
-                    categoria: row.querySelector('td:nth-child(4)').textContent,
-                    
-                };
-                showDetails(item);
+
+        // Adiciona evento de clique aos botões "Abrir"
+        function addButtonEventListeners() {
+            document.querySelectorAll('button.btn-primary').forEach(function(button) {
+                button.addEventListener('click', function() {
+                    var row = button.closest('tr');
+                    var item = {
+                        data: row.querySelector('td:nth-child(1)').textContent,
+                        horario: row.querySelector('td:nth-child(2)').textContent,
+                        linha: row.querySelector('td:nth-child(3)').textContent,
+                        categoria: row.querySelector('td:nth-child(4)').textContent,
+                        descricao: button.dataset.descricao // Obtém a descrição do dataset do botão
+                    };
+                    console.log('Item clicado:', item);
+                    showDetails(item);
+                });
             });
-        });
-    }
-
-
+        }
     </script>
 
     <style>
@@ -216,33 +225,33 @@
         }
     </style>
 
-
-   <!-- Modal para exibir detalhes da ocorrência -->
-<div class="modal fade" id="detalhesOcorrenciaModal" tabindex="-1" aria-labelledby="detalhesOcorrenciaModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="detalhesOcorrenciaModalLabel">Detalhes da Ocorrência</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <!-- Detalhes da ocorrência serão inseridos aqui -->
-                <p><strong>Data:</strong> <span id="detalhesData"></span></p>
-                <p><strong>Horário:</strong> <span id="detalhesHorario"></span></p>
-                <p><strong>Linha:</strong> <span id="detalhesLinha"></span></p>
-                <p><strong>Categoria:</strong> <span id="detalhesCategoria"></span></p>
-                
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+    <!-- Modal para exibir detalhes da ocorrência -->
+    <div class="modal fade" id="detalhesOcorrenciaModal" tabindex="-1" aria-labelledby="detalhesOcorrenciaModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detalhesOcorrenciaModalLabel">Detalhes da Ocorrência</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Detalhes da ocorrência serão inseridos aqui -->
+                    <p><strong>Data:</strong> <span id="detalhesData"></span></p>
+                    <p><strong>Horário:</strong> <span id="detalhesHorario"></span></p>
+                    <p><strong>Linha:</strong> <span id="detalhesLinha"></span></p>
+                    <p><strong>Categoria:</strong> <span id="detalhesCategoria"></span></p>
+                    <p><strong>Descrição:</strong> <span id="detalhesDescricao"></span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="espaco">
-<footer>
-    <%- include ('footer') %> 
-</footer>
 
+    <div class="espaco">
+        <footer>
+            <%- include ('footer') %> 
+        </footer>
+    </div>
 </body>
 </html>
