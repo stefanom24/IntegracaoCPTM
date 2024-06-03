@@ -175,7 +175,6 @@
       "codigo_trem": ""
     },
     {
-<<<<<<< HEAD
       "data": "2024-06-03",
       "horario": "10:00",
       "linha": "linha-11",
@@ -187,18 +186,6 @@
       "tag": "Linha",
       "codigo_trem": "",
       "categoria": "Queda de energia"
-=======
-      "data": "2024-06-04",
-      "horario": "10:35",
-      "linha": "linha-11",
-      "estacao": "estacao_bras",
-      "bloco": "C",
-      "inviabilizou_o_bloco": true,
-      "impacto_na_velocidade": true,
-      "descricao": "abcde",
-      "tag": "Linha",
-      "codigo_trem": ""
->>>>>>> c128cca3bb6f98042e0d4b2a231833fba7be243b
     }
   ]
 }
