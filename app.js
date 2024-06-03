@@ -225,13 +225,12 @@ app.post('/ocoLinhas', (req, res) => {
       linha: req.body.linha,
       estacao: req.body.estacao,
       bloco: req.body.bloco,
-      inviabilizou_o_bloco: req.body.Inviabilizou_o_bloco === 'on',
-      impacto_na_velocidade: req.body.Impacto_na_velocidade === 'on',
+      inviabilizou_o_bloco: req.body.Inviabilizou_o_bloco === 'true',
+      impacto_na_velocidade: req.body.Impacto_na_velocidade === 'true',
       descricao: req.body.descricao,
       tag:"Linha",
       codigo_trem: "",
-      categoria: req.body.categoria,
-
+      categoria: req.body.Categoria,
   };
 
   console.log('Nova ocorrência recebida:', newOcorrencia);
