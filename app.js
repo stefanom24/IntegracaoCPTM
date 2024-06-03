@@ -53,17 +53,13 @@ app.get("/historico", (req, res) => {
   res.render("historico");
 });
 
-
-
 app.get("/detalhes", (req, res) => {
   res.render("detalhes");
 });
 
-
 app.get("/membros", (req, res) => {
-  res.render("membros"); 
+  res.render("membros");
 });
-
 
 // Recebendo dados do Login
 app.post("/login", (req, res) => {
@@ -131,12 +127,10 @@ app.post("/registroTrens", (req, res) => {
   // Precisa gravar os dados
 });
 
-
 var port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log("Servidor iniciado na porta " + port);
 });
-
 
 function gravar(user, callback) {
   const fs = require("fs");
@@ -179,17 +173,17 @@ const bodyParser = require("body-parser");
 const path = require("path");
 
 // Configuração básica do servidor
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Rota POST para registrar novas ocorrências
 
 // Função genérica para gravar ocorrências
 function gravarOcorrencia(novaOcorrencia, callback) {
-  const filePath = path.join(__dirname, 'ocorrencias.json'); // Caminho para o arquivo JSON
+  const filePath = path.join(__dirname, "ocorrencias.json"); // Caminho para o arquivo JSON
   console.log("Lendo arquivo JSON:", filePath);
 
-  fs.readFile(filePath, 'utf8', (err, data) => {
+  fs.readFile(filePath, "utf8", (err, data) => {
     if (err) {
       console.error("Erro ao ler o arquivo:", err);
       return callback(false);
@@ -209,35 +203,39 @@ function gravarOcorrencia(novaOcorrencia, callback) {
     ocorrencias.push(novaOcorrencia); // Adiciona a nova ocorrência ao array existente
     console.log("Ocorrências atualizadas:", ocorrencias);
 
-    fs.writeFile(filePath, JSON.stringify({ ocorrencias: ocorrencias }, null, 2), writeErr => {
-      if (writeErr) {
-        console.error("Falha ao salvar o arquivo atualizado:", writeErr);
-        return callback(false);
+    fs.writeFile(
+      filePath,
+      JSON.stringify({ ocorrencias: ocorrencias }, null, 2),
+      (writeErr) => {
+        if (writeErr) {
+          console.error("Falha ao salvar o arquivo atualizado:", writeErr);
+          return callback(false);
+        }
+        console.log("Ocorrência salva com sucesso.");
+        callback(true);
       }
-      console.log("Ocorrência salva com sucesso.");
-      callback(true);
-    });
+    );
   });
 }
 
 //LINHAS
-app.post('/ocoLinhas', (req, res) => {
+app.post("/ocoLinhas", (req, res) => {
   const newOcorrencia = {
-      data: req.body.data,
-      horario: req.body.horario,
-      linha: req.body.linha,
-      estacao: req.body.estacao,
-      bloco: req.body.bloco,
-      inviabilizou_o_bloco: req.body.Inviabilizou_o_bloco === 'true',
-      impacto_na_velocidade: req.body.Impacto_na_velocidade === 'true',
-      descricao: req.body.descricao,
-      tag:"Linha",
-      codigo_trem: "",
-      categoria: req.body.Categoria,
+    data: req.body.data,
+    horario: req.body.horario,
+    linha: req.body.linha,
+    estacao: req.body.estacao,
+    bloco: req.body.bloco,
+    inviabilizou_o_bloco: req.body.Inviabilizou_o_bloco,
+    impacto_na_velocidade: req.body.Impacto_na_velocidade,
+    descricao: req.body.descricao,
+    tag: "Linha",
+    codigo_trem: "",
+    categoria: req.body.cat,
   };
 
-  console.log('Nova ocorrência recebida:', newOcorrencia);
-  gravarOcorrencia(newOcorrencia, sucesso => {
+  console.log("Nova ocorrência recebida:", newOcorrencia);
+  gravarOcorrencia(newOcorrencia, (sucesso) => {
     if (sucesso) {
       res.send("Ocorrência de linha registrada com sucesso!");
     } else {
@@ -247,50 +245,49 @@ app.post('/ocoLinhas', (req, res) => {
 });
 
 //TRENS
-app.post('/ocoTrens', (req, res) => {
+app.post("/ocoTrens", (req, res) => {
   const newOcorrencia = {
-      data: req.body.data,
-      horario: req.body.horario,
-      linha: req.body.linha,
-      estacao: "",
-      bloco: req.body.bloco,
-      inviabilizou_o_bloco: req.body.Inviabilizou_o_bloco === 'on',
-      impacto_na_velocidade: req.body.Impacto_na_velocidade === 'on',
-      descricao: req.body.descricao,
-      tag: "Trem",
-      codigo_trem: req.body.codigo_trem,
-      categoria: req.body.Categoria,
+    data: req.body.data,
+    horario: req.body.horario,
+    linha: req.body.linha,
+    estacao: "",
+    bloco: req.body.bloco,
+    inviabilizou_o_bloco: req.body.Inviabilizou_o_bloco,
+    impacto_na_velocidade: req.body.Impacto_na_velocidade,
+    descricao: req.body.descricao,
+    tag: "Trem",
+    codigo_trem: req.body.codigo_trem,
+    categoria: req.body.Categoria,
   };
-  console.log('Nova ocorrência recebida:', newOcorrencia);
- 
-  gravarOcorrencia(newOcorrencia, sucesso => {
+  console.log("Nova ocorrência recebida:", newOcorrencia);
+
+  gravarOcorrencia(newOcorrencia, (sucesso) => {
     if (sucesso) {
       res.send("Ocorrência de trem registrada com sucesso!");
     } else {
       res.status(500).send("Erro ao atualizar o registro de ocorrências.");
     }
   });
-  
 });
 
 //ESTAÇÕES
-app.post('/ocoEstacoes', (req, res) => {
+app.post("/ocoEstacoes", (req, res) => {
   const newOcorrencia = {
-      data: req.body.data,
-      horario: req.body.horario,
-      linha: req.body.linha,
-      estacao: req.body.estacao,
-      bloco: req.body.bloco,
-      inviabilizou_o_bloco: req.body.Inviabilizou_o_bloco === 'on',
-      impacto_na_velocidade: req.body.Impacto_na_velocidade === 'on',
-      descricao: req.body.descricao,
-      tag: "Estação",
-      codigo_trem:"",
-      categoria: req.body.Categoria,   
+    data: req.body.data,
+    horario: req.body.horario,
+    linha: req.body.linha,
+    estacao: req.body.estacao,
+    bloco: req.body.bloco,
+    inviabilizou_o_bloco: req.body.Inviabilizou_o_bloco,
+    impacto_na_velocidade: req.body.Impacto_na_velocidade,
+    descricao: req.body.descricao,
+    tag: "Estação",
+    codigo_trem: "",
+    categoria: req.body.Categoria,
   };
-  console.log('Nova ocorrência recebida:', newOcorrencia);
+  console.log("Nova ocorrência recebida:", newOcorrencia);
 
-  gravarOcorrencia(newOcorrencia, sucesso => {
+  gravarOcorrencia(newOcorrencia, (sucesso) => {
     if (sucesso) {
       res.send("Ocorrência de estação registrada com sucesso!");
     } else {
@@ -299,11 +296,10 @@ app.post('/ocoEstacoes', (req, res) => {
   });
 });
 
-app.get('/ocorrencias', (req, res) => {
-  res.sendFile(path.join(__dirname, 'ocorrencias.json'));
+app.get("/ocorrencias", (req, res) => {
+  res.sendFile(path.join(__dirname, "ocorrencias.json"));
 });
 
 app.get("/I", (req, res) => {
   res.render("index2");
 });
-
