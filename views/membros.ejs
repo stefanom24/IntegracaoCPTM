@@ -26,7 +26,7 @@
             position: relative;
             width: calc(100% - 20px); 
             height: 300px;
-            margin: 10PX 10px 5px 10px; 
+            margin: 10px 10px 5px 10px; 
         }
 
         .img {
@@ -59,7 +59,7 @@
         }
 
         .custom-title {
-             color: #F20505; 
+            color: #F20505; 
             text-align: center;
         }
   
@@ -72,9 +72,13 @@
             background-color: #f97e7e; 
             border-color: #f97e7e; 
         }
+
+        .left-align {
+            justify-content: flex-start;
+            padding-left: 20px; /* Adjust this value as needed */
+        }
     </style>
 </head>
-
 
 <header>
     <%- include ('navbar') %>
@@ -94,7 +98,7 @@
             <br>
             <div class="limite">
                 <img src="/images/julianeOliveira.jpeg" alt="Juliane Oliveira" class="img">
-                <div class="overlay">
+                <div class="overlay left-align">
                     <h2>Juliane Oliveira</h2>
                 </div>
             </div>
@@ -118,7 +122,7 @@
 
         <div class="limite">
             <img src="/images/lucasQuadros.jpeg" alt="Lucas Quadros" class="img">
-            <div class="overlay">
+            <div class="overlay left-align">
                 <h2>Lucas Quadros</h2>
             </div>
         </div>
@@ -127,9 +131,11 @@
     <form action="/index" method="get">
         <div class="text-center">
             <h1 class="display-3"> 
-                <a href="/index" class="btn btn-primary btn-red">Voltar</a>
+                <a href="/" class="btn btn-primary btn-red">Voltar</a>
             </h1>
         </div>
+    </form>
+
 
 
     <script src="js/bootstrap.bundle.min.js"></script>
