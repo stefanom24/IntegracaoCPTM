@@ -62,6 +62,20 @@
                         <option value="estação">Estação</option>
                     </select>
                 </div>
+
+                <div class="col-md-3">
+                    <label for="categoria_ocorrencia" class="form-label">Categoria de Ocorrência:</label>
+                    <select id="categoria_ocorrencia" name="categoria_ocorrencia" class="form-select">
+                        <option value="todos">Todos</option>
+                        <option value="Lotação excessiva">Lotação excessiva</option>
+                        <option value="Falha na sinalização">Falha na sinalização</option>
+                        <option value="Queda de energia">Queda de energia</option>
+                        <option value="Emergencia">Emergência</option>
+                        <option value="Quebra">Quebra</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+
                 <div class="col-md-3">
                     <label for="status" class="form-label">Status:</label>
                     <select id="status" name="status" class="form-select">
@@ -143,12 +157,17 @@
                     var status = document.getElementById('status').value;
                     var dataInicio = document.getElementById('data_inicio').value;
                     var dataFinal = document.getElementById('data_final').value;
+                    var categoriaOcorrencia = document.getElementById('categoria_ocorrencia').value;
 
                     var ocorrencias = data.ocorrencias;
 
                     // Filtra as ocorrências com base na seleção do usuário
                     if (categoria !== 'todos') {
                         ocorrencias = ocorrencias.filter(ocorrencia => ocorrencia.tag.toLowerCase() === categoria.toLowerCase());
+                    }
+
+                    if (categoriaOcorrencia !== 'todos') {
+                    ocorrencias = ocorrencias.filter(ocorrencia => ocorrencia.categoria.toLowerCase() === categoriaOcorrencia.toLowerCase());
                     }
 
                     if (status !== 'todos') {
@@ -188,6 +207,7 @@
         document.getElementById('status').addEventListener('change', fetchAndFilterOccurrences);
         document.getElementById('data_inicio').addEventListener('change', fetchAndFilterOccurrences);
         document.getElementById('data_final').addEventListener('change', fetchAndFilterOccurrences);
+        document.getElementById('categoria_ocorrencia').addEventListener('change', fetchAndFilterOccurrences);
 
         // Função para exibir os detalhes da ocorrência no modal
         function showDetails(item) {
