@@ -131,9 +131,12 @@ app.post("/registroTrens", (req, res) => {
   // Precisa gravar os dados
 });
 
-app.listen(10000, () => {
-  console.log("Servidor iniciado.");
+
+var port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log("Servidor iniciado na porta " + port);
 });
+
 
 function gravar(user, callback) {
   const fs = require("fs");
