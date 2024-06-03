@@ -1,25 +1,52 @@
-<footer class="text-muted py-4 bg-light">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página com Footer Fixo</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        main {
+            flex: 1;
+        }
+
+        footer {
+            text-align: center;
+        }
+
+        .link {
+            color: #495057; 
+            text-decoration: none; 
+        }
+    </style>
+</head>
+<body>
+
+
+
+<footer class="text-muted py-4 bg-light mt-auto">
   <div class="container-fluid">
-      <p class="mb-1">Direitos autorais <a href="/membros" class="link">Grupo 2 </a> <link rel="stylesheet" href="membros.ejs"> CPTM © 2024.</p> 
-  <div vw class="enabled">
-      <div vw-access-button class="active"></div>
-      <div vw-plugin-wrapper>
-          <div class="vw-plugin-top-wrapper"></div>
+      <p class="mb-1">Direitos autorais <a href="/membros" class="link">Grupo 2</a> CPTM © 2024.</p>
+      <div vw class="enabled">
+          <div vw-access-button class="active"></div>
+          <div vw-plugin-wrapper>
+              <div class="vw-plugin-top-wrapper"></div>
+          </div>
       </div>
+      <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+      <script>
+          new window.VLibras.Widget('https://vlibras.gov.br/app');
+      </script>
   </div>
-  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-  <script>
-      new window.VLibras.Widget('https://vlibras.gov.br/app');
-  </script>
 </footer>
 
-<style> 
-   a {
-        color: #495057; 
-        text-decoration: none; 
-    }
-
-</style>
-
+</body>
+</html>
 
 
