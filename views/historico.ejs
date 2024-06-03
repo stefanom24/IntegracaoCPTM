@@ -22,6 +22,7 @@
             border-color: #f97e7e; 
         }
 
+        
         table {
             width: 100%;
             border-collapse: collapse; 
@@ -33,7 +34,7 @@
         }
         th {
             background-color: #f2f2f2; 
-            font-weight: bold; 
+            font-weight: bold;
         }
         tr:nth-child(even) {
             background-color: #f9f9f9; 
@@ -53,25 +54,29 @@
         <form action="/historico" method="get">
             <div class="row mt-3">
                 <div class="col-md-3">
-                    <label for="tipo" class="form-label">Tipo:</label>
-                    <select id="tipo" name="tipo" class="form-select">
+                    <label for="categ" class="form-label">Tipo:</label>
+                    <select id="categ" name="categ" class="form-select">
                         <option value="todos">Todos</option>
                         <option value="trem">Trem</option>
                         <option value="linha">Linha</option>
-                        <option value="estacao">Estação</option>
+                        <option value="estação">Estação</option>
                     </select>
                 </div>
                 <div class="col-md-3">
-                    <label for="categoria" class="form-label">Categoria:</label>
-                    <select id="categoria" name="categoria" class="form-select">
+                    <label for="status" class="form-label">Status:</label>
+                    <select id="status" name="status" class="form-select">
                         <option value="todos">Todos</option>
-                        <option value="categoria1">Lotação Excessiva</option>
-                        <option value="categoria2">Falha na sinalização</option>
-                        <option value="categoria3">Queda de energia</option>
-                        <option value="categoria4">Emergência</option>
-                        <option value="categoria5">Quebra</option>
-                        <option value="categoria6">Outro</option>
+                        <option value="aberto">Em aberto</option>
+                        <option value="resolvido">Resolvido</option>
                     </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="data_inicio" class="form-label">Data de início:</label>
+                    <input type="date" id="data_inicio" name="data_inicio" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label for="data_final" class="form-label">Data final:</label>
+                    <input type="date" id="data_final" name="data_final" class="form-control">
                 </div>
             </div>
         </form>
@@ -134,18 +139,28 @@
             fetch('/ocorrencias')
                 .then(response => response.json())
                 .then(data => {
-                    var tipo = document.getElementById('tipo').value;
-                    var categoria = document.getElementById('categoria').value;
+                    var categoria = document.getElementById('categ').value;
+                    var status = document.getElementById('status').value;
+                    var dataInicio = document.getElementById('data_inicio').value;
+                    var dataFinal = document.getElementById('data_final').value;
 
                     var ocorrencias = data.ocorrencias;
 
                     // Filtra as ocorrências com base na seleção do usuário
-                    if (tipo !== 'todos') {
-                        ocorrencias = ocorrencias.filter(ocorrencia => ocorrencia.tag.toLowerCase() === tipo.toLowerCase());
+                    if (categoria !== 'todos') {
+                        ocorrencias = ocorrencias.filter(ocorrencia => ocorrencia.tag.toLowerCase() === categoria.toLowerCase());
                     }
 
-                    if (categoria !== 'todos') {
-                        ocorrencias = ocorrencias.filter(ocorrencia => ocorrencia.categoria.toLowerCase() === categoria.toLowerCase());
+                    if (status !== 'todos') {
+                        // Adicione lógica de filtragem para o status aqui
+                    }
+
+                    if (dataInicio) {
+                        ocorrencias = ocorrencias.filter(ocorrencia => new Date(ocorrencia.data) >= new Date(dataInicio));
+                    }
+
+                    if (dataFinal) {
+                        ocorrencias = ocorrencias.filter(ocorrencia => new Date(ocorrencia.data) <= new Date(dataFinal));
                     }
 
                     var tabela = document.getElementById("tabela");
@@ -170,7 +185,9 @@
 
         // Atualizar a tabela quando os filtros mudarem
         document.getElementById('categ').addEventListener('change', fetchAndFilterOccurrences);
-        document.getElementById('categoria').addEventListener('change', fetchAndFilterOccurrences);
+        document.getElementById('status').addEventListener('change', fetchAndFilterOccurrences);
+        document.getElementById('data_inicio').addEventListener('change', fetchAndFilterOccurrences);
+        document.getElementById('data_final').addEventListener('change', fetchAndFilterOccurrences);
 
         // Função para exibir os detalhes da ocorrência no modal
         function showDetails(item) {
