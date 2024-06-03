@@ -75,23 +75,6 @@
                         <option value="Outro">Outro</option>
                     </select>
                 </div>
-
-                <div class="col-md-3">
-                    <label for="status" class="form-label">Status:</label>
-                    <select id="status" name="status" class="form-select">
-                        <option value="todos">Todos</option>
-                        <option value="aberto">Em aberto</option>
-                        <option value="resolvido">Resolvido</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <label for="data_inicio" class="form-label">Data de início:</label>
-                    <input type="date" id="data_inicio" name="data_inicio" class="form-control">
-                </div>
-                <div class="col-md-3">
-                    <label for="data_final" class="form-label">Data final:</label>
-                    <input type="date" id="data_final" name="data_final" class="form-control">
-                </div>
             </div>
         </form>
 
@@ -154,9 +137,6 @@
                 .then(response => response.json())
                 .then(data => {
                     var categoria = document.getElementById('categ').value;
-                    var status = document.getElementById('status').value;
-                    var dataInicio = document.getElementById('data_inicio').value;
-                    var dataFinal = document.getElementById('data_final').value;
                     var categoriaOcorrencia = document.getElementById('categoria_ocorrencia').value;
 
                     var ocorrencias = data.ocorrencias;
@@ -172,14 +152,6 @@
 
                     if (status !== 'todos') {
                         // Adicione lógica de filtragem para o status aqui
-                    }
-
-                    if (dataInicio) {
-                        ocorrencias = ocorrencias.filter(ocorrencia => new Date(ocorrencia.data) >= new Date(dataInicio));
-                    }
-
-                    if (dataFinal) {
-                        ocorrencias = ocorrencias.filter(ocorrencia => new Date(ocorrencia.data) <= new Date(dataFinal));
                     }
 
                     var tabela = document.getElementById("tabela");
@@ -204,9 +176,6 @@
 
         // Atualizar a tabela quando os filtros mudarem
         document.getElementById('categ').addEventListener('change', fetchAndFilterOccurrences);
-        document.getElementById('status').addEventListener('change', fetchAndFilterOccurrences);
-        document.getElementById('data_inicio').addEventListener('change', fetchAndFilterOccurrences);
-        document.getElementById('data_final').addEventListener('change', fetchAndFilterOccurrences);
         document.getElementById('categoria_ocorrencia').addEventListener('change', fetchAndFilterOccurrences);
 
         // Função para exibir os detalhes da ocorrência no modal
