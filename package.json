@@ -13,12 +13,14 @@
   "author": "Grupo 1",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "bootstrap": "^5.3.3",
     "ejs": "^3.1.9",
     "express": "^4.19.2",
     "jquery": "^3.7.1",
     "node-sass": "^9.0.0",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "cypress": "^13.9.0",

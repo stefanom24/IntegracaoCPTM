@@ -1,1 +1,16 @@
-{"data":[{"nome":"ytc","km":"KM1","estacaof":"Linha 1"},{"nome":"","km":"KM1","estacaof":"Linha 1"},{"nome":"Estação Teste","km":"KM2","estacaof":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacaof":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacaof":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacaof":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacaof":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacaof":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacaof":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacaof":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacaof":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacaof":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacaof":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacaof":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacaof":"Linha 2"},{"nome":"ssss","km":"KM1","estacaof":"Linha 1"},{"nome":"Estação Teste","km":"KM2","estacaof":"Linha 2"},{"nome":"ssss","km":"KM1","estacaof":"Linha 1"},{"nome":"kjlkj","km":"KM1","estacaof":"Linha 1"},{"nome":"kjlkj","km":"KM1","estacaof":"Linha 1"},{"nome":"kjlkj","km":"KM1","estacaof":"Linha 1"},{"nome":"Estação Teste","km":"KM2","estacaof":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacaof":"Linha 2"},{"nome":"Estação Teste","km":"KM 2","estacaof":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacaof":"Linha 2"},{"nome":"Estação Teste","km":"KM 2","estacaof":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacaof":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacaof":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacaof":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacao":"Linha 2"},{"nome":"Estação Teste","km":"KM 2","estacao":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacao":"Linha 2"},{"nome":"Estação Teste","km":"KM 2","estacao":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacao":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacao":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacao":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacao":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacao":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacao":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacao":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacao":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacao":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacao":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacao":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacao":"Linha 2"},{"nome":"Estação Teste","km":"KM2","estacao":"Linha 2"},{"nome":"","km":"KM1","estacao":"Linha 1"},{"nome":"Estação Teste","km":"KM2","estacao":"Linha 2"}]}
+{
+  "data": [
+    {
+        "nome": "Estação 1",
+        "codigo": "001",
+        "linhas": ["Linha 1", "Linha 2"],
+        "blocos": ["Bloco A", "Bloco B"]
+    },
+    {
+        "nome": "Estação 2",
+        "codigo": "002",
+        "linhas": ["Linha 3"],
+        "blocos": ["Bloco C"]
+    }
+  ]
+}

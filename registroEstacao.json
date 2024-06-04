@@ -1,0 +1,144 @@
+{
+  "data": [
+    {
+      "nome": "Luz",
+      "codigo": "001",
+      "linhas": [
+        "Linha 2",
+        "Linha 3"
+      ],
+      "blocos": [
+        "BlocoD"
+      ]
+    },
+    {
+      "nome": "Luz",
+      "codigo": "001",
+      "linhas": [
+        "Linha 2",
+        "Linha 3"
+      ],
+      "blocos": [
+        "BlocoD"
+      ]
+    },
+    {
+      "nome": "sss",
+      "codigo": "01",
+      "linhas": [
+        "Linha 2"
+      ],
+      "blocos": [
+        "BlocoD"
+      ]
+    },
+    {
+      "nome": "Violeta",
+      "codigo": "003",
+      "linhas": [
+        "Linha 2"
+      ],
+      "blocos": [
+        "BlocoF"
+      ]
+    },
+    {
+      "nome": "Violeta",
+      "codigo": "004",
+      "linhas": [
+        "Linha 4"
+      ],
+      "blocos": [
+        "BlocoE",
+        "BlocoF"
+      ]
+    },
+    {
+      "nome": "Teste",
+      "codigo": "002",
+      "linhas": [
+        "Linha 2"
+      ],
+      "blocos": [
+        "BlocoF"
+      ]
+    },
+    {
+      "nome": "Teste",
+      "codigo": "002",
+      "linhas": [
+        "Linha 2"
+      ],
+      "blocos": [
+        "BlocoF"
+      ]
+    },
+    {
+      "nome": "Teste",
+      "codigo": "002",
+      "linhas": [
+        "Linha 3"
+      ],
+      "blocos": [
+        "BlocoE"
+      ]
+    },
+    {
+      "nome": "Teste",
+      "codigo": "004",
+      "linhas": [
+        "Linha 2"
+      ],
+      "blocos": [
+        "BlocoD",
+        "BlocoE"
+      ]
+    },
+    {
+      "nome": "Teste 4",
+      "codigo": "007",
+      "linhas": [
+        "Linha 2",
+        "Linha 3"
+      ],
+      "blocos": [
+        "BloboA",
+        "BlocoB"
+      ]
+    },
+    {
+      "nome": "Teste",
+      "codigo": "007",
+      "linhas": [
+        "Linha 2"
+      ],
+      "blocos": [
+        "BlocoD",
+        "BlocoE"
+      ]
+    },
+    {
+      "nome": "Teste",
+      "codigo": "007",
+      "linhas": [
+        "Linha 2"
+      ],
+      "blocos": [
+        "BlocoE"
+      ]
+    },
+    {
+      "nome": "Vanderson",
+      "codigo": "1234",
+      "linhas": [
+        "Linha 3",
+        "Linha 4",
+        "Linha 5"
+      ],
+      "blocos": [
+        "BlocoC",
+        "BlocoE"
+      ]
+    }
+  ]
+}
