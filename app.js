@@ -72,31 +72,42 @@ app.get('/linhas', (req, res) => {
 app.post('/registroLinha', (req, res) => {
     let NomeL = req.body.NomeLinha;
     let Stations = req.body.Estacoes;
-    let Extension = req.body.Extensao;
-    let Speed = req.body.Velocidade;
-    let Load = req.body.Carga;
+    let Inicio = req.body.IniciaLinha;
+    let Fim = req.body.FimLinha;
     let Hw = req.body.HW;
-    let Trips = req.body.Viagens;
-    let Passengerspers = req.body.MediaPassageiros;
-    let EnergyUse = req.body.ConsumoEnergia; 
+    let Passageiros = req.body.MediaPassageiros;
+    let Codigo = req.body.CodigoLinha; 
     // Declarar Dados.  
     
     let linhas = {
-        "nomel": NomeL,
-        "estacoes": Stations,
-        "extensao": Extension,
-        "velocidade": Speed,
-        "carga": Load,
-        "hw": Hw,
-        "viagens": Trips,
-        "mediapassageiros": Passengerspers,
-        "consumoenergia": EnergyUse
+        NomeL: NomeL,
+        Stations: Stations,
+        Inicio: Inicio,
+        Fim: Fim,
+        Hw: Hw,
+        Passageiros: Passageiros,
+        Codigo: Codigo
     }
     // Criar Objeto para conseguir passar todos os dados.
 
     gravarLinhas(linhas, () => {
         console.log("Gravar json completo.");
-    })
+        res.redirect('/cadLinhas');
+    });
+});
+
+// Roteando pagina Cadastro de Linha
+app.get('/cadLinhas', (req,res) => {
+    res.render('cadLinhas');
+});
+
+app.get('/getLinhas', (req, res) => {
+    fs.readFile(path.join(__dirname, 'registroLinhas.json'), 'utf8', (err, data) => {
+        if (err) {
+            return res.status(500).send({ message: 'Erro ao ler o arquivo' });
+        }
+        res.send(JSON.parse(data));
+    });
 });
 
 // Roteando pagina cadastro de estações
@@ -141,10 +152,7 @@ app.get('/getEstacoes', (req, res) => {
     });
 });
 
-// Roteando pagina Cadastro de Linha
-app.get('/cadLinhas', (req,res) => {
-    res.render('cadLinhas');
-});
+
 
 
 // Roteando pagina ocorrencias de trens
@@ -241,7 +249,7 @@ function gravarTrens(dados, callback) {
 
 };
 
-function gravarLinhas(dados) {
+function gravarLinhas(dados, callback) {
     const fs = require('fs');
     let filejson;
     
@@ -251,12 +259,13 @@ function gravarLinhas(dados) {
         filejson = { data: [] }; // Cria um novo objeto se o arquivo não existir
     }
     filejson.data.push(dados);
-    fs.writeFile("registroLinhas.json", JSON.stringify(filejson), err => {
+    fs.writeFile("registroLinhas.json", JSON.stringify(filejson, null, 2), err => {
         if (err) {
             console.error(err);
             return;
         }
         console.log('Gravado com Sucesso');
+        callback();
     }) 
 };
 
