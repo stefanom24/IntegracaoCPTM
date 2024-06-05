@@ -48,7 +48,7 @@
             <div class="d-flex align-items-center justify-content-center " style=" color: #363737; font-weight: bold;">
                 <div class="mb-3 w-50">
                   <label for="nome">Nome da Estação: </label>
-                  <input type="text" class="form-control" name="nome" id="nome">
+                  <input type="text" class="form-control" name="nome" id="nome" required>
                   
                 </div>
             </div>
@@ -56,7 +56,7 @@
             <div class="d-flex align-items-center justify-content-center " style=" color: #363737; font-weight: bold;">
                 <div class="mb-3 w-50">
                   <label for="cod-id">Código da Estação: </label>
-                  <input type="text" class="form-control" name="cod-id" id="cod-id">
+                  <input type="text" class="form-control" name="cod-id" id="cod-id" required>
                   
                 </div>
             </div>
@@ -66,7 +66,7 @@
                 <label for="LinhaPertence" class="form-label"> Linha(s) que Pertence:</label>
               </div>
               <div class="d-flex align-items-center justify-content-center vh-20"> 
-                 <select class="form-select w-50" name="LinhaPertence" id="LinhaPertence" multiple>
+                 <select class="form-select w-50" name="LinhaPertence" id="LinhaPertence" multiple required>
                       <option value="Linha 1"> Linha 1 </option>
                       <option value="Linha 2"> Linha 2 </option>
                       <option value="Linha 3"> Linha 3 </option>
@@ -81,7 +81,7 @@
                 <label for="bloco" class="form-label"> Bloco(s):</label>
               </div>
               <div class="d-flex align-items-center justify-content-center vh-20"> 
-                 <select class="form-select w-50" name="bloco" id="bloco" multiple>
+                 <select class="form-select w-50" name="bloco" id="bloco" multiple required>
                       <option value="BloboA"> Bloco A </option>
                       <option value="BlocoB"> Bloco B </option>
                       <option value="BlocoC"> Bloco C </option>

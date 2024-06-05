@@ -46,8 +46,8 @@
           <label for="edm" class="form-label">Modelo do Trem:</label>
        </div>
          <div class="d-flex align-items-center justify-content-center vh-20"> 
-            <select class="form-select w-50" name="modelo" id="modelo">
-              <option value="selecione">Selecione</option>
+            <select class="form-select w-50" name="modelo" id="modelo" required>
+                <option null></option>
                 <option value="modelo1">Modelo 1</option>
                 <option value="modelo2">Modelo 2</option>
                 <option value="modelo3">Modelo 3</option>
@@ -58,7 +58,7 @@
         <div class="d-flex align-items-center justify-content-center vh-20" style=" color:#363737; font-weight: bold;">
             <div class="mb-3 w-50"> 
                 <label for="codigoID">Código do Trem:</label>
-                <input type="text" class="form-control" id="codigoID" name="codigoID">
+                <input type="text" class="form-control" id="codigoID" name="codigoID" required>
                 
             </div>
         </div>
@@ -68,7 +68,7 @@
         </div>
         
         <div class="d-flex align-items-center justify-content-center vh-20">
-            <select class="form-select w-50" name="linha" id="linha" multiple>
+            <select class="form-select w-50" name="linha" id="linha" multiple required>
           
                 <option value="linha1">Linha 1</option>
                 <option value="linha2">Linha 2</option>
@@ -83,8 +83,8 @@
           <label for="st" class="form-label"> Status:</label>
         </div>
         <div class="d-flex align-items-center justify-content-center vh-20">
-            <select class="form-select w-50" name="status" id="status">
-                <option value="selecione">Selecione</option>
+            <select class="form-select w-50" name="status" id="status" required>
+                <option null></option>
                 <option value="ativo">Ativo</option>
                 <option value="inativo">Inativo</option>
             </select>
@@ -94,7 +94,7 @@
           <label for="bloco" class="form-label"> Bloco(s):</label>
         </div>
         <div class="d-flex align-items-center justify-content-center vh-20"> 
-           <select class="form-select w-50" name="bloco" id="bloco" multiple>
+           <select class="form-select w-50" name="bloco" id="bloco" multiple required>
                 <option value="BloboA"> Bloco A </option>
                 <option value="BlocoB"> Bloco B </option>
                 <option value="BlocoC"> Bloco C </option>
