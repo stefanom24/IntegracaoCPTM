@@ -35,6 +35,29 @@
             background-color: #f97e7e; /* Vermelho mais claro no hover */
             border-color: #f97e7e; /* Bordas no mesmo tom do hover */
         }
+        .footer-section {
+            text-align: center;
+            margin: 20px 0;
+            background-color: #f8f9fa; /* Cor de fundo mais clara */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-section img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-content {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 
@@ -106,11 +129,33 @@
         </div>
     </main>
 
-    <section class="mb-5">
-        <h2>Contato e Suporte</h2>
-        <p>Tem dúvidas ou precisa de assistência? Nossa equipe está pronta para ajudar você!</p>
-        <a href="/contato" class="btn btn-primary btn-primary-custom mb-2">Entrar em Contato</a>
-    </section>
+    <div class="container mt-5">
+        <div class=" row justify-content-center">
+            <div class="col-12 col-md-5 footer-section ">
+                <section>
+                    <h2 class="footer-title">Duvidas frequentes</h2>
+                    <p class="footer-content">Tem dúvidas ou precisa de assistência? Nossa equipe está pronta para ajudar você!</p>
+                    <a href="https://www.cptm.sp.gov.br/Pages/Duvidas-Frequentes.aspx" class="btn btn-primary btn-primary-custom mb-2">Clique aqui!</a>
+                </section>
+            </div>
+        
+            <div class="col-12 col-md-5 footer-section"> 
+                <section>
+                    <h2 class="footer-title">Acessibilidade</h2>
+                    <p class="footer-content"> Para conferir os recursos de acessibilidade de cada estação, acesse Linhas CPTM​ e clique na estação que desejar, diretamente no mapa</p>
+                    <a href="https://www.cptm.sp.gov.br/sua-viagem/Pages/Acessibilidade.aspx" class="btn btn-primary btn-primary-custom mb-2">Clique aqui!</a>
+            </section>
+            </div>
+        </div>
+
+           
+        <div clas="row justify-content-center">
+            <div class="col-12 footer-section">
+                <h2 class="footer-title">Mapa do transporte metropolitano</h2>
+                <img src="/images/pg1-3.jpg" alt="Mapa do transporte metropolitano" >
+            </div>
+        </div>
+    </div>    
     
     <footer>
         <%- include ('footer') %>
