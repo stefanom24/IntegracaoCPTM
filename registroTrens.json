@@ -1,1 +1,88 @@
-{"data":[{"modelo":"modelo1","IDcode":"002","LineBelong":"linha2","Status":"ativo","Blocos":"BlocoE"},{"modelo":"modelo1","IDcode":"002","LineBelong":"linha2","Status":"ativo","Blocos":"BlocoE"},{"modelo":"modelo2","IDcode":"002","LineBelong":"linha3","Status":"ativo","Blocos":"BlocoE"},{"modelo":"modelo1","IDcode":"003","LineBelong":["linha2"],"Status":"ativo","Blocos":["BlocoE"]},{"modelo":"modelo2","IDcode":"002","LineBelong":["linha2","linha3"],"Status":"ativo","Blocos":["BlocoC","BlocoD"]},{"modelo":"modelo2","IDcode":"002","LineBelong":["linha2","linha3"],"Status":"ativo","Blocos":["BlocoC","BlocoD"]}]}
+{
+  "data": [
+    {
+      "modelo": "modelo1",
+      "IDcode": "002",
+      "LineBelong": "linha2",
+      "Status": "ativo",
+      "Blocos": "BlocoE"
+    },
+    {
+      "modelo": "modelo1",
+      "IDcode": "002",
+      "LineBelong": "linha2",
+      "Status": "ativo",
+      "Blocos": "BlocoE"
+    },
+    {
+      "modelo": "modelo2",
+      "IDcode": "002",
+      "LineBelong": "linha3",
+      "Status": "ativo",
+      "Blocos": "BlocoE"
+    },
+    {
+      "modelo": "modelo1",
+      "IDcode": "003",
+      "LineBelong": [
+        "linha2"
+      ],
+      "Status": "ativo",
+      "Blocos": [
+        "BlocoE"
+      ]
+    },
+    {
+      "modelo": "modelo2",
+      "IDcode": "002",
+      "LineBelong": [
+        "linha2",
+        "linha3"
+      ],
+      "Status": "ativo",
+      "Blocos": [
+        "BlocoC",
+        "BlocoD"
+      ]
+    },
+    {
+      "modelo": "modelo2",
+      "IDcode": "002",
+      "LineBelong": [
+        "linha2",
+        "linha3"
+      ],
+      "Status": "ativo",
+      "Blocos": [
+        "BlocoC",
+        "BlocoD"
+      ]
+    },
+    {
+      "modelo": "modelo1",
+      "IDcode": "007",
+      "LineBelong": [
+        "linha2",
+        "linha3"
+      ],
+      "Status": "ativo",
+      "Blocos": [
+        "BlocoB",
+        "BlocoC"
+      ]
+    },
+    {
+      "modelo": "modelo1",
+      "IDcode": "004",
+      "LineBelong": [
+        "linha2",
+        "linha3"
+      ],
+      "Status": "ativo",
+      "Blocos": [
+        "BlocoE",
+        "BlocoF"
+      ]
+    }
+  ]
+}
