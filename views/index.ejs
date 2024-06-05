@@ -60,7 +60,7 @@
     }
     .carousel-inner img {
             width: 100%;
-            height: 600px; /* Ajuste a altura conforme necessário */
+            height: 250px; /* Ajuste a altura conforme necessário */
             object-fit: cover; /* Para garantir que a imagem cubra o espaço */
         }
     .carousel-container {
@@ -71,8 +71,8 @@
 </style>
 
 <body>
+    <%- include ('navbar') %>
     <header>
-      <%- include ('navbar') %>
         <div id="carouselExampleControls" class="carousel slide carousel-container" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -94,99 +94,53 @@
     </header>
     
     <div class="container mt-5">
-      <div class="custom-card shadow p-3 mb-5 mt-5 bg-body-tertiary rounded mx-auto w-75">
-          <div class="row">
-              <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
+      <div class="row">
+          <!-- Seção Cadastro -->
+          <div class="col-12 col-md-4">
+              <div class="custom-card shadow bg-body-tertiary rounded">
                   <img src="images/cadastro.png" title="Cadastro Icon" alt="Cadastro Icon" class="custom-icon">
-              </div>
-              <div class="col-12 col-md-8">
                   <h1 class="mb-3 custom-margin">Cadastrar</h1>
-                  <div class="row d-flex flex-column flex-md-row align-items-center">
-                      <div class="col-12 col-md-4 d-flex justify-content-center">
-                            <a href="/trens" class="custom-button">Trens</a>
-                      </div>
-                      <div class="col-12 col-md-4 d-flex justify-content-center">
-                            <a href="/linhas" class="custom-button">Linhas</a>
-                      </div>
-                      <div class="col-12 col-md-4 d-flex justify-content-center">
-                        <a href="/estacoes" class="custom-button">Estações</a>
-                      </div>
+                  <div class="d-flex flex-wrap justify-content-center">
+                      <a href="/trens" class="custom-button">Trens</a>
+                      <a href="/linhas" class="custom-button">Linhas</a>
+                      <a href="/estacoes" class="custom-button">Estações</a>
                   </div>
-                  <p class="mt-5 custom-tamanho-texto">
-                      Os botões permitem fazer cadastros. O botão "Cadastrar Trem" adiciona novos trens. 
-                      O botão "Cadastrar Estação" insere novas estações. O botão "Cadastrar Linha" cria 
-                      novas linhas ferroviárias. E todas essas informações poderão ser consultadas na aba 
-                      Histórico Cadastro.
+                  <p class="mt-3">
+                      Aqui você consegue fazer novos cadastros.
+                  </p>
+              </div>
+          </div>
+          <!-- Seção Ocorrências -->
+          <div class="col-12 col-md-4">
+              <div class="custom-card shadow bg-body-tertiary rounded">
+                  <img src="images/ocorrencia.png" title="Ocorrência Icon" alt="Ocorrência Icon" class="custom-icon">
+                  <h1 class="mb-3 custom-margin">Ocorrências</h1>
+                  <div class="d-flex flex-wrap justify-content-center">
+                      <a href="/ocoTrens" class="custom-button">Trens</a>
+                      <a href="/ocoLinhas" class="custom-button">Linhas</a>
+                      <a href="/ocoEstacoes" class="custom-button">Estações</a>
+                  </div>
+                  <p class="mt-3">
+                      Aqui você consegue fazer o registro de novas ocorrências.
+                  </p>
+              </div>
+          </div>
+          <!-- Seção Histórico -->
+          <div class="col-12 col-md-4">
+              <div class="custom-card shadow bg-body-tertiary rounded">
+                  <img src="images/historico.png" title="Histórico Icon" alt="Histórico Icon" class="custom-icon">
+                  <h1 class="mb-3 custom-margin">Histórico</h1>
+                  <div class="d-flex flex-wrap justify-content-center">
+                      <a href="/historico" class="custom-button">Cadastros</a>
+                      <a href="/historico/ocorrencias" class="custom-button">Ocorrências</a>
+                  </div>
+                  <p class="mt-3">
+                      Aqui você consegue visualizar todo o histórico de cadastros e ocorrências.
                   </p>
               </div>
           </div>
       </div>
     </div>
-    
-    <div class="container mt-5">
-      <div class="custom-card shadow p-3 mb-5 mt-5 bg-body-tertiary rounded mx-auto w-75">
-          <div class="row">
-            <div class="col-12 col-md-8">
-                <h1 class="mb-3 custom-margin">Ocorrências</h1>
-                <div class="row d-flex flex-column flex-md-row align-items-center">
-                    <div class="col-12 col-md-4 d-flex justify-content-center">
-                        <a href="/ocoTrens" class="custom-button">Trens</a>
-                    </div>
-                    <div class="col-12 col-md-4 d-flex justify-content-center">
-                        <a href="/ocoLinhas" class="custom-button">Linhas</a>
-                    </div>
-                    <div class="col-12 col-md-4 d-flex justify-content-center">
-                        <a href="/ocoEstacoes" class="custom-button">Estações</a>
-                    </div>
-                </div>
-                <p class="mt-5 custom-tamanho-texto">
-                    Os botões permitem fazer cadastros. O botão "Cadastrar Trem" adiciona novos trens. 
-                    O botão "Cadastrar Estação" insere novas estações. O botão "Cadastrar Linha" cria 
-                    novas linhas ferroviárias. E todas essas informações poderão ser consultadas na aba 
-                    Histórico Cadastro.
-                </p>
-            </div>
-            <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
-                <img src="images/ocorrencia.png" alt="Cadastro Icon" class="custom-icon">
-            </div>
-          </div>
-      </div>
-    </div>
-
-    <div class="container mt-5">
-      <div class="custom-card shadow p-3 mb-5 mt-5 bg-body-tertiary rounded mx-auto w-75">
-          <div class="row">
-              <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
-                  <img src="images/historico.png" alt="Cadastro Icon" class="custom-icon">
-              </div>
-              <div class="col-12 col-md-8">
-                  <h1 class="mb-3 custom-margin">Informações</h1>
-                  <div class="row d-flex flex-column flex-md-row align-items-center">
-                      <div class="col-12 col-md-4 d-flex justify-content-center">
-                        <a href="/historico" class="custom-button">Ocorrências</a>
-                      </div>
-                      <div class="col-12 col-md-4 d-flex justify-content-center">
-                        <a href="/cadTrens" class="custom-button">Trens</a>
-                      </div>
-                      <div class="col-12 col-md-4 d-flex justify-content-center">
-                        <a href="/cadEstacoes" class="custom-button">Estações</a>
-                      </div>
-                      <div class="col-12 col-md-4 d-flex justify-content-center">
-                        <a href="/cadLinhas" class="custom-button">Linhas</a>
-                      </div>
-                  </div>
-                  <p class="mt-5 custom-tamanho-texto">
-                      Os botões permitem fazer cadastros. O botão "Cadastrar Trem" adiciona novos trens. 
-                      O botão "Cadastrar Estação" insere novas estações. O botão "Cadastrar Linha" cria 
-                      novas linhas ferroviárias. E todas essas informações poderão ser consultadas na aba 
-                      Histórico Cadastro.
-                  </p>
-              </div>
-          </div>
-      </div>
-    </div>
-
-
 
 
 
