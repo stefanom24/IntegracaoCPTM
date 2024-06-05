@@ -5,82 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/fonte.css">
+    <title>Central de Operação CPTM</title>
+    <style>
+        .card-custom {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
 
-    <title>Home</title>
+        .card-custom:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-custom .card-body {
+            padding: 2rem;
+        }
+
+        .carousel-inner img {
+            height: 300px; /* Ajuste a altura do carrossel */
+            object-fit: cover;
+        }
+
+        .btn-primary-custom {
+            background-color: #ff0000; /* Vermelho padrão */
+            border-color: #ff0000; /* Bordas no mesmo tom do fundo */
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #f97e7e; /* Vermelho mais claro no hover */
+            border-color: #f97e7e; /* Bordas no mesmo tom do hover */
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <%- include ('navbar') %>
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="/images/pg1-1.jpg" class="d-block w-100" alt="trem">
-            </div>
-            <div class="carousel-item">
-              <img src="/images/pg1-2.jpg" class="d-block w-100" alt="trem2">
-            </div>
-            <div class="carousel-item">
-              <img src="/images/pg1-3.jpg" class="d-block w-100" alt="linhas">
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Anterior</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Próximo</span>
-          </button>
-        </div>
     </header>
-    
+
     <main class="container mt-5">
-      <h1 class="text-center mb-4">Bem-vindo à CPTM</h1>
-  
-      <section class="mb-5">
-          <h2>Sobre a CPTM</h2>
-          <p>A Companhia Paulista de Trens Metropolitanos (CPTM) é uma das principais operadoras de transporte ferroviário de passageiros na região metropolitana de São Paulo. Fundada em XXXX, a CPTM tem como missão oferecer transporte público de qualidade, contribuindo para a mobilidade urbana e o desenvolvimento sustentável.</p>
-      </section>
-  
-      <section class="mb-5">
-          <h2>Nossos Serviços</h2>
-          <div class="row">
-              <div class="col-md-4">
-                  <h3>Linhas e Horários</h3>
-                  <p>Confira as linhas e os horários atualizados dos trens para planejar sua viagem.</p>
-                  <a href="/linhas" class="btn btn-primary">Saiba Mais</a>
-              </div>
-              <div class="col-md-4">
-                  <h3>Cartão Transporte</h3>
-                  <p>Adquira e recarregue seu cartão de transporte online. Acesse agora!</p>
-                  <a href="#" class="btn btn-primary">Recarregar</a>
-              </div>
-              <div class="col-md-4">
-                  <h3>Ocorrências</h3>
-                  <p>Informações em tempo real sobre o estado de operação das linhas e possíveis ocorrências.</p>
-                  <a href="#" class="btn btn-primary">Ver Ocorrências</a>
-              </div>
-          </div>
-      </section>
-  
-      <section class="mb-5">
-          <h2>Últimas Notícias</h2>
-          <p>Fique por dentro das últimas notícias e atualizações importantes sobre a CPTM e seus serviços.</p>
-          <a href="#" class="btn btn-secondary">Ler Notícias</a>
-      </section>
-  
-      <section class="mb-5">
-          <h2>Contato e Suporte</h2>
-          <p>Tem dúvidas ou precisa de assistência? Nossa equipe está pronta para ajudar você!</p>
-          <a href="/contato" class="btn btn-secondary">Entrar em Contato</a>
-      </section>
+        <div id="carouselExampleControls" class="carousel slide mb-4" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/images/pg1-1.jpg" class="d-block w-100" alt="trem">
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/pg1-2.jpg" class="d-block w-100" alt="trem2">
+                </div>
+                
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </div>
+
+        <div class="row mb-4 justify-content-center">
+            <div class="col-md-6 mb-4">
+                <div class="card card-custom">
+                    <div class="card-body text-center">
+                        <h3>Registrar Ocorrência</h3>
+                        <p>Adicione novas ocorrências e atualize o sistema em tempo real.</p>
+                              
+                            <a href="/ocoTrens" class="btn btn-primary btn-primary-custom mb-2">Trens</a>
+                            <a href="/ocoLinhas" class="btn btn-primary btn-primary-custom mb-2">Linhas</a>
+                            <a href="/ocoEstacoes" class="btn btn-primary btn-primary-custom mb-2">Estações</a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card card-custom">
+                    <div class="card-body text-center">
+                        <h3>Gerenciar Sistema</h3>
+                        <p>Escolha a categoria que deseja gerenciar:</p>
+                            
+                            <a href="/trens" class="btn btn-primary btn-primary-custom mb-2">Trens</a>
+                            <a href="/linhas" class="btn btn-primary btn-primary-custom mb-2">Linhas</a>
+                            <a href="/estacoes" class="btn btn-primary btn-primary-custom mb-2">Estações</a>
+                            
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="card card-custom mx-auto">
+                    <div class="card-body text-center">
+                        <h3>Histórico</h3>
+                        <p>Veja aqui o histórico de ocorrências:</p>
+                            
+                            <a href="/historico" class="btn btn-primary btn-primary-custom mb-2">Histórico</a>
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
+    <section class="mb-5">
+        <h2>Contato e Suporte</h2>
+        <p>Tem dúvidas ou precisa de assistência? Nossa equipe está pronta para ajudar você!</p>
+        <a href="/contato" class="btn btn-primary btn-primary-custom mb-2">Entrar em Contato</a>
+    </section>
+    
     <footer>
         <%- include ('footer') %>
     </footer>
-
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

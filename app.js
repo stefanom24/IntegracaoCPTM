@@ -300,6 +300,4 @@ app.get("/ocorrencias", (req, res) => {
   res.sendFile(path.join(__dirname, "ocorrencias.json"));
 });
 
-app.get("/I", (req, res) => {
-  res.render("index2");
-});
+
